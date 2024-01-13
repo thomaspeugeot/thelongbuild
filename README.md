@@ -30,6 +30,6 @@ Sincere apologies for:
 
 The package of interest is in the directory "go/tree". It is one file of 1500 lines of code.
 
-The issue arised when coding this package. First, the build time went strangely to 11'', then after  more coding to 22', then with more complexity to 57'' then with even more coding, it went down to 44'' (I expected to build time to rise even more).
+The issue arised when coding this package. First, the build time went strangely to 11'' (11 seconds), then after  more coding to 22', then with more complexity to 57'' then with even more coding, it went down to 44'' (I expected to build time to rise even more).
 
 Fast build time is a wonderful feature of go. I hope this report can help in this direction.
