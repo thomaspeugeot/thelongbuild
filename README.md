@@ -19,7 +19,7 @@ github.com/thomaspeugeot/thelongbuild/go/tree
 go build -v github.com/thomaspeugeot/thelongbuild/go/tree  44.29s user 2.28s system 376% cpu 12.380 total
 ```
 
-45'' for 1500 lines of code seems a lot for go build
+45 seconds for 1500 lines of code seems a lot for go build
 
 ## Analysis
 
