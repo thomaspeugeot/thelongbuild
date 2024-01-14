@@ -21,6 +21,28 @@ go build -v github.com/thomaspeugeot/thelongbuild/go/tree  44.29s user 2.28s sys
 
 45 seconds for 1500 lines of code seems a lot for go build
 
+Edit :
+
+below are the steps to reproduce the timing result
+
+on macos
+
+```
+rm -rf thelongbuild
+git clone https://github.com/thomaspeugeot/thelongbuild.git
+cd thelongbuild/go/tree
+go clean -cache
+time go build -v
+sed -i '' 's/gongtree_buttons/gongtree_buttons_new/g' tree.go
+time go build -v
+cd ../../..
+```
+
+the sed command is to trick the compiler to dirty its cache.
+
+note for other plateforms, the sed command is different, it is `sed -i 's/gongtree_buttons/gongtree_buttons_new/g' tree.go`
+
+
 ## Analysis
 
 Sincere apologies for:
