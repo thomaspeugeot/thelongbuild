@@ -150,8 +150,7 @@ func (awitchFormCallback *AWitchFormCallback) OnSave() {
 			awitchFormCallback.probe,
 			newFormGroup,
 		)
-		awitch := new(models.AWitch)
-		FillUpForm(awitch, newFormGroup, awitchFormCallback.probe)
+
 		awitchFormCallback.probe.formStage.Commit()
 	}
 
@@ -291,8 +290,7 @@ func (blackknightshapeFormCallback *BlackKnightShapeFormCallback) OnSave() {
 			blackknightshapeFormCallback.probe,
 			newFormGroup,
 		)
-		blackknightshape := new(models.BlackKnightShape)
-		FillUpForm(blackknightshape, newFormGroup, blackknightshapeFormCallback.probe)
+
 		blackknightshapeFormCallback.probe.formStage.Commit()
 	}
 
@@ -414,8 +412,7 @@ func (bringyourdeadFormCallback *BringYourDeadFormCallback) OnSave() {
 			bringyourdeadFormCallback.probe,
 			newFormGroup,
 		)
-		bringyourdead := new(models.BringYourDead)
-		FillUpForm(bringyourdead, newFormGroup, bringyourdeadFormCallback.probe)
+
 		bringyourdeadFormCallback.probe.formStage.Commit()
 	}
 
@@ -491,8 +488,7 @@ func (documentFormCallback *DocumentFormCallback) OnSave() {
 			documentFormCallback.probe,
 			newFormGroup,
 		)
-		document := new(models.Document)
-		FillUpForm(document, newFormGroup, documentFormCallback.probe)
+
 		documentFormCallback.probe.formStage.Commit()
 	}
 
@@ -612,8 +608,7 @@ func (documentuseFormCallback *DocumentUseFormCallback) OnSave() {
 			documentuseFormCallback.probe,
 			newFormGroup,
 		)
-		documentuse := new(models.DocumentUse)
-		FillUpForm(documentuse, newFormGroup, documentuseFormCallback.probe)
+
 		documentuseFormCallback.probe.formStage.Commit()
 	}
 
@@ -733,8 +728,7 @@ func (galahadthepureFormCallback *GalahadThePureFormCallback) OnSave() {
 			galahadthepureFormCallback.probe,
 			newFormGroup,
 		)
-		galahadthepure := new(models.GalahadThePure)
-		FillUpForm(galahadthepure, newFormGroup, galahadthepureFormCallback.probe)
+
 		galahadthepureFormCallback.probe.formStage.Commit()
 	}
 
@@ -810,8 +804,7 @@ func (geoobjectFormCallback *GeoObjectFormCallback) OnSave() {
 			geoobjectFormCallback.probe,
 			newFormGroup,
 		)
-		geoobject := new(models.GeoObject)
-		FillUpForm(geoobject, newFormGroup, geoobjectFormCallback.probe)
+
 		geoobjectFormCallback.probe.formStage.Commit()
 	}
 
@@ -1015,8 +1008,7 @@ func (geoobjectuseFormCallback *GeoObjectUseFormCallback) OnSave() {
 			geoobjectuseFormCallback.probe,
 			newFormGroup,
 		)
-		geoobjectuse := new(models.GeoObjectUse)
-		FillUpForm(geoobjectuse, newFormGroup, geoobjectuseFormCallback.probe)
+
 		geoobjectuseFormCallback.probe.formStage.Commit()
 	}
 
@@ -1092,8 +1084,7 @@ func (groupFormCallback *GroupFormCallback) OnSave() {
 			groupFormCallback.probe,
 			newFormGroup,
 		)
-		group := new(models.Group)
-		FillUpForm(group, newFormGroup, groupFormCallback.probe)
+
 		groupFormCallback.probe.formStage.Commit()
 	}
 
@@ -1297,8 +1288,7 @@ func (groupuseFormCallback *GroupUseFormCallback) OnSave() {
 			groupuseFormCallback.probe,
 			newFormGroup,
 		)
-		groupuse := new(models.GroupUse)
-		FillUpForm(groupuse, newFormGroup, groupuseFormCallback.probe)
+
 		groupuseFormCallback.probe.formStage.Commit()
 	}
 
@@ -1420,8 +1410,7 @@ func (kingarthurFormCallback *KingArthurFormCallback) OnSave() {
 			kingarthurFormCallback.probe,
 			newFormGroup,
 		)
-		kingarthur := new(models.KingArthur)
-		FillUpForm(kingarthur, newFormGroup, kingarthurFormCallback.probe)
+
 		kingarthurFormCallback.probe.formStage.Commit()
 	}
 
@@ -1559,8 +1548,7 @@ func (kingarthurshapeFormCallback *KingArthurShapeFormCallback) OnSave() {
 			kingarthurshapeFormCallback.probe,
 			newFormGroup,
 		)
-		kingarthurshape := new(models.KingArthurShape)
-		FillUpForm(kingarthurshape, newFormGroup, kingarthurshapeFormCallback.probe)
+
 		kingarthurshapeFormCallback.probe.formStage.Commit()
 	}
 
@@ -1826,8 +1814,7 @@ func (knightwhosayniFormCallback *KnightWhoSayNiFormCallback) OnSave() {
 			knightwhosayniFormCallback.probe,
 			newFormGroup,
 		)
-		knightwhosayni := new(models.KnightWhoSayNi)
-		FillUpForm(knightwhosayni, newFormGroup, knightwhosayniFormCallback.probe)
+
 		knightwhosayniFormCallback.probe.formStage.Commit()
 	}
 
@@ -1991,8 +1978,7 @@ func (lancelotFormCallback *LancelotFormCallback) OnSave() {
 			lancelotFormCallback.probe,
 			newFormGroup,
 		)
-		lancelot := new(models.Lancelot)
-		FillUpForm(lancelot, newFormGroup, lancelotFormCallback.probe)
+
 		lancelotFormCallback.probe.formStage.Commit()
 	}
 
@@ -2068,8 +2054,7 @@ func (lancelotagregationFormCallback *LancelotAgregationFormCallback) OnSave() {
 			lancelotagregationFormCallback.probe,
 			newFormGroup,
 		)
-		lancelotagregation := new(models.LancelotAgregation)
-		FillUpForm(lancelotagregation, newFormGroup, lancelotagregationFormCallback.probe)
+
 		lancelotagregationFormCallback.probe.formStage.Commit()
 	}
 
@@ -2147,8 +2132,7 @@ func (lancelotagregationuseFormCallback *LancelotAgregationUseFormCallback) OnSa
 			lancelotagregationuseFormCallback.probe,
 			newFormGroup,
 		)
-		lancelotagregationuse := new(models.LancelotAgregationUse)
-		FillUpForm(lancelotagregationuse, newFormGroup, lancelotagregationuseFormCallback.probe)
+
 		lancelotagregationuseFormCallback.probe.formStage.Commit()
 	}
 
@@ -2224,8 +2208,7 @@ func (lancelotcategoryFormCallback *LancelotCategoryFormCallback) OnSave() {
 			lancelotcategoryFormCallback.probe,
 			newFormGroup,
 		)
-		lancelotcategory := new(models.LancelotCategory)
-		FillUpForm(lancelotcategory, newFormGroup, lancelotcategoryFormCallback.probe)
+
 		lancelotcategoryFormCallback.probe.formStage.Commit()
 	}
 
@@ -2303,8 +2286,7 @@ func (lancelotcategoryuseFormCallback *LancelotCategoryUseFormCallback) OnSave()
 			lancelotcategoryuseFormCallback.probe,
 			newFormGroup,
 		)
-		lancelotcategoryuse := new(models.LancelotCategoryUse)
-		FillUpForm(lancelotcategoryuse, newFormGroup, lancelotcategoryuseFormCallback.probe)
+
 		lancelotcategoryuseFormCallback.probe.formStage.Commit()
 	}
 
@@ -2380,8 +2362,7 @@ func (mapobjectFormCallback *MapObjectFormCallback) OnSave() {
 			mapobjectFormCallback.probe,
 			newFormGroup,
 		)
-		mapobject := new(models.MapObject)
-		FillUpForm(mapobject, newFormGroup, mapobjectFormCallback.probe)
+
 		mapobjectFormCallback.probe.formStage.Commit()
 	}
 
@@ -2501,8 +2482,7 @@ func (mapobjectuseFormCallback *MapObjectUseFormCallback) OnSave() {
 			mapobjectuseFormCallback.probe,
 			newFormGroup,
 		)
-		mapobjectuse := new(models.MapObjectUse)
-		FillUpForm(mapobjectuse, newFormGroup, mapobjectuseFormCallback.probe)
+
 		mapobjectuseFormCallback.probe.formStage.Commit()
 	}
 
@@ -2578,8 +2558,7 @@ func (repositoryFormCallback *RepositoryFormCallback) OnSave() {
 			repositoryFormCallback.probe,
 			newFormGroup,
 		)
-		repository := new(models.Repository)
-		FillUpForm(repository, newFormGroup, repositoryFormCallback.probe)
+
 		repositoryFormCallback.probe.formStage.Commit()
 	}
 
@@ -2715,8 +2694,7 @@ func (sirrobinFormCallback *SirRobinFormCallback) OnSave() {
 			sirrobinFormCallback.probe,
 			newFormGroup,
 		)
-		sirrobin := new(models.SirRobin)
-		FillUpForm(sirrobin, newFormGroup, sirrobinFormCallback.probe)
+
 		sirrobinFormCallback.probe.formStage.Commit()
 	}
 
@@ -2796,8 +2774,7 @@ func (thebridgeFormCallback *TheBridgeFormCallback) OnSave() {
 			thebridgeFormCallback.probe,
 			newFormGroup,
 		)
-		thebridge := new(models.TheBridge)
-		FillUpForm(thebridge, newFormGroup, thebridgeFormCallback.probe)
+
 		thebridgeFormCallback.probe.formStage.Commit()
 	}
 
@@ -2931,8 +2908,7 @@ func (thenuteshapeFormCallback *TheNuteShapeFormCallback) OnSave() {
 			thenuteshapeFormCallback.probe,
 			newFormGroup,
 		)
-		thenuteshape := new(models.TheNuteShape)
-		FillUpForm(thenuteshape, newFormGroup, thenuteshapeFormCallback.probe)
+
 		thenuteshapeFormCallback.probe.formStage.Commit()
 	}
 
@@ -3054,8 +3030,7 @@ func (thenutetransitionFormCallback *TheNuteTransitionFormCallback) OnSave() {
 			thenutetransitionFormCallback.probe,
 			newFormGroup,
 		)
-		thenutetransition := new(models.TheNuteTransition)
-		FillUpForm(thenutetransition, newFormGroup, thenutetransitionFormCallback.probe)
+
 		thenutetransitionFormCallback.probe.formStage.Commit()
 	}
 
@@ -3131,8 +3106,7 @@ func (userFormCallback *UserFormCallback) OnSave() {
 			userFormCallback.probe,
 			newFormGroup,
 		)
-		user := new(models.User)
-		FillUpForm(user, newFormGroup, userFormCallback.probe)
+
 		userFormCallback.probe.formStage.Commit()
 	}
 
@@ -3252,8 +3226,7 @@ func (useruseFormCallback *UserUseFormCallback) OnSave() {
 			useruseFormCallback.probe,
 			newFormGroup,
 		)
-		useruse := new(models.UserUse)
-		FillUpForm(useruse, newFormGroup, useruseFormCallback.probe)
+
 		useruseFormCallback.probe.formStage.Commit()
 	}
 
@@ -3387,8 +3360,7 @@ func (whatisyourpreferedcolorFormCallback *WhatIsYourPreferedColorFormCallback) 
 			whatisyourpreferedcolorFormCallback.probe,
 			newFormGroup,
 		)
-		whatisyourpreferedcolor := new(models.WhatIsYourPreferedColor)
-		FillUpForm(whatisyourpreferedcolor, newFormGroup, whatisyourpreferedcolorFormCallback.probe)
+
 		whatisyourpreferedcolorFormCallback.probe.formStage.Commit()
 	}
 
@@ -3476,8 +3448,7 @@ func (workspaceFormCallback *WorkspaceFormCallback) OnSave() {
 			workspaceFormCallback.probe,
 			newFormGroup,
 		)
-		workspace := new(models.Workspace)
-		FillUpForm(workspace, newFormGroup, workspaceFormCallback.probe)
+
 		workspaceFormCallback.probe.formStage.Commit()
 	}
 
