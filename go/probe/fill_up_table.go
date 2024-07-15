@@ -4,7 +4,6 @@ package probe
 import (
 	"fmt"
 	"log"
-	"sort"
 
 	gongtable "github.com/fullstack-lang/gongtable/go/models"
 
@@ -87,16 +86,7 @@ func fillUpTable[T models.Gongstruct](
 	probe *Probe,
 ) {
 
-	probe.tableStage.Reset()
-	probe.tableStage.Commit()
-
 	table := new(gongtable.Table).Stage(probe.tableStage)
-	table.Name = "Table"
-	table.HasColumnSorting = true
-	table.HasFiltering = true
-	table.HasPaginator = true
-	table.HasCheckableRows = false
-	table.HasSaveButton = false
 
 	fields := models.GetFields[T]()
 	reverseFields := models.GetReverseFields[T]()
@@ -113,18 +103,6 @@ func fillUpTable[T models.Gongstruct](
 		sliceOfGongStructsSorted[i] = k
 		i++
 	}
-	sort.Slice(sliceOfGongStructsSorted, func(i, j int) bool {
-		return orm.GetID(
-			probe.stageOfInterest,
-			probe.backRepoOfInterest,
-			sliceOfGongStructsSorted[i],
-		) <
-			orm.GetID(
-				probe.stageOfInterest,
-				probe.backRepoOfInterest,
-				sliceOfGongStructsSorted[j],
-			)
-	})
 
 	column := new(gongtable.DisplayedColumn).Stage(probe.tableStage)
 	column.Name = "ID"
