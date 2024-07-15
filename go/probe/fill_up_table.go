@@ -16,70 +16,7 @@ import (
 func fillUpTablePointerToGongstruct[T models.PointerToGongstruct](
 	probe *Probe,
 ) {
-	var typedInstance T
-	switch any(typedInstance).(type) {
-	// insertion point
-	case *models.AWitch:
-		fillUpTable[models.AWitch](probe)
-	case *models.BlackKnightShape:
-		fillUpTable[models.BlackKnightShape](probe)
-	case *models.BringYourDead:
-		fillUpTable[models.BringYourDead](probe)
-	case *models.Document:
-		fillUpTable[models.Document](probe)
-	case *models.DocumentUse:
-		fillUpTable[models.DocumentUse](probe)
-	case *models.GalahadThePure:
-		fillUpTable[models.GalahadThePure](probe)
-	case *models.GeoObject:
-		fillUpTable[models.GeoObject](probe)
-	case *models.GeoObjectUse:
-		fillUpTable[models.GeoObjectUse](probe)
-	case *models.Group:
-		fillUpTable[models.Group](probe)
-	case *models.GroupUse:
-		fillUpTable[models.GroupUse](probe)
-	case *models.KingArthur:
-		fillUpTable[models.KingArthur](probe)
-	case *models.KingArthurShape:
-		fillUpTable[models.KingArthurShape](probe)
-	case *models.KnightWhoSayNi:
-		fillUpTable[models.KnightWhoSayNi](probe)
-	case *models.Lancelot:
-		fillUpTable[models.Lancelot](probe)
-	case *models.LancelotAgregation:
-		fillUpTable[models.LancelotAgregation](probe)
-	case *models.LancelotAgregationUse:
-		fillUpTable[models.LancelotAgregationUse](probe)
-	case *models.LancelotCategory:
-		fillUpTable[models.LancelotCategory](probe)
-	case *models.LancelotCategoryUse:
-		fillUpTable[models.LancelotCategoryUse](probe)
-	case *models.MapObject:
-		fillUpTable[models.MapObject](probe)
-	case *models.MapObjectUse:
-		fillUpTable[models.MapObjectUse](probe)
-	case *models.Repository:
-		fillUpTable[models.Repository](probe)
-	case *models.SirRobin:
-		fillUpTable[models.SirRobin](probe)
-	case *models.TheBridge:
-		fillUpTable[models.TheBridge](probe)
-	case *models.TheNuteShape:
-		fillUpTable[models.TheNuteShape](probe)
-	case *models.TheNuteTransition:
-		fillUpTable[models.TheNuteTransition](probe)
-	case *models.User:
-		fillUpTable[models.User](probe)
-	case *models.UserUse:
-		fillUpTable[models.UserUse](probe)
-	case *models.WhatIsYourPreferedColor:
-		fillUpTable[models.WhatIsYourPreferedColor](probe)
-	case *models.Workspace:
-		fillUpTable[models.Workspace](probe)
-	default:
-		log.Println("unknow type")
-	}
+	log.Println()
 }
 
 func fillUpTable[T models.Gongstruct](
