@@ -55,10 +55,10 @@ func (controller *Controller) GetLancelotCategoryUses(c *gin.Context) {
 	// source slice
 	var lancelotcategoryuseDBs []orm.LancelotCategoryUseDB
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("GetLancelotCategoryUses", "GONG__StackPath", stackPath)
@@ -116,11 +116,12 @@ func (controller *Controller) GetLancelotCategoryUses(c *gin.Context) {
 func (controller *Controller) PostLancelotCategoryUse(c *gin.Context) {
 
 	mutexLancelotCategoryUse.Lock()
+	defer mutexLancelotCategoryUse.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("PostLancelotCategoryUses", "GONG__StackPath", stackPath)
@@ -173,8 +174,6 @@ func (controller *Controller) PostLancelotCategoryUse(c *gin.Context) {
 	backRepo.IncrementPushFromFrontNb()
 
 	c.JSON(http.StatusOK, lancelotcategoryuseDB)
-
-	mutexLancelotCategoryUse.Unlock()
 }
 
 // GetLancelotCategoryUse
@@ -189,10 +188,10 @@ func (controller *Controller) PostLancelotCategoryUse(c *gin.Context) {
 //	200: lancelotcategoryuseDBResponse
 func (controller *Controller) GetLancelotCategoryUse(c *gin.Context) {
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("GetLancelotCategoryUse", "GONG__StackPath", stackPath)
@@ -236,11 +235,12 @@ func (controller *Controller) GetLancelotCategoryUse(c *gin.Context) {
 func (controller *Controller) UpdateLancelotCategoryUse(c *gin.Context) {
 
 	mutexLancelotCategoryUse.Lock()
+	defer mutexLancelotCategoryUse.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("UpdateLancelotCategoryUse", "GONG__StackPath", stackPath)
@@ -310,8 +310,6 @@ func (controller *Controller) UpdateLancelotCategoryUse(c *gin.Context) {
 
 	// return status OK with the marshalling of the the lancelotcategoryuseDB
 	c.JSON(http.StatusOK, lancelotcategoryuseDB)
-
-	mutexLancelotCategoryUse.Unlock()
 }
 
 // DeleteLancelotCategoryUse
@@ -326,11 +324,12 @@ func (controller *Controller) UpdateLancelotCategoryUse(c *gin.Context) {
 func (controller *Controller) DeleteLancelotCategoryUse(c *gin.Context) {
 
 	mutexLancelotCategoryUse.Lock()
+	defer mutexLancelotCategoryUse.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("DeleteLancelotCategoryUse", "GONG__StackPath", stackPath)
@@ -371,6 +370,4 @@ func (controller *Controller) DeleteLancelotCategoryUse(c *gin.Context) {
 	backRepo.IncrementPushFromFrontNb()
 
 	c.JSON(http.StatusOK, gin.H{"data": true})
-
-	mutexLancelotCategoryUse.Unlock()
 }

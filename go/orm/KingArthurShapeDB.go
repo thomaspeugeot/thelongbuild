@@ -38,6 +38,7 @@ type KingArthurShapeAPI struct {
 	models.KingArthurShape_WOP
 
 	// encoding of pointers
+	// for API, it cannot be embedded
 	KingArthurShapePointersEncoding KingArthurShapePointersEncoding
 }
 
@@ -91,7 +92,9 @@ type KingArthurShapeDB struct {
 
 	// Declation for basic field kingarthurshapeDB.RX
 	RX_Data sql.NullFloat64
+	
 	// encoding of pointers
+	// for GORM serialization, it is necessary to embed to Pointer Encoding declaration
 	KingArthurShapePointersEncoding
 }
 

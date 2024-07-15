@@ -99,212 +99,211 @@ func IsStaged[Type Gongstruct](stage *StageStruct, instance *Type) (ok bool) {
 }
 
 // insertion point for stage per struct
-	func (stage *StageStruct) IsStagedAWitch(awitch *AWitch) (ok bool) {
+func (stage *StageStruct) IsStagedAWitch(awitch *AWitch) (ok bool) {
 
-		_, ok = stage.AWitchs[awitch]
-	
-		return
-	}
+	_, ok = stage.AWitchs[awitch]
 
-	func (stage *StageStruct) IsStagedBlackKnightShape(blackknightshape *BlackKnightShape) (ok bool) {
+	return
+}
 
-		_, ok = stage.BlackKnightShapes[blackknightshape]
-	
-		return
-	}
+func (stage *StageStruct) IsStagedBlackKnightShape(blackknightshape *BlackKnightShape) (ok bool) {
 
-	func (stage *StageStruct) IsStagedBringYourDead(bringyourdead *BringYourDead) (ok bool) {
+	_, ok = stage.BlackKnightShapes[blackknightshape]
 
-		_, ok = stage.BringYourDeads[bringyourdead]
-	
-		return
-	}
+	return
+}
 
-	func (stage *StageStruct) IsStagedDocument(document *Document) (ok bool) {
+func (stage *StageStruct) IsStagedBringYourDead(bringyourdead *BringYourDead) (ok bool) {
 
-		_, ok = stage.Documents[document]
-	
-		return
-	}
+	_, ok = stage.BringYourDeads[bringyourdead]
 
-	func (stage *StageStruct) IsStagedDocumentUse(documentuse *DocumentUse) (ok bool) {
+	return
+}
 
-		_, ok = stage.DocumentUses[documentuse]
-	
-		return
-	}
+func (stage *StageStruct) IsStagedDocument(document *Document) (ok bool) {
 
-	func (stage *StageStruct) IsStagedGalahadThePure(galahadthepure *GalahadThePure) (ok bool) {
+	_, ok = stage.Documents[document]
 
-		_, ok = stage.GalahadThePures[galahadthepure]
-	
-		return
-	}
+	return
+}
 
-	func (stage *StageStruct) IsStagedGeoObject(geoobject *GeoObject) (ok bool) {
+func (stage *StageStruct) IsStagedDocumentUse(documentuse *DocumentUse) (ok bool) {
 
-		_, ok = stage.GeoObjects[geoobject]
-	
-		return
-	}
+	_, ok = stage.DocumentUses[documentuse]
 
-	func (stage *StageStruct) IsStagedGeoObjectUse(geoobjectuse *GeoObjectUse) (ok bool) {
+	return
+}
 
-		_, ok = stage.GeoObjectUses[geoobjectuse]
-	
-		return
-	}
+func (stage *StageStruct) IsStagedGalahadThePure(galahadthepure *GalahadThePure) (ok bool) {
 
-	func (stage *StageStruct) IsStagedGroup(group *Group) (ok bool) {
+	_, ok = stage.GalahadThePures[galahadthepure]
 
-		_, ok = stage.Groups[group]
-	
-		return
-	}
+	return
+}
 
-	func (stage *StageStruct) IsStagedGroupUse(groupuse *GroupUse) (ok bool) {
+func (stage *StageStruct) IsStagedGeoObject(geoobject *GeoObject) (ok bool) {
 
-		_, ok = stage.GroupUses[groupuse]
-	
-		return
-	}
+	_, ok = stage.GeoObjects[geoobject]
 
-	func (stage *StageStruct) IsStagedKingArthur(kingarthur *KingArthur) (ok bool) {
+	return
+}
 
-		_, ok = stage.KingArthurs[kingarthur]
-	
-		return
-	}
+func (stage *StageStruct) IsStagedGeoObjectUse(geoobjectuse *GeoObjectUse) (ok bool) {
 
-	func (stage *StageStruct) IsStagedKingArthurShape(kingarthurshape *KingArthurShape) (ok bool) {
+	_, ok = stage.GeoObjectUses[geoobjectuse]
 
-		_, ok = stage.KingArthurShapes[kingarthurshape]
-	
-		return
-	}
+	return
+}
 
-	func (stage *StageStruct) IsStagedKnightWhoSayNi(knightwhosayni *KnightWhoSayNi) (ok bool) {
+func (stage *StageStruct) IsStagedGroup(group *Group) (ok bool) {
 
-		_, ok = stage.KnightWhoSayNis[knightwhosayni]
-	
-		return
-	}
+	_, ok = stage.Groups[group]
 
-	func (stage *StageStruct) IsStagedLancelot(lancelot *Lancelot) (ok bool) {
+	return
+}
 
-		_, ok = stage.Lancelots[lancelot]
-	
-		return
-	}
+func (stage *StageStruct) IsStagedGroupUse(groupuse *GroupUse) (ok bool) {
 
-	func (stage *StageStruct) IsStagedLancelotAgregation(lancelotagregation *LancelotAgregation) (ok bool) {
+	_, ok = stage.GroupUses[groupuse]
 
-		_, ok = stage.LancelotAgregations[lancelotagregation]
-	
-		return
-	}
+	return
+}
 
-	func (stage *StageStruct) IsStagedLancelotAgregationUse(lancelotagregationuse *LancelotAgregationUse) (ok bool) {
+func (stage *StageStruct) IsStagedKingArthur(kingarthur *KingArthur) (ok bool) {
 
-		_, ok = stage.LancelotAgregationUses[lancelotagregationuse]
-	
-		return
-	}
+	_, ok = stage.KingArthurs[kingarthur]
 
-	func (stage *StageStruct) IsStagedLancelotCategory(lancelotcategory *LancelotCategory) (ok bool) {
+	return
+}
 
-		_, ok = stage.LancelotCategorys[lancelotcategory]
-	
-		return
-	}
+func (stage *StageStruct) IsStagedKingArthurShape(kingarthurshape *KingArthurShape) (ok bool) {
 
-	func (stage *StageStruct) IsStagedLancelotCategoryUse(lancelotcategoryuse *LancelotCategoryUse) (ok bool) {
+	_, ok = stage.KingArthurShapes[kingarthurshape]
 
-		_, ok = stage.LancelotCategoryUses[lancelotcategoryuse]
-	
-		return
-	}
+	return
+}
 
-	func (stage *StageStruct) IsStagedMapObject(mapobject *MapObject) (ok bool) {
+func (stage *StageStruct) IsStagedKnightWhoSayNi(knightwhosayni *KnightWhoSayNi) (ok bool) {
 
-		_, ok = stage.MapObjects[mapobject]
-	
-		return
-	}
+	_, ok = stage.KnightWhoSayNis[knightwhosayni]
 
-	func (stage *StageStruct) IsStagedMapObjectUse(mapobjectuse *MapObjectUse) (ok bool) {
+	return
+}
 
-		_, ok = stage.MapObjectUses[mapobjectuse]
-	
-		return
-	}
+func (stage *StageStruct) IsStagedLancelot(lancelot *Lancelot) (ok bool) {
 
-	func (stage *StageStruct) IsStagedRepository(repository *Repository) (ok bool) {
+	_, ok = stage.Lancelots[lancelot]
 
-		_, ok = stage.Repositorys[repository]
-	
-		return
-	}
+	return
+}
 
-	func (stage *StageStruct) IsStagedSirRobin(sirrobin *SirRobin) (ok bool) {
+func (stage *StageStruct) IsStagedLancelotAgregation(lancelotagregation *LancelotAgregation) (ok bool) {
 
-		_, ok = stage.SirRobins[sirrobin]
-	
-		return
-	}
+	_, ok = stage.LancelotAgregations[lancelotagregation]
 
-	func (stage *StageStruct) IsStagedTheBridge(thebridge *TheBridge) (ok bool) {
+	return
+}
 
-		_, ok = stage.TheBridges[thebridge]
-	
-		return
-	}
+func (stage *StageStruct) IsStagedLancelotAgregationUse(lancelotagregationuse *LancelotAgregationUse) (ok bool) {
 
-	func (stage *StageStruct) IsStagedTheNuteShape(thenuteshape *TheNuteShape) (ok bool) {
+	_, ok = stage.LancelotAgregationUses[lancelotagregationuse]
 
-		_, ok = stage.TheNuteShapes[thenuteshape]
-	
-		return
-	}
+	return
+}
 
-	func (stage *StageStruct) IsStagedTheNuteTransition(thenutetransition *TheNuteTransition) (ok bool) {
+func (stage *StageStruct) IsStagedLancelotCategory(lancelotcategory *LancelotCategory) (ok bool) {
 
-		_, ok = stage.TheNuteTransitions[thenutetransition]
-	
-		return
-	}
+	_, ok = stage.LancelotCategorys[lancelotcategory]
 
-	func (stage *StageStruct) IsStagedUser(user *User) (ok bool) {
+	return
+}
 
-		_, ok = stage.Users[user]
-	
-		return
-	}
+func (stage *StageStruct) IsStagedLancelotCategoryUse(lancelotcategoryuse *LancelotCategoryUse) (ok bool) {
 
-	func (stage *StageStruct) IsStagedUserUse(useruse *UserUse) (ok bool) {
+	_, ok = stage.LancelotCategoryUses[lancelotcategoryuse]
 
-		_, ok = stage.UserUses[useruse]
-	
-		return
-	}
+	return
+}
 
-	func (stage *StageStruct) IsStagedWhatIsYourPreferedColor(whatisyourpreferedcolor *WhatIsYourPreferedColor) (ok bool) {
+func (stage *StageStruct) IsStagedMapObject(mapobject *MapObject) (ok bool) {
 
-		_, ok = stage.WhatIsYourPreferedColors[whatisyourpreferedcolor]
-	
-		return
-	}
+	_, ok = stage.MapObjects[mapobject]
 
-	func (stage *StageStruct) IsStagedWorkspace(workspace *Workspace) (ok bool) {
+	return
+}
 
-		_, ok = stage.Workspaces[workspace]
-	
-		return
-	}
+func (stage *StageStruct) IsStagedMapObjectUse(mapobjectuse *MapObjectUse) (ok bool) {
 
+	_, ok = stage.MapObjectUses[mapobjectuse]
+
+	return
+}
+
+func (stage *StageStruct) IsStagedRepository(repository *Repository) (ok bool) {
+
+	_, ok = stage.Repositorys[repository]
+
+	return
+}
+
+func (stage *StageStruct) IsStagedSirRobin(sirrobin *SirRobin) (ok bool) {
+
+	_, ok = stage.SirRobins[sirrobin]
+
+	return
+}
+
+func (stage *StageStruct) IsStagedTheBridge(thebridge *TheBridge) (ok bool) {
+
+	_, ok = stage.TheBridges[thebridge]
+
+	return
+}
+
+func (stage *StageStruct) IsStagedTheNuteShape(thenuteshape *TheNuteShape) (ok bool) {
+
+	_, ok = stage.TheNuteShapes[thenuteshape]
+
+	return
+}
+
+func (stage *StageStruct) IsStagedTheNuteTransition(thenutetransition *TheNuteTransition) (ok bool) {
+
+	_, ok = stage.TheNuteTransitions[thenutetransition]
+
+	return
+}
+
+func (stage *StageStruct) IsStagedUser(user *User) (ok bool) {
+
+	_, ok = stage.Users[user]
+
+	return
+}
+
+func (stage *StageStruct) IsStagedUserUse(useruse *UserUse) (ok bool) {
+
+	_, ok = stage.UserUses[useruse]
+
+	return
+}
+
+func (stage *StageStruct) IsStagedWhatIsYourPreferedColor(whatisyourpreferedcolor *WhatIsYourPreferedColor) (ok bool) {
+
+	_, ok = stage.WhatIsYourPreferedColors[whatisyourpreferedcolor]
+
+	return
+}
+
+func (stage *StageStruct) IsStagedWorkspace(workspace *Workspace) (ok bool) {
+
+	_, ok = stage.Workspaces[workspace]
+
+	return
+}
 
 // StageBranch stages instance and apply StageBranch on all gongstruct instances that are
-// referenced by pointers or slices of pointers of the insance
+// referenced by pointers or slices of pointers of the instance
 //
 // the algorithm stops along the course of graph if a vertex is already staged
 func StageBranch[Type Gongstruct](stage *StageStruct, instance *Type) {
@@ -980,6 +979,831 @@ func (stage *StageStruct) StageBranchWorkspace(workspace *Workspace) {
 
 }
 
+// CopyBranch stages instance and apply CopyBranch on all gongstruct instances that are
+// referenced by pointers or slices of pointers of the instance
+//
+// the algorithm stops along the course of graph if a vertex is already staged
+func CopyBranch[Type Gongstruct](from *Type) (to *Type) {
+
+	mapOrigCopy := make(map[any]any)
+	_ = mapOrigCopy
+
+	switch fromT := any(from).(type) {
+	// insertion point for stage branch
+	case *AWitch:
+		toT := CopyBranchAWitch(mapOrigCopy, fromT)
+		return any(toT).(*Type)
+
+	case *BlackKnightShape:
+		toT := CopyBranchBlackKnightShape(mapOrigCopy, fromT)
+		return any(toT).(*Type)
+
+	case *BringYourDead:
+		toT := CopyBranchBringYourDead(mapOrigCopy, fromT)
+		return any(toT).(*Type)
+
+	case *Document:
+		toT := CopyBranchDocument(mapOrigCopy, fromT)
+		return any(toT).(*Type)
+
+	case *DocumentUse:
+		toT := CopyBranchDocumentUse(mapOrigCopy, fromT)
+		return any(toT).(*Type)
+
+	case *GalahadThePure:
+		toT := CopyBranchGalahadThePure(mapOrigCopy, fromT)
+		return any(toT).(*Type)
+
+	case *GeoObject:
+		toT := CopyBranchGeoObject(mapOrigCopy, fromT)
+		return any(toT).(*Type)
+
+	case *GeoObjectUse:
+		toT := CopyBranchGeoObjectUse(mapOrigCopy, fromT)
+		return any(toT).(*Type)
+
+	case *Group:
+		toT := CopyBranchGroup(mapOrigCopy, fromT)
+		return any(toT).(*Type)
+
+	case *GroupUse:
+		toT := CopyBranchGroupUse(mapOrigCopy, fromT)
+		return any(toT).(*Type)
+
+	case *KingArthur:
+		toT := CopyBranchKingArthur(mapOrigCopy, fromT)
+		return any(toT).(*Type)
+
+	case *KingArthurShape:
+		toT := CopyBranchKingArthurShape(mapOrigCopy, fromT)
+		return any(toT).(*Type)
+
+	case *KnightWhoSayNi:
+		toT := CopyBranchKnightWhoSayNi(mapOrigCopy, fromT)
+		return any(toT).(*Type)
+
+	case *Lancelot:
+		toT := CopyBranchLancelot(mapOrigCopy, fromT)
+		return any(toT).(*Type)
+
+	case *LancelotAgregation:
+		toT := CopyBranchLancelotAgregation(mapOrigCopy, fromT)
+		return any(toT).(*Type)
+
+	case *LancelotAgregationUse:
+		toT := CopyBranchLancelotAgregationUse(mapOrigCopy, fromT)
+		return any(toT).(*Type)
+
+	case *LancelotCategory:
+		toT := CopyBranchLancelotCategory(mapOrigCopy, fromT)
+		return any(toT).(*Type)
+
+	case *LancelotCategoryUse:
+		toT := CopyBranchLancelotCategoryUse(mapOrigCopy, fromT)
+		return any(toT).(*Type)
+
+	case *MapObject:
+		toT := CopyBranchMapObject(mapOrigCopy, fromT)
+		return any(toT).(*Type)
+
+	case *MapObjectUse:
+		toT := CopyBranchMapObjectUse(mapOrigCopy, fromT)
+		return any(toT).(*Type)
+
+	case *Repository:
+		toT := CopyBranchRepository(mapOrigCopy, fromT)
+		return any(toT).(*Type)
+
+	case *SirRobin:
+		toT := CopyBranchSirRobin(mapOrigCopy, fromT)
+		return any(toT).(*Type)
+
+	case *TheBridge:
+		toT := CopyBranchTheBridge(mapOrigCopy, fromT)
+		return any(toT).(*Type)
+
+	case *TheNuteShape:
+		toT := CopyBranchTheNuteShape(mapOrigCopy, fromT)
+		return any(toT).(*Type)
+
+	case *TheNuteTransition:
+		toT := CopyBranchTheNuteTransition(mapOrigCopy, fromT)
+		return any(toT).(*Type)
+
+	case *User:
+		toT := CopyBranchUser(mapOrigCopy, fromT)
+		return any(toT).(*Type)
+
+	case *UserUse:
+		toT := CopyBranchUserUse(mapOrigCopy, fromT)
+		return any(toT).(*Type)
+
+	case *WhatIsYourPreferedColor:
+		toT := CopyBranchWhatIsYourPreferedColor(mapOrigCopy, fromT)
+		return any(toT).(*Type)
+
+	case *Workspace:
+		toT := CopyBranchWorkspace(mapOrigCopy, fromT)
+		return any(toT).(*Type)
+
+	default:
+		_ = fromT // to espace compilation issue when model is empty
+	}
+	return
+}
+
+// insertion point for stage branch per struct
+func CopyBranchAWitch(mapOrigCopy map[any]any, awitchFrom *AWitch) (awitchTo *AWitch) {
+
+	// awitchFrom has already been copied
+	if _awitchTo, ok := mapOrigCopy[awitchFrom]; ok {
+		awitchTo = _awitchTo.(*AWitch)
+		return
+	}
+
+	awitchTo = new(AWitch)
+	mapOrigCopy[awitchFrom] = awitchTo
+	awitchFrom.CopyBasicFields(awitchTo)
+
+	//insertion point for the staging of instances referenced by pointers
+	if awitchFrom.EvolutionDirection != nil {
+		awitchTo.EvolutionDirection = CopyBranchGalahadThePure(mapOrigCopy, awitchFrom.EvolutionDirection)
+	}
+
+	//insertion point for the staging of instances referenced by slice of pointers
+
+	return
+}
+
+func CopyBranchBlackKnightShape(mapOrigCopy map[any]any, blackknightshapeFrom *BlackKnightShape) (blackknightshapeTo *BlackKnightShape) {
+
+	// blackknightshapeFrom has already been copied
+	if _blackknightshapeTo, ok := mapOrigCopy[blackknightshapeFrom]; ok {
+		blackknightshapeTo = _blackknightshapeTo.(*BlackKnightShape)
+		return
+	}
+
+	blackknightshapeTo = new(BlackKnightShape)
+	mapOrigCopy[blackknightshapeFrom] = blackknightshapeTo
+	blackknightshapeFrom.CopyBasicFields(blackknightshapeTo)
+
+	//insertion point for the staging of instances referenced by pointers
+	if blackknightshapeFrom.BringYourDead != nil {
+		blackknightshapeTo.BringYourDead = CopyBranchBringYourDead(mapOrigCopy, blackknightshapeFrom.BringYourDead)
+	}
+
+	//insertion point for the staging of instances referenced by slice of pointers
+
+	return
+}
+
+func CopyBranchBringYourDead(mapOrigCopy map[any]any, bringyourdeadFrom *BringYourDead) (bringyourdeadTo *BringYourDead) {
+
+	// bringyourdeadFrom has already been copied
+	if _bringyourdeadTo, ok := mapOrigCopy[bringyourdeadFrom]; ok {
+		bringyourdeadTo = _bringyourdeadTo.(*BringYourDead)
+		return
+	}
+
+	bringyourdeadTo = new(BringYourDead)
+	mapOrigCopy[bringyourdeadFrom] = bringyourdeadTo
+	bringyourdeadFrom.CopyBasicFields(bringyourdeadTo)
+
+	//insertion point for the staging of instances referenced by pointers
+
+	//insertion point for the staging of instances referenced by slice of pointers
+	for _, _lancelot := range bringyourdeadFrom.Lancelots {
+		bringyourdeadTo.Lancelots = append(bringyourdeadTo.Lancelots, CopyBranchLancelot(mapOrigCopy, _lancelot))
+	}
+
+	return
+}
+
+func CopyBranchDocument(mapOrigCopy map[any]any, documentFrom *Document) (documentTo *Document) {
+
+	// documentFrom has already been copied
+	if _documentTo, ok := mapOrigCopy[documentFrom]; ok {
+		documentTo = _documentTo.(*Document)
+		return
+	}
+
+	documentTo = new(Document)
+	mapOrigCopy[documentFrom] = documentTo
+	documentFrom.CopyBasicFields(documentTo)
+
+	//insertion point for the staging of instances referenced by pointers
+
+	//insertion point for the staging of instances referenced by slice of pointers
+	for _, _geoobjectuse := range documentFrom.GeoObjectUse {
+		documentTo.GeoObjectUse = append(documentTo.GeoObjectUse, CopyBranchGeoObjectUse(mapOrigCopy, _geoobjectuse))
+	}
+
+	return
+}
+
+func CopyBranchDocumentUse(mapOrigCopy map[any]any, documentuseFrom *DocumentUse) (documentuseTo *DocumentUse) {
+
+	// documentuseFrom has already been copied
+	if _documentuseTo, ok := mapOrigCopy[documentuseFrom]; ok {
+		documentuseTo = _documentuseTo.(*DocumentUse)
+		return
+	}
+
+	documentuseTo = new(DocumentUse)
+	mapOrigCopy[documentuseFrom] = documentuseTo
+	documentuseFrom.CopyBasicFields(documentuseTo)
+
+	//insertion point for the staging of instances referenced by pointers
+	if documentuseFrom.Document != nil {
+		documentuseTo.Document = CopyBranchDocument(mapOrigCopy, documentuseFrom.Document)
+	}
+
+	//insertion point for the staging of instances referenced by slice of pointers
+
+	return
+}
+
+func CopyBranchGalahadThePure(mapOrigCopy map[any]any, galahadthepureFrom *GalahadThePure) (galahadthepureTo *GalahadThePure) {
+
+	// galahadthepureFrom has already been copied
+	if _galahadthepureTo, ok := mapOrigCopy[galahadthepureFrom]; ok {
+		galahadthepureTo = _galahadthepureTo.(*GalahadThePure)
+		return
+	}
+
+	galahadthepureTo = new(GalahadThePure)
+	mapOrigCopy[galahadthepureFrom] = galahadthepureTo
+	galahadthepureFrom.CopyBasicFields(galahadthepureTo)
+
+	//insertion point for the staging of instances referenced by pointers
+
+	//insertion point for the staging of instances referenced by slice of pointers
+
+	return
+}
+
+func CopyBranchGeoObject(mapOrigCopy map[any]any, geoobjectFrom *GeoObject) (geoobjectTo *GeoObject) {
+
+	// geoobjectFrom has already been copied
+	if _geoobjectTo, ok := mapOrigCopy[geoobjectFrom]; ok {
+		geoobjectTo = _geoobjectTo.(*GeoObject)
+		return
+	}
+
+	geoobjectTo = new(GeoObject)
+	mapOrigCopy[geoobjectFrom] = geoobjectTo
+	geoobjectFrom.CopyBasicFields(geoobjectTo)
+
+	//insertion point for the staging of instances referenced by pointers
+
+	//insertion point for the staging of instances referenced by slice of pointers
+
+	return
+}
+
+func CopyBranchGeoObjectUse(mapOrigCopy map[any]any, geoobjectuseFrom *GeoObjectUse) (geoobjectuseTo *GeoObjectUse) {
+
+	// geoobjectuseFrom has already been copied
+	if _geoobjectuseTo, ok := mapOrigCopy[geoobjectuseFrom]; ok {
+		geoobjectuseTo = _geoobjectuseTo.(*GeoObjectUse)
+		return
+	}
+
+	geoobjectuseTo = new(GeoObjectUse)
+	mapOrigCopy[geoobjectuseFrom] = geoobjectuseTo
+	geoobjectuseFrom.CopyBasicFields(geoobjectuseTo)
+
+	//insertion point for the staging of instances referenced by pointers
+	if geoobjectuseFrom.GeoObject != nil {
+		geoobjectuseTo.GeoObject = CopyBranchGeoObject(mapOrigCopy, geoobjectuseFrom.GeoObject)
+	}
+
+	//insertion point for the staging of instances referenced by slice of pointers
+
+	return
+}
+
+func CopyBranchGroup(mapOrigCopy map[any]any, groupFrom *Group) (groupTo *Group) {
+
+	// groupFrom has already been copied
+	if _groupTo, ok := mapOrigCopy[groupFrom]; ok {
+		groupTo = _groupTo.(*Group)
+		return
+	}
+
+	groupTo = new(Group)
+	mapOrigCopy[groupFrom] = groupTo
+	groupFrom.CopyBasicFields(groupTo)
+
+	//insertion point for the staging of instances referenced by pointers
+
+	//insertion point for the staging of instances referenced by slice of pointers
+	for _, _useruse := range groupFrom.UserUse {
+		groupTo.UserUse = append(groupTo.UserUse, CopyBranchUserUse(mapOrigCopy, _useruse))
+	}
+
+	return
+}
+
+func CopyBranchGroupUse(mapOrigCopy map[any]any, groupuseFrom *GroupUse) (groupuseTo *GroupUse) {
+
+	// groupuseFrom has already been copied
+	if _groupuseTo, ok := mapOrigCopy[groupuseFrom]; ok {
+		groupuseTo = _groupuseTo.(*GroupUse)
+		return
+	}
+
+	groupuseTo = new(GroupUse)
+	mapOrigCopy[groupuseFrom] = groupuseTo
+	groupuseFrom.CopyBasicFields(groupuseTo)
+
+	//insertion point for the staging of instances referenced by pointers
+	if groupuseFrom.Group != nil {
+		groupuseTo.Group = CopyBranchGroup(mapOrigCopy, groupuseFrom.Group)
+	}
+
+	//insertion point for the staging of instances referenced by slice of pointers
+
+	return
+}
+
+func CopyBranchKingArthur(mapOrigCopy map[any]any, kingarthurFrom *KingArthur) (kingarthurTo *KingArthur) {
+
+	// kingarthurFrom has already been copied
+	if _kingarthurTo, ok := mapOrigCopy[kingarthurFrom]; ok {
+		kingarthurTo = _kingarthurTo.(*KingArthur)
+		return
+	}
+
+	kingarthurTo = new(KingArthur)
+	mapOrigCopy[kingarthurFrom] = kingarthurTo
+	kingarthurFrom.CopyBasicFields(kingarthurTo)
+
+	//insertion point for the staging of instances referenced by pointers
+
+	//insertion point for the staging of instances referenced by slice of pointers
+
+	return
+}
+
+func CopyBranchKingArthurShape(mapOrigCopy map[any]any, kingarthurshapeFrom *KingArthurShape) (kingarthurshapeTo *KingArthurShape) {
+
+	// kingarthurshapeFrom has already been copied
+	if _kingarthurshapeTo, ok := mapOrigCopy[kingarthurshapeFrom]; ok {
+		kingarthurshapeTo = _kingarthurshapeTo.(*KingArthurShape)
+		return
+	}
+
+	kingarthurshapeTo = new(KingArthurShape)
+	mapOrigCopy[kingarthurshapeFrom] = kingarthurshapeTo
+	kingarthurshapeFrom.CopyBasicFields(kingarthurshapeTo)
+
+	//insertion point for the staging of instances referenced by pointers
+	if kingarthurshapeFrom.ActorState != nil {
+		kingarthurshapeTo.ActorState = CopyBranchKingArthur(mapOrigCopy, kingarthurshapeFrom.ActorState)
+	}
+
+	//insertion point for the staging of instances referenced by slice of pointers
+
+	return
+}
+
+func CopyBranchKnightWhoSayNi(mapOrigCopy map[any]any, knightwhosayniFrom *KnightWhoSayNi) (knightwhosayniTo *KnightWhoSayNi) {
+
+	// knightwhosayniFrom has already been copied
+	if _knightwhosayniTo, ok := mapOrigCopy[knightwhosayniFrom]; ok {
+		knightwhosayniTo = _knightwhosayniTo.(*KnightWhoSayNi)
+		return
+	}
+
+	knightwhosayniTo = new(KnightWhoSayNi)
+	mapOrigCopy[knightwhosayniFrom] = knightwhosayniTo
+	knightwhosayniFrom.CopyBasicFields(knightwhosayniTo)
+
+	//insertion point for the staging of instances referenced by pointers
+	if knightwhosayniFrom.Parameter != nil {
+		knightwhosayniTo.Parameter = CopyBranchLancelot(mapOrigCopy, knightwhosayniFrom.Parameter)
+	}
+
+	//insertion point for the staging of instances referenced by slice of pointers
+
+	return
+}
+
+func CopyBranchLancelot(mapOrigCopy map[any]any, lancelotFrom *Lancelot) (lancelotTo *Lancelot) {
+
+	// lancelotFrom has already been copied
+	if _lancelotTo, ok := mapOrigCopy[lancelotFrom]; ok {
+		lancelotTo = _lancelotTo.(*Lancelot)
+		return
+	}
+
+	lancelotTo = new(Lancelot)
+	mapOrigCopy[lancelotFrom] = lancelotTo
+	lancelotFrom.CopyBasicFields(lancelotTo)
+
+	//insertion point for the staging of instances referenced by pointers
+
+	//insertion point for the staging of instances referenced by slice of pointers
+	for _, _groupuse := range lancelotFrom.GroupUse {
+		lancelotTo.GroupUse = append(lancelotTo.GroupUse, CopyBranchGroupUse(mapOrigCopy, _groupuse))
+	}
+	for _, _documentuse := range lancelotFrom.DocumentUse {
+		lancelotTo.DocumentUse = append(lancelotTo.DocumentUse, CopyBranchDocumentUse(mapOrigCopy, _documentuse))
+	}
+	for _, _geoobjectuse := range lancelotFrom.GeoObjectUse {
+		lancelotTo.GeoObjectUse = append(lancelotTo.GeoObjectUse, CopyBranchGeoObjectUse(mapOrigCopy, _geoobjectuse))
+	}
+
+	return
+}
+
+func CopyBranchLancelotAgregation(mapOrigCopy map[any]any, lancelotagregationFrom *LancelotAgregation) (lancelotagregationTo *LancelotAgregation) {
+
+	// lancelotagregationFrom has already been copied
+	if _lancelotagregationTo, ok := mapOrigCopy[lancelotagregationFrom]; ok {
+		lancelotagregationTo = _lancelotagregationTo.(*LancelotAgregation)
+		return
+	}
+
+	lancelotagregationTo = new(LancelotAgregation)
+	mapOrigCopy[lancelotagregationFrom] = lancelotagregationTo
+	lancelotagregationFrom.CopyBasicFields(lancelotagregationTo)
+
+	//insertion point for the staging of instances referenced by pointers
+
+	//insertion point for the staging of instances referenced by slice of pointers
+	for _, _knightwhosayni := range lancelotagregationFrom.ParameterUse {
+		lancelotagregationTo.ParameterUse = append(lancelotagregationTo.ParameterUse, CopyBranchKnightWhoSayNi(mapOrigCopy, _knightwhosayni))
+	}
+
+	return
+}
+
+func CopyBranchLancelotAgregationUse(mapOrigCopy map[any]any, lancelotagregationuseFrom *LancelotAgregationUse) (lancelotagregationuseTo *LancelotAgregationUse) {
+
+	// lancelotagregationuseFrom has already been copied
+	if _lancelotagregationuseTo, ok := mapOrigCopy[lancelotagregationuseFrom]; ok {
+		lancelotagregationuseTo = _lancelotagregationuseTo.(*LancelotAgregationUse)
+		return
+	}
+
+	lancelotagregationuseTo = new(LancelotAgregationUse)
+	mapOrigCopy[lancelotagregationuseFrom] = lancelotagregationuseTo
+	lancelotagregationuseFrom.CopyBasicFields(lancelotagregationuseTo)
+
+	//insertion point for the staging of instances referenced by pointers
+	if lancelotagregationuseFrom.ParameterAgregation != nil {
+		lancelotagregationuseTo.ParameterAgregation = CopyBranchLancelotAgregation(mapOrigCopy, lancelotagregationuseFrom.ParameterAgregation)
+	}
+
+	//insertion point for the staging of instances referenced by slice of pointers
+
+	return
+}
+
+func CopyBranchLancelotCategory(mapOrigCopy map[any]any, lancelotcategoryFrom *LancelotCategory) (lancelotcategoryTo *LancelotCategory) {
+
+	// lancelotcategoryFrom has already been copied
+	if _lancelotcategoryTo, ok := mapOrigCopy[lancelotcategoryFrom]; ok {
+		lancelotcategoryTo = _lancelotcategoryTo.(*LancelotCategory)
+		return
+	}
+
+	lancelotcategoryTo = new(LancelotCategory)
+	mapOrigCopy[lancelotcategoryFrom] = lancelotcategoryTo
+	lancelotcategoryFrom.CopyBasicFields(lancelotcategoryTo)
+
+	//insertion point for the staging of instances referenced by pointers
+
+	//insertion point for the staging of instances referenced by slice of pointers
+	for _, _knightwhosayni := range lancelotcategoryFrom.ParameterUse {
+		lancelotcategoryTo.ParameterUse = append(lancelotcategoryTo.ParameterUse, CopyBranchKnightWhoSayNi(mapOrigCopy, _knightwhosayni))
+	}
+
+	return
+}
+
+func CopyBranchLancelotCategoryUse(mapOrigCopy map[any]any, lancelotcategoryuseFrom *LancelotCategoryUse) (lancelotcategoryuseTo *LancelotCategoryUse) {
+
+	// lancelotcategoryuseFrom has already been copied
+	if _lancelotcategoryuseTo, ok := mapOrigCopy[lancelotcategoryuseFrom]; ok {
+		lancelotcategoryuseTo = _lancelotcategoryuseTo.(*LancelotCategoryUse)
+		return
+	}
+
+	lancelotcategoryuseTo = new(LancelotCategoryUse)
+	mapOrigCopy[lancelotcategoryuseFrom] = lancelotcategoryuseTo
+	lancelotcategoryuseFrom.CopyBasicFields(lancelotcategoryuseTo)
+
+	//insertion point for the staging of instances referenced by pointers
+	if lancelotcategoryuseFrom.ParameterCategory != nil {
+		lancelotcategoryuseTo.ParameterCategory = CopyBranchLancelotCategory(mapOrigCopy, lancelotcategoryuseFrom.ParameterCategory)
+	}
+
+	//insertion point for the staging of instances referenced by slice of pointers
+
+	return
+}
+
+func CopyBranchMapObject(mapOrigCopy map[any]any, mapobjectFrom *MapObject) (mapobjectTo *MapObject) {
+
+	// mapobjectFrom has already been copied
+	if _mapobjectTo, ok := mapOrigCopy[mapobjectFrom]; ok {
+		mapobjectTo = _mapobjectTo.(*MapObject)
+		return
+	}
+
+	mapobjectTo = new(MapObject)
+	mapOrigCopy[mapobjectFrom] = mapobjectTo
+	mapobjectFrom.CopyBasicFields(mapobjectTo)
+
+	//insertion point for the staging of instances referenced by pointers
+
+	//insertion point for the staging of instances referenced by slice of pointers
+
+	return
+}
+
+func CopyBranchMapObjectUse(mapOrigCopy map[any]any, mapobjectuseFrom *MapObjectUse) (mapobjectuseTo *MapObjectUse) {
+
+	// mapobjectuseFrom has already been copied
+	if _mapobjectuseTo, ok := mapOrigCopy[mapobjectuseFrom]; ok {
+		mapobjectuseTo = _mapobjectuseTo.(*MapObjectUse)
+		return
+	}
+
+	mapobjectuseTo = new(MapObjectUse)
+	mapOrigCopy[mapobjectuseFrom] = mapobjectuseTo
+	mapobjectuseFrom.CopyBasicFields(mapobjectuseTo)
+
+	//insertion point for the staging of instances referenced by pointers
+	if mapobjectuseFrom.Map != nil {
+		mapobjectuseTo.Map = CopyBranchMapObject(mapOrigCopy, mapobjectuseFrom.Map)
+	}
+
+	//insertion point for the staging of instances referenced by slice of pointers
+
+	return
+}
+
+func CopyBranchRepository(mapOrigCopy map[any]any, repositoryFrom *Repository) (repositoryTo *Repository) {
+
+	// repositoryFrom has already been copied
+	if _repositoryTo, ok := mapOrigCopy[repositoryFrom]; ok {
+		repositoryTo = _repositoryTo.(*Repository)
+		return
+	}
+
+	repositoryTo = new(Repository)
+	mapOrigCopy[repositoryFrom] = repositoryTo
+	repositoryFrom.CopyBasicFields(repositoryTo)
+
+	//insertion point for the staging of instances referenced by pointers
+
+	//insertion point for the staging of instances referenced by slice of pointers
+	for _, _knightwhosayni := range repositoryFrom.ParameterUse {
+		repositoryTo.ParameterUse = append(repositoryTo.ParameterUse, CopyBranchKnightWhoSayNi(mapOrigCopy, _knightwhosayni))
+	}
+	for _, _groupuse := range repositoryFrom.GroupUse {
+		repositoryTo.GroupUse = append(repositoryTo.GroupUse, CopyBranchGroupUse(mapOrigCopy, _groupuse))
+	}
+
+	return
+}
+
+func CopyBranchSirRobin(mapOrigCopy map[any]any, sirrobinFrom *SirRobin) (sirrobinTo *SirRobin) {
+
+	// sirrobinFrom has already been copied
+	if _sirrobinTo, ok := mapOrigCopy[sirrobinFrom]; ok {
+		sirrobinTo = _sirrobinTo.(*SirRobin)
+		return
+	}
+
+	sirrobinTo = new(SirRobin)
+	mapOrigCopy[sirrobinFrom] = sirrobinTo
+	sirrobinFrom.CopyBasicFields(sirrobinTo)
+
+	//insertion point for the staging of instances referenced by pointers
+
+	//insertion point for the staging of instances referenced by slice of pointers
+	for _, _awitch := range sirrobinFrom.Witches {
+		sirrobinTo.Witches = append(sirrobinTo.Witches, CopyBranchAWitch(mapOrigCopy, _awitch))
+	}
+	for _, _kingarthurshape := range sirrobinFrom.Arthurs {
+		sirrobinTo.Arthurs = append(sirrobinTo.Arthurs, CopyBranchKingArthurShape(mapOrigCopy, _kingarthurshape))
+	}
+	for _, _knightwhosayni := range sirrobinFrom.KnightWhoSayNis {
+		sirrobinTo.KnightWhoSayNis = append(sirrobinTo.KnightWhoSayNis, CopyBranchKnightWhoSayNi(mapOrigCopy, _knightwhosayni))
+	}
+	for _, _blackknightshape := range sirrobinFrom.BlackKnightShapes {
+		sirrobinTo.BlackKnightShapes = append(sirrobinTo.BlackKnightShapes, CopyBranchBlackKnightShape(mapOrigCopy, _blackknightshape))
+	}
+	for _, _thenuteshape := range sirrobinFrom.TheNuteShapes {
+		sirrobinTo.TheNuteShapes = append(sirrobinTo.TheNuteShapes, CopyBranchTheNuteShape(mapOrigCopy, _thenuteshape))
+	}
+
+	return
+}
+
+func CopyBranchTheBridge(mapOrigCopy map[any]any, thebridgeFrom *TheBridge) (thebridgeTo *TheBridge) {
+
+	// thebridgeFrom has already been copied
+	if _thebridgeTo, ok := mapOrigCopy[thebridgeFrom]; ok {
+		thebridgeTo = _thebridgeTo.(*TheBridge)
+		return
+	}
+
+	thebridgeTo = new(TheBridge)
+	mapOrigCopy[thebridgeFrom] = thebridgeTo
+	thebridgeFrom.CopyBasicFields(thebridgeTo)
+
+	//insertion point for the staging of instances referenced by pointers
+
+	//insertion point for the staging of instances referenced by slice of pointers
+	for _, _whatisyourpreferedcolor := range thebridgeFrom.WhatIsYourPreferedColor {
+		thebridgeTo.WhatIsYourPreferedColor = append(thebridgeTo.WhatIsYourPreferedColor, CopyBranchWhatIsYourPreferedColor(mapOrigCopy, _whatisyourpreferedcolor))
+	}
+	for _, _groupuse := range thebridgeFrom.GroupUse {
+		thebridgeTo.GroupUse = append(thebridgeTo.GroupUse, CopyBranchGroupUse(mapOrigCopy, _groupuse))
+	}
+	for _, _geoobjectuse := range thebridgeFrom.GeoObjectUse {
+		thebridgeTo.GeoObjectUse = append(thebridgeTo.GeoObjectUse, CopyBranchGeoObjectUse(mapOrigCopy, _geoobjectuse))
+	}
+	for _, _mapobjectuse := range thebridgeFrom.MapUse {
+		thebridgeTo.MapUse = append(thebridgeTo.MapUse, CopyBranchMapObjectUse(mapOrigCopy, _mapobjectuse))
+	}
+
+	return
+}
+
+func CopyBranchTheNuteShape(mapOrigCopy map[any]any, thenuteshapeFrom *TheNuteShape) (thenuteshapeTo *TheNuteShape) {
+
+	// thenuteshapeFrom has already been copied
+	if _thenuteshapeTo, ok := mapOrigCopy[thenuteshapeFrom]; ok {
+		thenuteshapeTo = _thenuteshapeTo.(*TheNuteShape)
+		return
+	}
+
+	thenuteshapeTo = new(TheNuteShape)
+	mapOrigCopy[thenuteshapeFrom] = thenuteshapeTo
+	thenuteshapeFrom.CopyBasicFields(thenuteshapeTo)
+
+	//insertion point for the staging of instances referenced by pointers
+	if thenuteshapeFrom.ActorStateTransition != nil {
+		thenuteshapeTo.ActorStateTransition = CopyBranchTheNuteTransition(mapOrigCopy, thenuteshapeFrom.ActorStateTransition)
+	}
+	if thenuteshapeFrom.Start != nil {
+		thenuteshapeTo.Start = CopyBranchKingArthurShape(mapOrigCopy, thenuteshapeFrom.Start)
+	}
+	if thenuteshapeFrom.End != nil {
+		thenuteshapeTo.End = CopyBranchKingArthurShape(mapOrigCopy, thenuteshapeFrom.End)
+	}
+
+	//insertion point for the staging of instances referenced by slice of pointers
+
+	return
+}
+
+func CopyBranchTheNuteTransition(mapOrigCopy map[any]any, thenutetransitionFrom *TheNuteTransition) (thenutetransitionTo *TheNuteTransition) {
+
+	// thenutetransitionFrom has already been copied
+	if _thenutetransitionTo, ok := mapOrigCopy[thenutetransitionFrom]; ok {
+		thenutetransitionTo = _thenutetransitionTo.(*TheNuteTransition)
+		return
+	}
+
+	thenutetransitionTo = new(TheNuteTransition)
+	mapOrigCopy[thenutetransitionFrom] = thenutetransitionTo
+	thenutetransitionFrom.CopyBasicFields(thenutetransitionTo)
+
+	//insertion point for the staging of instances referenced by pointers
+	if thenutetransitionFrom.StartState != nil {
+		thenutetransitionTo.StartState = CopyBranchKingArthur(mapOrigCopy, thenutetransitionFrom.StartState)
+	}
+	if thenutetransitionFrom.EndState != nil {
+		thenutetransitionTo.EndState = CopyBranchKingArthur(mapOrigCopy, thenutetransitionFrom.EndState)
+	}
+
+	//insertion point for the staging of instances referenced by slice of pointers
+
+	return
+}
+
+func CopyBranchUser(mapOrigCopy map[any]any, userFrom *User) (userTo *User) {
+
+	// userFrom has already been copied
+	if _userTo, ok := mapOrigCopy[userFrom]; ok {
+		userTo = _userTo.(*User)
+		return
+	}
+
+	userTo = new(User)
+	mapOrigCopy[userFrom] = userTo
+	userFrom.CopyBasicFields(userTo)
+
+	//insertion point for the staging of instances referenced by pointers
+
+	//insertion point for the staging of instances referenced by slice of pointers
+
+	return
+}
+
+func CopyBranchUserUse(mapOrigCopy map[any]any, useruseFrom *UserUse) (useruseTo *UserUse) {
+
+	// useruseFrom has already been copied
+	if _useruseTo, ok := mapOrigCopy[useruseFrom]; ok {
+		useruseTo = _useruseTo.(*UserUse)
+		return
+	}
+
+	useruseTo = new(UserUse)
+	mapOrigCopy[useruseFrom] = useruseTo
+	useruseFrom.CopyBasicFields(useruseTo)
+
+	//insertion point for the staging of instances referenced by pointers
+	if useruseFrom.User != nil {
+		useruseTo.User = CopyBranchUser(mapOrigCopy, useruseFrom.User)
+	}
+
+	//insertion point for the staging of instances referenced by slice of pointers
+
+	return
+}
+
+func CopyBranchWhatIsYourPreferedColor(mapOrigCopy map[any]any, whatisyourpreferedcolorFrom *WhatIsYourPreferedColor) (whatisyourpreferedcolorTo *WhatIsYourPreferedColor) {
+
+	// whatisyourpreferedcolorFrom has already been copied
+	if _whatisyourpreferedcolorTo, ok := mapOrigCopy[whatisyourpreferedcolorFrom]; ok {
+		whatisyourpreferedcolorTo = _whatisyourpreferedcolorTo.(*WhatIsYourPreferedColor)
+		return
+	}
+
+	whatisyourpreferedcolorTo = new(WhatIsYourPreferedColor)
+	mapOrigCopy[whatisyourpreferedcolorFrom] = whatisyourpreferedcolorTo
+	whatisyourpreferedcolorFrom.CopyBasicFields(whatisyourpreferedcolorTo)
+
+	//insertion point for the staging of instances referenced by pointers
+
+	//insertion point for the staging of instances referenced by slice of pointers
+	for _, _sirrobin := range whatisyourpreferedcolorFrom.Diagrams {
+		whatisyourpreferedcolorTo.Diagrams = append(whatisyourpreferedcolorTo.Diagrams, CopyBranchSirRobin(mapOrigCopy, _sirrobin))
+	}
+	for _, _kingarthur := range whatisyourpreferedcolorFrom.KingArthurs {
+		whatisyourpreferedcolorTo.KingArthurs = append(whatisyourpreferedcolorTo.KingArthurs, CopyBranchKingArthur(mapOrigCopy, _kingarthur))
+	}
+	for _, _thenutetransition := range whatisyourpreferedcolorFrom.Nutes {
+		whatisyourpreferedcolorTo.Nutes = append(whatisyourpreferedcolorTo.Nutes, CopyBranchTheNuteTransition(mapOrigCopy, _thenutetransition))
+	}
+	for _, _galahadthepure := range whatisyourpreferedcolorFrom.Galahard {
+		whatisyourpreferedcolorTo.Galahard = append(whatisyourpreferedcolorTo.Galahard, CopyBranchGalahadThePure(mapOrigCopy, _galahadthepure))
+	}
+	for _, _lancelot := range whatisyourpreferedcolorFrom.Lancelots {
+		whatisyourpreferedcolorTo.Lancelots = append(whatisyourpreferedcolorTo.Lancelots, CopyBranchLancelot(mapOrigCopy, _lancelot))
+	}
+	for _, _bringyourdead := range whatisyourpreferedcolorFrom.BringYourDeadarameters {
+		whatisyourpreferedcolorTo.BringYourDeadarameters = append(whatisyourpreferedcolorTo.BringYourDeadarameters, CopyBranchBringYourDead(mapOrigCopy, _bringyourdead))
+	}
+
+	return
+}
+
+func CopyBranchWorkspace(mapOrigCopy map[any]any, workspaceFrom *Workspace) (workspaceTo *Workspace) {
+
+	// workspaceFrom has already been copied
+	if _workspaceTo, ok := mapOrigCopy[workspaceFrom]; ok {
+		workspaceTo = _workspaceTo.(*Workspace)
+		return
+	}
+
+	workspaceTo = new(Workspace)
+	mapOrigCopy[workspaceFrom] = workspaceTo
+	workspaceFrom.CopyBasicFields(workspaceTo)
+
+	//insertion point for the staging of instances referenced by pointers
+	if workspaceFrom.SelectedDiagram != nil {
+		workspaceTo.SelectedDiagram = CopyBranchSirRobin(mapOrigCopy, workspaceFrom.SelectedDiagram)
+	}
+	if workspaceFrom.A != nil {
+		workspaceTo.A = CopyBranchAWitch(mapOrigCopy, workspaceFrom.A)
+	}
+	if workspaceFrom.B != nil {
+		workspaceTo.B = CopyBranchKnightWhoSayNi(mapOrigCopy, workspaceFrom.B)
+	}
+	if workspaceFrom.C != nil {
+		workspaceTo.C = CopyBranchBlackKnightShape(mapOrigCopy, workspaceFrom.C)
+	}
+	if workspaceFrom.D != nil {
+		workspaceTo.D = CopyBranchKingArthurShape(mapOrigCopy, workspaceFrom.D)
+	}
+	if workspaceFrom.E != nil {
+		workspaceTo.E = CopyBranchTheNuteShape(mapOrigCopy, workspaceFrom.E)
+	}
+
+	//insertion point for the staging of instances referenced by slice of pointers
+
+	return
+}
 
 // UnstageBranch stages instance and apply UnstageBranch on all gongstruct instances that are
 // referenced by pointers or slices of pointers of the insance
@@ -1085,7 +1909,7 @@ func UnstageBranch[Type Gongstruct](stage *StageStruct, instance *Type) {
 func (stage *StageStruct) UnstageBranchAWitch(awitch *AWitch) {
 
 	// check if instance is already staged
-	if ! IsStaged(stage, awitch) {
+	if !IsStaged(stage, awitch) {
 		return
 	}
 
@@ -1103,7 +1927,7 @@ func (stage *StageStruct) UnstageBranchAWitch(awitch *AWitch) {
 func (stage *StageStruct) UnstageBranchBlackKnightShape(blackknightshape *BlackKnightShape) {
 
 	// check if instance is already staged
-	if ! IsStaged(stage, blackknightshape) {
+	if !IsStaged(stage, blackknightshape) {
 		return
 	}
 
@@ -1121,7 +1945,7 @@ func (stage *StageStruct) UnstageBranchBlackKnightShape(blackknightshape *BlackK
 func (stage *StageStruct) UnstageBranchBringYourDead(bringyourdead *BringYourDead) {
 
 	// check if instance is already staged
-	if ! IsStaged(stage, bringyourdead) {
+	if !IsStaged(stage, bringyourdead) {
 		return
 	}
 
@@ -1139,7 +1963,7 @@ func (stage *StageStruct) UnstageBranchBringYourDead(bringyourdead *BringYourDea
 func (stage *StageStruct) UnstageBranchDocument(document *Document) {
 
 	// check if instance is already staged
-	if ! IsStaged(stage, document) {
+	if !IsStaged(stage, document) {
 		return
 	}
 
@@ -1157,7 +1981,7 @@ func (stage *StageStruct) UnstageBranchDocument(document *Document) {
 func (stage *StageStruct) UnstageBranchDocumentUse(documentuse *DocumentUse) {
 
 	// check if instance is already staged
-	if ! IsStaged(stage, documentuse) {
+	if !IsStaged(stage, documentuse) {
 		return
 	}
 
@@ -1175,7 +1999,7 @@ func (stage *StageStruct) UnstageBranchDocumentUse(documentuse *DocumentUse) {
 func (stage *StageStruct) UnstageBranchGalahadThePure(galahadthepure *GalahadThePure) {
 
 	// check if instance is already staged
-	if ! IsStaged(stage, galahadthepure) {
+	if !IsStaged(stage, galahadthepure) {
 		return
 	}
 
@@ -1190,7 +2014,7 @@ func (stage *StageStruct) UnstageBranchGalahadThePure(galahadthepure *GalahadThe
 func (stage *StageStruct) UnstageBranchGeoObject(geoobject *GeoObject) {
 
 	// check if instance is already staged
-	if ! IsStaged(stage, geoobject) {
+	if !IsStaged(stage, geoobject) {
 		return
 	}
 
@@ -1205,7 +2029,7 @@ func (stage *StageStruct) UnstageBranchGeoObject(geoobject *GeoObject) {
 func (stage *StageStruct) UnstageBranchGeoObjectUse(geoobjectuse *GeoObjectUse) {
 
 	// check if instance is already staged
-	if ! IsStaged(stage, geoobjectuse) {
+	if !IsStaged(stage, geoobjectuse) {
 		return
 	}
 
@@ -1223,7 +2047,7 @@ func (stage *StageStruct) UnstageBranchGeoObjectUse(geoobjectuse *GeoObjectUse) 
 func (stage *StageStruct) UnstageBranchGroup(group *Group) {
 
 	// check if instance is already staged
-	if ! IsStaged(stage, group) {
+	if !IsStaged(stage, group) {
 		return
 	}
 
@@ -1241,7 +2065,7 @@ func (stage *StageStruct) UnstageBranchGroup(group *Group) {
 func (stage *StageStruct) UnstageBranchGroupUse(groupuse *GroupUse) {
 
 	// check if instance is already staged
-	if ! IsStaged(stage, groupuse) {
+	if !IsStaged(stage, groupuse) {
 		return
 	}
 
@@ -1259,7 +2083,7 @@ func (stage *StageStruct) UnstageBranchGroupUse(groupuse *GroupUse) {
 func (stage *StageStruct) UnstageBranchKingArthur(kingarthur *KingArthur) {
 
 	// check if instance is already staged
-	if ! IsStaged(stage, kingarthur) {
+	if !IsStaged(stage, kingarthur) {
 		return
 	}
 
@@ -1274,7 +2098,7 @@ func (stage *StageStruct) UnstageBranchKingArthur(kingarthur *KingArthur) {
 func (stage *StageStruct) UnstageBranchKingArthurShape(kingarthurshape *KingArthurShape) {
 
 	// check if instance is already staged
-	if ! IsStaged(stage, kingarthurshape) {
+	if !IsStaged(stage, kingarthurshape) {
 		return
 	}
 
@@ -1292,7 +2116,7 @@ func (stage *StageStruct) UnstageBranchKingArthurShape(kingarthurshape *KingArth
 func (stage *StageStruct) UnstageBranchKnightWhoSayNi(knightwhosayni *KnightWhoSayNi) {
 
 	// check if instance is already staged
-	if ! IsStaged(stage, knightwhosayni) {
+	if !IsStaged(stage, knightwhosayni) {
 		return
 	}
 
@@ -1310,7 +2134,7 @@ func (stage *StageStruct) UnstageBranchKnightWhoSayNi(knightwhosayni *KnightWhoS
 func (stage *StageStruct) UnstageBranchLancelot(lancelot *Lancelot) {
 
 	// check if instance is already staged
-	if ! IsStaged(stage, lancelot) {
+	if !IsStaged(stage, lancelot) {
 		return
 	}
 
@@ -1334,7 +2158,7 @@ func (stage *StageStruct) UnstageBranchLancelot(lancelot *Lancelot) {
 func (stage *StageStruct) UnstageBranchLancelotAgregation(lancelotagregation *LancelotAgregation) {
 
 	// check if instance is already staged
-	if ! IsStaged(stage, lancelotagregation) {
+	if !IsStaged(stage, lancelotagregation) {
 		return
 	}
 
@@ -1352,7 +2176,7 @@ func (stage *StageStruct) UnstageBranchLancelotAgregation(lancelotagregation *La
 func (stage *StageStruct) UnstageBranchLancelotAgregationUse(lancelotagregationuse *LancelotAgregationUse) {
 
 	// check if instance is already staged
-	if ! IsStaged(stage, lancelotagregationuse) {
+	if !IsStaged(stage, lancelotagregationuse) {
 		return
 	}
 
@@ -1370,7 +2194,7 @@ func (stage *StageStruct) UnstageBranchLancelotAgregationUse(lancelotagregationu
 func (stage *StageStruct) UnstageBranchLancelotCategory(lancelotcategory *LancelotCategory) {
 
 	// check if instance is already staged
-	if ! IsStaged(stage, lancelotcategory) {
+	if !IsStaged(stage, lancelotcategory) {
 		return
 	}
 
@@ -1388,7 +2212,7 @@ func (stage *StageStruct) UnstageBranchLancelotCategory(lancelotcategory *Lancel
 func (stage *StageStruct) UnstageBranchLancelotCategoryUse(lancelotcategoryuse *LancelotCategoryUse) {
 
 	// check if instance is already staged
-	if ! IsStaged(stage, lancelotcategoryuse) {
+	if !IsStaged(stage, lancelotcategoryuse) {
 		return
 	}
 
@@ -1406,7 +2230,7 @@ func (stage *StageStruct) UnstageBranchLancelotCategoryUse(lancelotcategoryuse *
 func (stage *StageStruct) UnstageBranchMapObject(mapobject *MapObject) {
 
 	// check if instance is already staged
-	if ! IsStaged(stage, mapobject) {
+	if !IsStaged(stage, mapobject) {
 		return
 	}
 
@@ -1421,7 +2245,7 @@ func (stage *StageStruct) UnstageBranchMapObject(mapobject *MapObject) {
 func (stage *StageStruct) UnstageBranchMapObjectUse(mapobjectuse *MapObjectUse) {
 
 	// check if instance is already staged
-	if ! IsStaged(stage, mapobjectuse) {
+	if !IsStaged(stage, mapobjectuse) {
 		return
 	}
 
@@ -1439,7 +2263,7 @@ func (stage *StageStruct) UnstageBranchMapObjectUse(mapobjectuse *MapObjectUse) 
 func (stage *StageStruct) UnstageBranchRepository(repository *Repository) {
 
 	// check if instance is already staged
-	if ! IsStaged(stage, repository) {
+	if !IsStaged(stage, repository) {
 		return
 	}
 
@@ -1460,7 +2284,7 @@ func (stage *StageStruct) UnstageBranchRepository(repository *Repository) {
 func (stage *StageStruct) UnstageBranchSirRobin(sirrobin *SirRobin) {
 
 	// check if instance is already staged
-	if ! IsStaged(stage, sirrobin) {
+	if !IsStaged(stage, sirrobin) {
 		return
 	}
 
@@ -1490,7 +2314,7 @@ func (stage *StageStruct) UnstageBranchSirRobin(sirrobin *SirRobin) {
 func (stage *StageStruct) UnstageBranchTheBridge(thebridge *TheBridge) {
 
 	// check if instance is already staged
-	if ! IsStaged(stage, thebridge) {
+	if !IsStaged(stage, thebridge) {
 		return
 	}
 
@@ -1517,7 +2341,7 @@ func (stage *StageStruct) UnstageBranchTheBridge(thebridge *TheBridge) {
 func (stage *StageStruct) UnstageBranchTheNuteShape(thenuteshape *TheNuteShape) {
 
 	// check if instance is already staged
-	if ! IsStaged(stage, thenuteshape) {
+	if !IsStaged(stage, thenuteshape) {
 		return
 	}
 
@@ -1541,7 +2365,7 @@ func (stage *StageStruct) UnstageBranchTheNuteShape(thenuteshape *TheNuteShape) 
 func (stage *StageStruct) UnstageBranchTheNuteTransition(thenutetransition *TheNuteTransition) {
 
 	// check if instance is already staged
-	if ! IsStaged(stage, thenutetransition) {
+	if !IsStaged(stage, thenutetransition) {
 		return
 	}
 
@@ -1562,7 +2386,7 @@ func (stage *StageStruct) UnstageBranchTheNuteTransition(thenutetransition *TheN
 func (stage *StageStruct) UnstageBranchUser(user *User) {
 
 	// check if instance is already staged
-	if ! IsStaged(stage, user) {
+	if !IsStaged(stage, user) {
 		return
 	}
 
@@ -1577,7 +2401,7 @@ func (stage *StageStruct) UnstageBranchUser(user *User) {
 func (stage *StageStruct) UnstageBranchUserUse(useruse *UserUse) {
 
 	// check if instance is already staged
-	if ! IsStaged(stage, useruse) {
+	if !IsStaged(stage, useruse) {
 		return
 	}
 
@@ -1595,7 +2419,7 @@ func (stage *StageStruct) UnstageBranchUserUse(useruse *UserUse) {
 func (stage *StageStruct) UnstageBranchWhatIsYourPreferedColor(whatisyourpreferedcolor *WhatIsYourPreferedColor) {
 
 	// check if instance is already staged
-	if ! IsStaged(stage, whatisyourpreferedcolor) {
+	if !IsStaged(stage, whatisyourpreferedcolor) {
 		return
 	}
 
@@ -1628,7 +2452,7 @@ func (stage *StageStruct) UnstageBranchWhatIsYourPreferedColor(whatisyourprefere
 func (stage *StageStruct) UnstageBranchWorkspace(workspace *Workspace) {
 
 	// check if instance is already staged
-	if ! IsStaged(stage, workspace) {
+	if !IsStaged(stage, workspace) {
 		return
 	}
 
@@ -1657,4 +2481,3 @@ func (stage *StageStruct) UnstageBranchWorkspace(workspace *Workspace) {
 	//insertion point for the staging of instances referenced by slice of pointers
 
 }
-

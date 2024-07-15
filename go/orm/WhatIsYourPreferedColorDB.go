@@ -38,6 +38,7 @@ type WhatIsYourPreferedColorAPI struct {
 	models.WhatIsYourPreferedColor_WOP
 
 	// encoding of pointers
+	// for API, it cannot be embedded
 	WhatIsYourPreferedColorPointersEncoding WhatIsYourPreferedColorPointersEncoding
 }
 
@@ -109,7 +110,9 @@ type WhatIsYourPreferedColorDB struct {
 	// Declation for basic field whatisyourpreferedcolorDB.IsNodeExpanded
 	// provide the sql storage for the boolan
 	IsNodeExpanded_Data sql.NullBool
+	
 	// encoding of pointers
+	// for GORM serialization, it is necessary to embed to Pointer Encoding declaration
 	WhatIsYourPreferedColorPointersEncoding
 }
 
@@ -287,14 +290,14 @@ func (backRepoWhatIsYourPreferedColor *BackRepoWhatIsYourPreferedColorStruct) Co
 		for _, sirrobinAssocEnd := range whatisyourpreferedcolor.Diagrams {
 			sirrobinAssocEnd_DB :=
 				backRepo.BackRepoSirRobin.GetSirRobinDBFromSirRobinPtr(sirrobinAssocEnd)
-
+			
 			// the stage might be inconsistant, meaning that the sirrobinAssocEnd_DB might
 			// be missing from the stage. In this case, the commit operation is robust
 			// An alternative would be to crash here to reveal the missing element.
 			if sirrobinAssocEnd_DB == nil {
 				continue
 			}
-
+			
 			whatisyourpreferedcolorDB.WhatIsYourPreferedColorPointersEncoding.Diagrams =
 				append(whatisyourpreferedcolorDB.WhatIsYourPreferedColorPointersEncoding.Diagrams, int(sirrobinAssocEnd_DB.ID))
 		}
@@ -305,14 +308,14 @@ func (backRepoWhatIsYourPreferedColor *BackRepoWhatIsYourPreferedColorStruct) Co
 		for _, kingarthurAssocEnd := range whatisyourpreferedcolor.KingArthurs {
 			kingarthurAssocEnd_DB :=
 				backRepo.BackRepoKingArthur.GetKingArthurDBFromKingArthurPtr(kingarthurAssocEnd)
-
+			
 			// the stage might be inconsistant, meaning that the kingarthurAssocEnd_DB might
 			// be missing from the stage. In this case, the commit operation is robust
 			// An alternative would be to crash here to reveal the missing element.
 			if kingarthurAssocEnd_DB == nil {
 				continue
 			}
-
+			
 			whatisyourpreferedcolorDB.WhatIsYourPreferedColorPointersEncoding.KingArthurs =
 				append(whatisyourpreferedcolorDB.WhatIsYourPreferedColorPointersEncoding.KingArthurs, int(kingarthurAssocEnd_DB.ID))
 		}
@@ -323,14 +326,14 @@ func (backRepoWhatIsYourPreferedColor *BackRepoWhatIsYourPreferedColorStruct) Co
 		for _, thenutetransitionAssocEnd := range whatisyourpreferedcolor.Nutes {
 			thenutetransitionAssocEnd_DB :=
 				backRepo.BackRepoTheNuteTransition.GetTheNuteTransitionDBFromTheNuteTransitionPtr(thenutetransitionAssocEnd)
-
+			
 			// the stage might be inconsistant, meaning that the thenutetransitionAssocEnd_DB might
 			// be missing from the stage. In this case, the commit operation is robust
 			// An alternative would be to crash here to reveal the missing element.
 			if thenutetransitionAssocEnd_DB == nil {
 				continue
 			}
-
+			
 			whatisyourpreferedcolorDB.WhatIsYourPreferedColorPointersEncoding.Nutes =
 				append(whatisyourpreferedcolorDB.WhatIsYourPreferedColorPointersEncoding.Nutes, int(thenutetransitionAssocEnd_DB.ID))
 		}
@@ -341,14 +344,14 @@ func (backRepoWhatIsYourPreferedColor *BackRepoWhatIsYourPreferedColorStruct) Co
 		for _, galahadthepureAssocEnd := range whatisyourpreferedcolor.Galahard {
 			galahadthepureAssocEnd_DB :=
 				backRepo.BackRepoGalahadThePure.GetGalahadThePureDBFromGalahadThePurePtr(galahadthepureAssocEnd)
-
+			
 			// the stage might be inconsistant, meaning that the galahadthepureAssocEnd_DB might
 			// be missing from the stage. In this case, the commit operation is robust
 			// An alternative would be to crash here to reveal the missing element.
 			if galahadthepureAssocEnd_DB == nil {
 				continue
 			}
-
+			
 			whatisyourpreferedcolorDB.WhatIsYourPreferedColorPointersEncoding.Galahard =
 				append(whatisyourpreferedcolorDB.WhatIsYourPreferedColorPointersEncoding.Galahard, int(galahadthepureAssocEnd_DB.ID))
 		}
@@ -359,14 +362,14 @@ func (backRepoWhatIsYourPreferedColor *BackRepoWhatIsYourPreferedColorStruct) Co
 		for _, lancelotAssocEnd := range whatisyourpreferedcolor.Lancelots {
 			lancelotAssocEnd_DB :=
 				backRepo.BackRepoLancelot.GetLancelotDBFromLancelotPtr(lancelotAssocEnd)
-
+			
 			// the stage might be inconsistant, meaning that the lancelotAssocEnd_DB might
 			// be missing from the stage. In this case, the commit operation is robust
 			// An alternative would be to crash here to reveal the missing element.
 			if lancelotAssocEnd_DB == nil {
 				continue
 			}
-
+			
 			whatisyourpreferedcolorDB.WhatIsYourPreferedColorPointersEncoding.Lancelots =
 				append(whatisyourpreferedcolorDB.WhatIsYourPreferedColorPointersEncoding.Lancelots, int(lancelotAssocEnd_DB.ID))
 		}
@@ -377,14 +380,14 @@ func (backRepoWhatIsYourPreferedColor *BackRepoWhatIsYourPreferedColorStruct) Co
 		for _, bringyourdeadAssocEnd := range whatisyourpreferedcolor.BringYourDeadarameters {
 			bringyourdeadAssocEnd_DB :=
 				backRepo.BackRepoBringYourDead.GetBringYourDeadDBFromBringYourDeadPtr(bringyourdeadAssocEnd)
-
+			
 			// the stage might be inconsistant, meaning that the bringyourdeadAssocEnd_DB might
 			// be missing from the stage. In this case, the commit operation is robust
 			// An alternative would be to crash here to reveal the missing element.
 			if bringyourdeadAssocEnd_DB == nil {
 				continue
 			}
-
+			
 			whatisyourpreferedcolorDB.WhatIsYourPreferedColorPointersEncoding.BringYourDeadarameters =
 				append(whatisyourpreferedcolorDB.WhatIsYourPreferedColorPointersEncoding.BringYourDeadarameters, int(bringyourdeadAssocEnd_DB.ID))
 		}

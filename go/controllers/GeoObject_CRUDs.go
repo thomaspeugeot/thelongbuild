@@ -55,10 +55,10 @@ func (controller *Controller) GetGeoObjects(c *gin.Context) {
 	// source slice
 	var geoobjectDBs []orm.GeoObjectDB
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("GetGeoObjects", "GONG__StackPath", stackPath)
@@ -116,11 +116,12 @@ func (controller *Controller) GetGeoObjects(c *gin.Context) {
 func (controller *Controller) PostGeoObject(c *gin.Context) {
 
 	mutexGeoObject.Lock()
+	defer mutexGeoObject.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("PostGeoObjects", "GONG__StackPath", stackPath)
@@ -173,8 +174,6 @@ func (controller *Controller) PostGeoObject(c *gin.Context) {
 	backRepo.IncrementPushFromFrontNb()
 
 	c.JSON(http.StatusOK, geoobjectDB)
-
-	mutexGeoObject.Unlock()
 }
 
 // GetGeoObject
@@ -189,10 +188,10 @@ func (controller *Controller) PostGeoObject(c *gin.Context) {
 //	200: geoobjectDBResponse
 func (controller *Controller) GetGeoObject(c *gin.Context) {
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("GetGeoObject", "GONG__StackPath", stackPath)
@@ -236,11 +235,12 @@ func (controller *Controller) GetGeoObject(c *gin.Context) {
 func (controller *Controller) UpdateGeoObject(c *gin.Context) {
 
 	mutexGeoObject.Lock()
+	defer mutexGeoObject.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("UpdateGeoObject", "GONG__StackPath", stackPath)
@@ -310,8 +310,6 @@ func (controller *Controller) UpdateGeoObject(c *gin.Context) {
 
 	// return status OK with the marshalling of the the geoobjectDB
 	c.JSON(http.StatusOK, geoobjectDB)
-
-	mutexGeoObject.Unlock()
 }
 
 // DeleteGeoObject
@@ -326,11 +324,12 @@ func (controller *Controller) UpdateGeoObject(c *gin.Context) {
 func (controller *Controller) DeleteGeoObject(c *gin.Context) {
 
 	mutexGeoObject.Lock()
+	defer mutexGeoObject.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("DeleteGeoObject", "GONG__StackPath", stackPath)
@@ -371,6 +370,4 @@ func (controller *Controller) DeleteGeoObject(c *gin.Context) {
 	backRepo.IncrementPushFromFrontNb()
 
 	c.JSON(http.StatusOK, gin.H{"data": true})
-
-	mutexGeoObject.Unlock()
 }

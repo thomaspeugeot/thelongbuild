@@ -38,6 +38,7 @@ type RepositoryAPI struct {
 	models.Repository_WOP
 
 	// encoding of pointers
+	// for API, it cannot be embedded
 	RepositoryPointersEncoding RepositoryPointersEncoding
 }
 
@@ -66,7 +67,9 @@ type RepositoryDB struct {
 
 	// Declation for basic field repositoryDB.Name
 	Name_Data sql.NullString
+	
 	// encoding of pointers
+	// for GORM serialization, it is necessary to embed to Pointer Encoding declaration
 	RepositoryPointersEncoding
 }
 
@@ -220,14 +223,14 @@ func (backRepoRepository *BackRepoRepositoryStruct) CommitPhaseTwoInstance(backR
 		for _, knightwhosayniAssocEnd := range repository.ParameterUse {
 			knightwhosayniAssocEnd_DB :=
 				backRepo.BackRepoKnightWhoSayNi.GetKnightWhoSayNiDBFromKnightWhoSayNiPtr(knightwhosayniAssocEnd)
-
+			
 			// the stage might be inconsistant, meaning that the knightwhosayniAssocEnd_DB might
 			// be missing from the stage. In this case, the commit operation is robust
 			// An alternative would be to crash here to reveal the missing element.
 			if knightwhosayniAssocEnd_DB == nil {
 				continue
 			}
-
+			
 			repositoryDB.RepositoryPointersEncoding.ParameterUse =
 				append(repositoryDB.RepositoryPointersEncoding.ParameterUse, int(knightwhosayniAssocEnd_DB.ID))
 		}
@@ -238,14 +241,14 @@ func (backRepoRepository *BackRepoRepositoryStruct) CommitPhaseTwoInstance(backR
 		for _, groupuseAssocEnd := range repository.GroupUse {
 			groupuseAssocEnd_DB :=
 				backRepo.BackRepoGroupUse.GetGroupUseDBFromGroupUsePtr(groupuseAssocEnd)
-
+			
 			// the stage might be inconsistant, meaning that the groupuseAssocEnd_DB might
 			// be missing from the stage. In this case, the commit operation is robust
 			// An alternative would be to crash here to reveal the missing element.
 			if groupuseAssocEnd_DB == nil {
 				continue
 			}
-
+			
 			repositoryDB.RepositoryPointersEncoding.GroupUse =
 				append(repositoryDB.RepositoryPointersEncoding.GroupUse, int(groupuseAssocEnd_DB.ID))
 		}

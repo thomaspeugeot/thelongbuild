@@ -38,6 +38,7 @@ type BlackKnightShapeAPI struct {
 	models.BlackKnightShape_WOP
 
 	// encoding of pointers
+	// for API, it cannot be embedded
 	BlackKnightShapePointersEncoding BlackKnightShapePointersEncoding
 }
 
@@ -94,7 +95,9 @@ type BlackKnightShapeDB struct {
 
 	// Declation for basic field blackknightshapeDB.RX
 	RX_Data sql.NullFloat64
+	
 	// encoding of pointers
+	// for GORM serialization, it is necessary to embed to Pointer Encoding declaration
 	BlackKnightShapePointersEncoding
 }
 

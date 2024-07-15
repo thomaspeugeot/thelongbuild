@@ -55,10 +55,10 @@ func (controller *Controller) GetTheBridges(c *gin.Context) {
 	// source slice
 	var thebridgeDBs []orm.TheBridgeDB
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("GetTheBridges", "GONG__StackPath", stackPath)
@@ -116,11 +116,12 @@ func (controller *Controller) GetTheBridges(c *gin.Context) {
 func (controller *Controller) PostTheBridge(c *gin.Context) {
 
 	mutexTheBridge.Lock()
+	defer mutexTheBridge.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("PostTheBridges", "GONG__StackPath", stackPath)
@@ -173,8 +174,6 @@ func (controller *Controller) PostTheBridge(c *gin.Context) {
 	backRepo.IncrementPushFromFrontNb()
 
 	c.JSON(http.StatusOK, thebridgeDB)
-
-	mutexTheBridge.Unlock()
 }
 
 // GetTheBridge
@@ -189,10 +188,10 @@ func (controller *Controller) PostTheBridge(c *gin.Context) {
 //	200: thebridgeDBResponse
 func (controller *Controller) GetTheBridge(c *gin.Context) {
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("GetTheBridge", "GONG__StackPath", stackPath)
@@ -236,11 +235,12 @@ func (controller *Controller) GetTheBridge(c *gin.Context) {
 func (controller *Controller) UpdateTheBridge(c *gin.Context) {
 
 	mutexTheBridge.Lock()
+	defer mutexTheBridge.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("UpdateTheBridge", "GONG__StackPath", stackPath)
@@ -310,8 +310,6 @@ func (controller *Controller) UpdateTheBridge(c *gin.Context) {
 
 	// return status OK with the marshalling of the the thebridgeDB
 	c.JSON(http.StatusOK, thebridgeDB)
-
-	mutexTheBridge.Unlock()
 }
 
 // DeleteTheBridge
@@ -326,11 +324,12 @@ func (controller *Controller) UpdateTheBridge(c *gin.Context) {
 func (controller *Controller) DeleteTheBridge(c *gin.Context) {
 
 	mutexTheBridge.Lock()
+	defer mutexTheBridge.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("DeleteTheBridge", "GONG__StackPath", stackPath)
@@ -371,6 +370,4 @@ func (controller *Controller) DeleteTheBridge(c *gin.Context) {
 	backRepo.IncrementPushFromFrontNb()
 
 	c.JSON(http.StatusOK, gin.H{"data": true})
-
-	mutexTheBridge.Unlock()
 }

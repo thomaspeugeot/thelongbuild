@@ -55,10 +55,10 @@ func (controller *Controller) GetKnightWhoSayNis(c *gin.Context) {
 	// source slice
 	var knightwhosayniDBs []orm.KnightWhoSayNiDB
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("GetKnightWhoSayNis", "GONG__StackPath", stackPath)
@@ -116,11 +116,12 @@ func (controller *Controller) GetKnightWhoSayNis(c *gin.Context) {
 func (controller *Controller) PostKnightWhoSayNi(c *gin.Context) {
 
 	mutexKnightWhoSayNi.Lock()
+	defer mutexKnightWhoSayNi.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("PostKnightWhoSayNis", "GONG__StackPath", stackPath)
@@ -173,8 +174,6 @@ func (controller *Controller) PostKnightWhoSayNi(c *gin.Context) {
 	backRepo.IncrementPushFromFrontNb()
 
 	c.JSON(http.StatusOK, knightwhosayniDB)
-
-	mutexKnightWhoSayNi.Unlock()
 }
 
 // GetKnightWhoSayNi
@@ -189,10 +188,10 @@ func (controller *Controller) PostKnightWhoSayNi(c *gin.Context) {
 //	200: knightwhosayniDBResponse
 func (controller *Controller) GetKnightWhoSayNi(c *gin.Context) {
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("GetKnightWhoSayNi", "GONG__StackPath", stackPath)
@@ -236,11 +235,12 @@ func (controller *Controller) GetKnightWhoSayNi(c *gin.Context) {
 func (controller *Controller) UpdateKnightWhoSayNi(c *gin.Context) {
 
 	mutexKnightWhoSayNi.Lock()
+	defer mutexKnightWhoSayNi.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("UpdateKnightWhoSayNi", "GONG__StackPath", stackPath)
@@ -310,8 +310,6 @@ func (controller *Controller) UpdateKnightWhoSayNi(c *gin.Context) {
 
 	// return status OK with the marshalling of the the knightwhosayniDB
 	c.JSON(http.StatusOK, knightwhosayniDB)
-
-	mutexKnightWhoSayNi.Unlock()
 }
 
 // DeleteKnightWhoSayNi
@@ -326,11 +324,12 @@ func (controller *Controller) UpdateKnightWhoSayNi(c *gin.Context) {
 func (controller *Controller) DeleteKnightWhoSayNi(c *gin.Context) {
 
 	mutexKnightWhoSayNi.Lock()
+	defer mutexKnightWhoSayNi.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("DeleteKnightWhoSayNi", "GONG__StackPath", stackPath)
@@ -371,6 +370,4 @@ func (controller *Controller) DeleteKnightWhoSayNi(c *gin.Context) {
 	backRepo.IncrementPushFromFrontNb()
 
 	c.JSON(http.StatusOK, gin.H{"data": true})
-
-	mutexKnightWhoSayNi.Unlock()
 }

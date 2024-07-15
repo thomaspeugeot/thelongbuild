@@ -186,8 +186,8 @@ type StageStruct struct {
 	Lancelots_mapString map[string]*Lancelot
 
 	// insertion point for slice of pointers maps
-	Lancelot_GroupUse_reverseMap     map[*GroupUse]*Lancelot
-	Lancelot_DocumentUse_reverseMap  map[*DocumentUse]*Lancelot
+	Lancelot_GroupUse_reverseMap map[*GroupUse]*Lancelot
+	Lancelot_DocumentUse_reverseMap map[*DocumentUse]*Lancelot
 	Lancelot_GeoObjectUse_reverseMap map[*GeoObjectUse]*Lancelot
 
 	OnAfterLancelotCreateCallback OnAfterCreateInterface[Lancelot]
@@ -262,7 +262,7 @@ type StageStruct struct {
 
 	// insertion point for slice of pointers maps
 	Repository_ParameterUse_reverseMap map[*KnightWhoSayNi]*Repository
-	Repository_GroupUse_reverseMap     map[*GroupUse]*Repository
+	Repository_GroupUse_reverseMap map[*GroupUse]*Repository
 
 	OnAfterRepositoryCreateCallback OnAfterCreateInterface[Repository]
 	OnAfterRepositoryUpdateCallback OnAfterUpdateInterface[Repository]
@@ -273,11 +273,11 @@ type StageStruct struct {
 	SirRobins_mapString map[string]*SirRobin
 
 	// insertion point for slice of pointers maps
-	SirRobin_Witches_reverseMap           map[*AWitch]*SirRobin
-	SirRobin_Arthurs_reverseMap           map[*KingArthurShape]*SirRobin
-	SirRobin_KnightWhoSayNis_reverseMap   map[*KnightWhoSayNi]*SirRobin
+	SirRobin_Witches_reverseMap map[*AWitch]*SirRobin
+	SirRobin_Arthurs_reverseMap map[*KingArthurShape]*SirRobin
+	SirRobin_KnightWhoSayNis_reverseMap map[*KnightWhoSayNi]*SirRobin
 	SirRobin_BlackKnightShapes_reverseMap map[*BlackKnightShape]*SirRobin
-	SirRobin_TheNuteShapes_reverseMap     map[*TheNuteShape]*SirRobin
+	SirRobin_TheNuteShapes_reverseMap map[*TheNuteShape]*SirRobin
 
 	OnAfterSirRobinCreateCallback OnAfterCreateInterface[SirRobin]
 	OnAfterSirRobinUpdateCallback OnAfterUpdateInterface[SirRobin]
@@ -289,9 +289,9 @@ type StageStruct struct {
 
 	// insertion point for slice of pointers maps
 	TheBridge_WhatIsYourPreferedColor_reverseMap map[*WhatIsYourPreferedColor]*TheBridge
-	TheBridge_GroupUse_reverseMap                map[*GroupUse]*TheBridge
-	TheBridge_GeoObjectUse_reverseMap            map[*GeoObjectUse]*TheBridge
-	TheBridge_MapUse_reverseMap                  map[*MapObjectUse]*TheBridge
+	TheBridge_GroupUse_reverseMap map[*GroupUse]*TheBridge
+	TheBridge_GeoObjectUse_reverseMap map[*GeoObjectUse]*TheBridge
+	TheBridge_MapUse_reverseMap map[*MapObjectUse]*TheBridge
 
 	OnAfterTheBridgeCreateCallback OnAfterCreateInterface[TheBridge]
 	OnAfterTheBridgeUpdateCallback OnAfterUpdateInterface[TheBridge]
@@ -342,11 +342,11 @@ type StageStruct struct {
 	WhatIsYourPreferedColors_mapString map[string]*WhatIsYourPreferedColor
 
 	// insertion point for slice of pointers maps
-	WhatIsYourPreferedColor_Diagrams_reverseMap               map[*SirRobin]*WhatIsYourPreferedColor
-	WhatIsYourPreferedColor_KingArthurs_reverseMap            map[*KingArthur]*WhatIsYourPreferedColor
-	WhatIsYourPreferedColor_Nutes_reverseMap                  map[*TheNuteTransition]*WhatIsYourPreferedColor
-	WhatIsYourPreferedColor_Galahard_reverseMap               map[*GalahadThePure]*WhatIsYourPreferedColor
-	WhatIsYourPreferedColor_Lancelots_reverseMap              map[*Lancelot]*WhatIsYourPreferedColor
+	WhatIsYourPreferedColor_Diagrams_reverseMap map[*SirRobin]*WhatIsYourPreferedColor
+	WhatIsYourPreferedColor_KingArthurs_reverseMap map[*KingArthur]*WhatIsYourPreferedColor
+	WhatIsYourPreferedColor_Nutes_reverseMap map[*TheNuteTransition]*WhatIsYourPreferedColor
+	WhatIsYourPreferedColor_Galahard_reverseMap map[*GalahadThePure]*WhatIsYourPreferedColor
+	WhatIsYourPreferedColor_Lancelots_reverseMap map[*Lancelot]*WhatIsYourPreferedColor
 	WhatIsYourPreferedColor_BringYourDeadarameters_reverseMap map[*BringYourDead]*WhatIsYourPreferedColor
 
 	OnAfterWhatIsYourPreferedColorCreateCallback OnAfterCreateInterface[WhatIsYourPreferedColor]

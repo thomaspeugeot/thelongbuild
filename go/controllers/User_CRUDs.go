@@ -55,10 +55,10 @@ func (controller *Controller) GetUsers(c *gin.Context) {
 	// source slice
 	var userDBs []orm.UserDB
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("GetUsers", "GONG__StackPath", stackPath)
@@ -116,11 +116,12 @@ func (controller *Controller) GetUsers(c *gin.Context) {
 func (controller *Controller) PostUser(c *gin.Context) {
 
 	mutexUser.Lock()
+	defer mutexUser.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("PostUsers", "GONG__StackPath", stackPath)
@@ -173,8 +174,6 @@ func (controller *Controller) PostUser(c *gin.Context) {
 	backRepo.IncrementPushFromFrontNb()
 
 	c.JSON(http.StatusOK, userDB)
-
-	mutexUser.Unlock()
 }
 
 // GetUser
@@ -189,10 +188,10 @@ func (controller *Controller) PostUser(c *gin.Context) {
 //	200: userDBResponse
 func (controller *Controller) GetUser(c *gin.Context) {
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("GetUser", "GONG__StackPath", stackPath)
@@ -236,11 +235,12 @@ func (controller *Controller) GetUser(c *gin.Context) {
 func (controller *Controller) UpdateUser(c *gin.Context) {
 
 	mutexUser.Lock()
+	defer mutexUser.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("UpdateUser", "GONG__StackPath", stackPath)
@@ -310,8 +310,6 @@ func (controller *Controller) UpdateUser(c *gin.Context) {
 
 	// return status OK with the marshalling of the the userDB
 	c.JSON(http.StatusOK, userDB)
-
-	mutexUser.Unlock()
 }
 
 // DeleteUser
@@ -326,11 +324,12 @@ func (controller *Controller) UpdateUser(c *gin.Context) {
 func (controller *Controller) DeleteUser(c *gin.Context) {
 
 	mutexUser.Lock()
+	defer mutexUser.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("DeleteUser", "GONG__StackPath", stackPath)
@@ -371,6 +370,4 @@ func (controller *Controller) DeleteUser(c *gin.Context) {
 	backRepo.IncrementPushFromFrontNb()
 
 	c.JSON(http.StatusOK, gin.H{"data": true})
-
-	mutexUser.Unlock()
 }

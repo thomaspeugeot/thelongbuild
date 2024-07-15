@@ -55,10 +55,10 @@ func (controller *Controller) GetWhatIsYourPreferedColors(c *gin.Context) {
 	// source slice
 	var whatisyourpreferedcolorDBs []orm.WhatIsYourPreferedColorDB
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("GetWhatIsYourPreferedColors", "GONG__StackPath", stackPath)
@@ -116,11 +116,12 @@ func (controller *Controller) GetWhatIsYourPreferedColors(c *gin.Context) {
 func (controller *Controller) PostWhatIsYourPreferedColor(c *gin.Context) {
 
 	mutexWhatIsYourPreferedColor.Lock()
+	defer mutexWhatIsYourPreferedColor.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("PostWhatIsYourPreferedColors", "GONG__StackPath", stackPath)
@@ -173,8 +174,6 @@ func (controller *Controller) PostWhatIsYourPreferedColor(c *gin.Context) {
 	backRepo.IncrementPushFromFrontNb()
 
 	c.JSON(http.StatusOK, whatisyourpreferedcolorDB)
-
-	mutexWhatIsYourPreferedColor.Unlock()
 }
 
 // GetWhatIsYourPreferedColor
@@ -189,10 +188,10 @@ func (controller *Controller) PostWhatIsYourPreferedColor(c *gin.Context) {
 //	200: whatisyourpreferedcolorDBResponse
 func (controller *Controller) GetWhatIsYourPreferedColor(c *gin.Context) {
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("GetWhatIsYourPreferedColor", "GONG__StackPath", stackPath)
@@ -236,11 +235,12 @@ func (controller *Controller) GetWhatIsYourPreferedColor(c *gin.Context) {
 func (controller *Controller) UpdateWhatIsYourPreferedColor(c *gin.Context) {
 
 	mutexWhatIsYourPreferedColor.Lock()
+	defer mutexWhatIsYourPreferedColor.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("UpdateWhatIsYourPreferedColor", "GONG__StackPath", stackPath)
@@ -310,8 +310,6 @@ func (controller *Controller) UpdateWhatIsYourPreferedColor(c *gin.Context) {
 
 	// return status OK with the marshalling of the the whatisyourpreferedcolorDB
 	c.JSON(http.StatusOK, whatisyourpreferedcolorDB)
-
-	mutexWhatIsYourPreferedColor.Unlock()
 }
 
 // DeleteWhatIsYourPreferedColor
@@ -326,11 +324,12 @@ func (controller *Controller) UpdateWhatIsYourPreferedColor(c *gin.Context) {
 func (controller *Controller) DeleteWhatIsYourPreferedColor(c *gin.Context) {
 
 	mutexWhatIsYourPreferedColor.Lock()
+	defer mutexWhatIsYourPreferedColor.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("DeleteWhatIsYourPreferedColor", "GONG__StackPath", stackPath)
@@ -371,6 +370,4 @@ func (controller *Controller) DeleteWhatIsYourPreferedColor(c *gin.Context) {
 	backRepo.IncrementPushFromFrontNb()
 
 	c.JSON(http.StatusOK, gin.H{"data": true})
-
-	mutexWhatIsYourPreferedColor.Unlock()
 }

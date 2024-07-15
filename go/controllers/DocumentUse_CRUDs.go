@@ -55,10 +55,10 @@ func (controller *Controller) GetDocumentUses(c *gin.Context) {
 	// source slice
 	var documentuseDBs []orm.DocumentUseDB
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("GetDocumentUses", "GONG__StackPath", stackPath)
@@ -116,11 +116,12 @@ func (controller *Controller) GetDocumentUses(c *gin.Context) {
 func (controller *Controller) PostDocumentUse(c *gin.Context) {
 
 	mutexDocumentUse.Lock()
+	defer mutexDocumentUse.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("PostDocumentUses", "GONG__StackPath", stackPath)
@@ -173,8 +174,6 @@ func (controller *Controller) PostDocumentUse(c *gin.Context) {
 	backRepo.IncrementPushFromFrontNb()
 
 	c.JSON(http.StatusOK, documentuseDB)
-
-	mutexDocumentUse.Unlock()
 }
 
 // GetDocumentUse
@@ -189,10 +188,10 @@ func (controller *Controller) PostDocumentUse(c *gin.Context) {
 //	200: documentuseDBResponse
 func (controller *Controller) GetDocumentUse(c *gin.Context) {
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("GetDocumentUse", "GONG__StackPath", stackPath)
@@ -236,11 +235,12 @@ func (controller *Controller) GetDocumentUse(c *gin.Context) {
 func (controller *Controller) UpdateDocumentUse(c *gin.Context) {
 
 	mutexDocumentUse.Lock()
+	defer mutexDocumentUse.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("UpdateDocumentUse", "GONG__StackPath", stackPath)
@@ -310,8 +310,6 @@ func (controller *Controller) UpdateDocumentUse(c *gin.Context) {
 
 	// return status OK with the marshalling of the the documentuseDB
 	c.JSON(http.StatusOK, documentuseDB)
-
-	mutexDocumentUse.Unlock()
 }
 
 // DeleteDocumentUse
@@ -326,11 +324,12 @@ func (controller *Controller) UpdateDocumentUse(c *gin.Context) {
 func (controller *Controller) DeleteDocumentUse(c *gin.Context) {
 
 	mutexDocumentUse.Lock()
+	defer mutexDocumentUse.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("DeleteDocumentUse", "GONG__StackPath", stackPath)
@@ -371,6 +370,4 @@ func (controller *Controller) DeleteDocumentUse(c *gin.Context) {
 	backRepo.IncrementPushFromFrontNb()
 
 	c.JSON(http.StatusOK, gin.H{"data": true})
-
-	mutexDocumentUse.Unlock()
 }

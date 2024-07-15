@@ -38,6 +38,7 @@ type LancelotAgregationUseAPI struct {
 	models.LancelotAgregationUse_WOP
 
 	// encoding of pointers
+	// for API, it cannot be embedded
 	LancelotAgregationUsePointersEncoding LancelotAgregationUsePointersEncoding
 }
 
@@ -64,7 +65,9 @@ type LancelotAgregationUseDB struct {
 
 	// Declation for basic field lancelotagregationuseDB.Name
 	Name_Data sql.NullString
+	
 	// encoding of pointers
+	// for GORM serialization, it is necessary to embed to Pointer Encoding declaration
 	LancelotAgregationUsePointersEncoding
 }
 

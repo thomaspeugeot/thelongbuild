@@ -38,6 +38,7 @@ type LancelotAPI struct {
 	models.Lancelot_WOP
 
 	// encoding of pointers
+	// for API, it cannot be embedded
 	LancelotPointersEncoding LancelotPointersEncoding
 }
 
@@ -75,7 +76,9 @@ type LancelotDB struct {
 
 	// Declation for basic field lancelotDB.Description
 	Description_Data sql.NullString
+	
 	// encoding of pointers
+	// for GORM serialization, it is necessary to embed to Pointer Encoding declaration
 	LancelotPointersEncoding
 }
 
@@ -235,14 +238,14 @@ func (backRepoLancelot *BackRepoLancelotStruct) CommitPhaseTwoInstance(backRepo 
 		for _, groupuseAssocEnd := range lancelot.GroupUse {
 			groupuseAssocEnd_DB :=
 				backRepo.BackRepoGroupUse.GetGroupUseDBFromGroupUsePtr(groupuseAssocEnd)
-
+			
 			// the stage might be inconsistant, meaning that the groupuseAssocEnd_DB might
 			// be missing from the stage. In this case, the commit operation is robust
 			// An alternative would be to crash here to reveal the missing element.
 			if groupuseAssocEnd_DB == nil {
 				continue
 			}
-
+			
 			lancelotDB.LancelotPointersEncoding.GroupUse =
 				append(lancelotDB.LancelotPointersEncoding.GroupUse, int(groupuseAssocEnd_DB.ID))
 		}
@@ -253,14 +256,14 @@ func (backRepoLancelot *BackRepoLancelotStruct) CommitPhaseTwoInstance(backRepo 
 		for _, documentuseAssocEnd := range lancelot.DocumentUse {
 			documentuseAssocEnd_DB :=
 				backRepo.BackRepoDocumentUse.GetDocumentUseDBFromDocumentUsePtr(documentuseAssocEnd)
-
+			
 			// the stage might be inconsistant, meaning that the documentuseAssocEnd_DB might
 			// be missing from the stage. In this case, the commit operation is robust
 			// An alternative would be to crash here to reveal the missing element.
 			if documentuseAssocEnd_DB == nil {
 				continue
 			}
-
+			
 			lancelotDB.LancelotPointersEncoding.DocumentUse =
 				append(lancelotDB.LancelotPointersEncoding.DocumentUse, int(documentuseAssocEnd_DB.ID))
 		}
@@ -271,14 +274,14 @@ func (backRepoLancelot *BackRepoLancelotStruct) CommitPhaseTwoInstance(backRepo 
 		for _, geoobjectuseAssocEnd := range lancelot.GeoObjectUse {
 			geoobjectuseAssocEnd_DB :=
 				backRepo.BackRepoGeoObjectUse.GetGeoObjectUseDBFromGeoObjectUsePtr(geoobjectuseAssocEnd)
-
+			
 			// the stage might be inconsistant, meaning that the geoobjectuseAssocEnd_DB might
 			// be missing from the stage. In this case, the commit operation is robust
 			// An alternative would be to crash here to reveal the missing element.
 			if geoobjectuseAssocEnd_DB == nil {
 				continue
 			}
-
+			
 			lancelotDB.LancelotPointersEncoding.GeoObjectUse =
 				append(lancelotDB.LancelotPointersEncoding.GeoObjectUse, int(geoobjectuseAssocEnd_DB.ID))
 		}

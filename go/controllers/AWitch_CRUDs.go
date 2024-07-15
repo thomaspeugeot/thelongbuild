@@ -55,10 +55,10 @@ func (controller *Controller) GetAWitchs(c *gin.Context) {
 	// source slice
 	var awitchDBs []orm.AWitchDB
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("GetAWitchs", "GONG__StackPath", stackPath)
@@ -116,11 +116,12 @@ func (controller *Controller) GetAWitchs(c *gin.Context) {
 func (controller *Controller) PostAWitch(c *gin.Context) {
 
 	mutexAWitch.Lock()
+	defer mutexAWitch.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("PostAWitchs", "GONG__StackPath", stackPath)
@@ -173,8 +174,6 @@ func (controller *Controller) PostAWitch(c *gin.Context) {
 	backRepo.IncrementPushFromFrontNb()
 
 	c.JSON(http.StatusOK, awitchDB)
-
-	mutexAWitch.Unlock()
 }
 
 // GetAWitch
@@ -189,10 +188,10 @@ func (controller *Controller) PostAWitch(c *gin.Context) {
 //	200: awitchDBResponse
 func (controller *Controller) GetAWitch(c *gin.Context) {
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("GetAWitch", "GONG__StackPath", stackPath)
@@ -236,11 +235,12 @@ func (controller *Controller) GetAWitch(c *gin.Context) {
 func (controller *Controller) UpdateAWitch(c *gin.Context) {
 
 	mutexAWitch.Lock()
+	defer mutexAWitch.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("UpdateAWitch", "GONG__StackPath", stackPath)
@@ -310,8 +310,6 @@ func (controller *Controller) UpdateAWitch(c *gin.Context) {
 
 	// return status OK with the marshalling of the the awitchDB
 	c.JSON(http.StatusOK, awitchDB)
-
-	mutexAWitch.Unlock()
 }
 
 // DeleteAWitch
@@ -326,11 +324,12 @@ func (controller *Controller) UpdateAWitch(c *gin.Context) {
 func (controller *Controller) DeleteAWitch(c *gin.Context) {
 
 	mutexAWitch.Lock()
+	defer mutexAWitch.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("DeleteAWitch", "GONG__StackPath", stackPath)
@@ -371,6 +370,4 @@ func (controller *Controller) DeleteAWitch(c *gin.Context) {
 	backRepo.IncrementPushFromFrontNb()
 
 	c.JSON(http.StatusOK, gin.H{"data": true})
-
-	mutexAWitch.Unlock()
 }

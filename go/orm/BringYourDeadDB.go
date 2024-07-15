@@ -38,6 +38,7 @@ type BringYourDeadAPI struct {
 	models.BringYourDead_WOP
 
 	// encoding of pointers
+	// for API, it cannot be embedded
 	BringYourDeadPointersEncoding BringYourDeadPointersEncoding
 }
 
@@ -69,7 +70,9 @@ type BringYourDeadDB struct {
 
 	// Declation for basic field bringyourdeadDB.Description
 	Description_Data sql.NullString
+	
 	// encoding of pointers
+	// for GORM serialization, it is necessary to embed to Pointer Encoding declaration
 	BringYourDeadPointersEncoding
 }
 
@@ -229,14 +232,14 @@ func (backRepoBringYourDead *BackRepoBringYourDeadStruct) CommitPhaseTwoInstance
 		for _, lancelotAssocEnd := range bringyourdead.Lancelots {
 			lancelotAssocEnd_DB :=
 				backRepo.BackRepoLancelot.GetLancelotDBFromLancelotPtr(lancelotAssocEnd)
-
+			
 			// the stage might be inconsistant, meaning that the lancelotAssocEnd_DB might
 			// be missing from the stage. In this case, the commit operation is robust
 			// An alternative would be to crash here to reveal the missing element.
 			if lancelotAssocEnd_DB == nil {
 				continue
 			}
-
+			
 			bringyourdeadDB.BringYourDeadPointersEncoding.Lancelots =
 				append(bringyourdeadDB.BringYourDeadPointersEncoding.Lancelots, int(lancelotAssocEnd_DB.ID))
 		}

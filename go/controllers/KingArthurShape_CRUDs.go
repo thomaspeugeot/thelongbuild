@@ -55,10 +55,10 @@ func (controller *Controller) GetKingArthurShapes(c *gin.Context) {
 	// source slice
 	var kingarthurshapeDBs []orm.KingArthurShapeDB
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("GetKingArthurShapes", "GONG__StackPath", stackPath)
@@ -116,11 +116,12 @@ func (controller *Controller) GetKingArthurShapes(c *gin.Context) {
 func (controller *Controller) PostKingArthurShape(c *gin.Context) {
 
 	mutexKingArthurShape.Lock()
+	defer mutexKingArthurShape.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("PostKingArthurShapes", "GONG__StackPath", stackPath)
@@ -173,8 +174,6 @@ func (controller *Controller) PostKingArthurShape(c *gin.Context) {
 	backRepo.IncrementPushFromFrontNb()
 
 	c.JSON(http.StatusOK, kingarthurshapeDB)
-
-	mutexKingArthurShape.Unlock()
 }
 
 // GetKingArthurShape
@@ -189,10 +188,10 @@ func (controller *Controller) PostKingArthurShape(c *gin.Context) {
 //	200: kingarthurshapeDBResponse
 func (controller *Controller) GetKingArthurShape(c *gin.Context) {
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("GetKingArthurShape", "GONG__StackPath", stackPath)
@@ -236,11 +235,12 @@ func (controller *Controller) GetKingArthurShape(c *gin.Context) {
 func (controller *Controller) UpdateKingArthurShape(c *gin.Context) {
 
 	mutexKingArthurShape.Lock()
+	defer mutexKingArthurShape.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("UpdateKingArthurShape", "GONG__StackPath", stackPath)
@@ -310,8 +310,6 @@ func (controller *Controller) UpdateKingArthurShape(c *gin.Context) {
 
 	// return status OK with the marshalling of the the kingarthurshapeDB
 	c.JSON(http.StatusOK, kingarthurshapeDB)
-
-	mutexKingArthurShape.Unlock()
 }
 
 // DeleteKingArthurShape
@@ -326,11 +324,12 @@ func (controller *Controller) UpdateKingArthurShape(c *gin.Context) {
 func (controller *Controller) DeleteKingArthurShape(c *gin.Context) {
 
 	mutexKingArthurShape.Lock()
+	defer mutexKingArthurShape.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("DeleteKingArthurShape", "GONG__StackPath", stackPath)
@@ -371,6 +370,4 @@ func (controller *Controller) DeleteKingArthurShape(c *gin.Context) {
 	backRepo.IncrementPushFromFrontNb()
 
 	c.JSON(http.StatusOK, gin.H{"data": true})
-
-	mutexKingArthurShape.Unlock()
 }

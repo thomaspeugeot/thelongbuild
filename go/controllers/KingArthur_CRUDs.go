@@ -55,10 +55,10 @@ func (controller *Controller) GetKingArthurs(c *gin.Context) {
 	// source slice
 	var kingarthurDBs []orm.KingArthurDB
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("GetKingArthurs", "GONG__StackPath", stackPath)
@@ -116,11 +116,12 @@ func (controller *Controller) GetKingArthurs(c *gin.Context) {
 func (controller *Controller) PostKingArthur(c *gin.Context) {
 
 	mutexKingArthur.Lock()
+	defer mutexKingArthur.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("PostKingArthurs", "GONG__StackPath", stackPath)
@@ -173,8 +174,6 @@ func (controller *Controller) PostKingArthur(c *gin.Context) {
 	backRepo.IncrementPushFromFrontNb()
 
 	c.JSON(http.StatusOK, kingarthurDB)
-
-	mutexKingArthur.Unlock()
 }
 
 // GetKingArthur
@@ -189,10 +188,10 @@ func (controller *Controller) PostKingArthur(c *gin.Context) {
 //	200: kingarthurDBResponse
 func (controller *Controller) GetKingArthur(c *gin.Context) {
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("GetKingArthur", "GONG__StackPath", stackPath)
@@ -236,11 +235,12 @@ func (controller *Controller) GetKingArthur(c *gin.Context) {
 func (controller *Controller) UpdateKingArthur(c *gin.Context) {
 
 	mutexKingArthur.Lock()
+	defer mutexKingArthur.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("UpdateKingArthur", "GONG__StackPath", stackPath)
@@ -310,8 +310,6 @@ func (controller *Controller) UpdateKingArthur(c *gin.Context) {
 
 	// return status OK with the marshalling of the the kingarthurDB
 	c.JSON(http.StatusOK, kingarthurDB)
-
-	mutexKingArthur.Unlock()
 }
 
 // DeleteKingArthur
@@ -326,11 +324,12 @@ func (controller *Controller) UpdateKingArthur(c *gin.Context) {
 func (controller *Controller) DeleteKingArthur(c *gin.Context) {
 
 	mutexKingArthur.Lock()
+	defer mutexKingArthur.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("DeleteKingArthur", "GONG__StackPath", stackPath)
@@ -371,6 +370,4 @@ func (controller *Controller) DeleteKingArthur(c *gin.Context) {
 	backRepo.IncrementPushFromFrontNb()
 
 	c.JSON(http.StatusOK, gin.H{"data": true})
-
-	mutexKingArthur.Unlock()
 }

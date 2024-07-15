@@ -38,6 +38,7 @@ type AWitchAPI struct {
 	models.AWitch_WOP
 
 	// encoding of pointers
+	// for API, it cannot be embedded
 	AWitchPointersEncoding AWitchPointersEncoding
 }
 
@@ -91,7 +92,9 @@ type AWitchDB struct {
 
 	// Declation for basic field awitchDB.RX
 	RX_Data sql.NullFloat64
+	
 	// encoding of pointers
+	// for GORM serialization, it is necessary to embed to Pointer Encoding declaration
 	AWitchPointersEncoding
 }
 

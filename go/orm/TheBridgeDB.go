@@ -38,6 +38,7 @@ type TheBridgeAPI struct {
 	models.TheBridge_WOP
 
 	// encoding of pointers
+	// for API, it cannot be embedded
 	TheBridgePointersEncoding TheBridgePointersEncoding
 }
 
@@ -79,7 +80,9 @@ type TheBridgeDB struct {
 	// Declation for basic field thebridgeDB.IsNodeExpanded
 	// provide the sql storage for the boolan
 	IsNodeExpanded_Data sql.NullBool
+	
 	// encoding of pointers
+	// for GORM serialization, it is necessary to embed to Pointer Encoding declaration
 	TheBridgePointersEncoding
 }
 
@@ -239,14 +242,14 @@ func (backRepoTheBridge *BackRepoTheBridgeStruct) CommitPhaseTwoInstance(backRep
 		for _, whatisyourpreferedcolorAssocEnd := range thebridge.WhatIsYourPreferedColor {
 			whatisyourpreferedcolorAssocEnd_DB :=
 				backRepo.BackRepoWhatIsYourPreferedColor.GetWhatIsYourPreferedColorDBFromWhatIsYourPreferedColorPtr(whatisyourpreferedcolorAssocEnd)
-
+			
 			// the stage might be inconsistant, meaning that the whatisyourpreferedcolorAssocEnd_DB might
 			// be missing from the stage. In this case, the commit operation is robust
 			// An alternative would be to crash here to reveal the missing element.
 			if whatisyourpreferedcolorAssocEnd_DB == nil {
 				continue
 			}
-
+			
 			thebridgeDB.TheBridgePointersEncoding.WhatIsYourPreferedColor =
 				append(thebridgeDB.TheBridgePointersEncoding.WhatIsYourPreferedColor, int(whatisyourpreferedcolorAssocEnd_DB.ID))
 		}
@@ -257,14 +260,14 @@ func (backRepoTheBridge *BackRepoTheBridgeStruct) CommitPhaseTwoInstance(backRep
 		for _, groupuseAssocEnd := range thebridge.GroupUse {
 			groupuseAssocEnd_DB :=
 				backRepo.BackRepoGroupUse.GetGroupUseDBFromGroupUsePtr(groupuseAssocEnd)
-
+			
 			// the stage might be inconsistant, meaning that the groupuseAssocEnd_DB might
 			// be missing from the stage. In this case, the commit operation is robust
 			// An alternative would be to crash here to reveal the missing element.
 			if groupuseAssocEnd_DB == nil {
 				continue
 			}
-
+			
 			thebridgeDB.TheBridgePointersEncoding.GroupUse =
 				append(thebridgeDB.TheBridgePointersEncoding.GroupUse, int(groupuseAssocEnd_DB.ID))
 		}
@@ -275,14 +278,14 @@ func (backRepoTheBridge *BackRepoTheBridgeStruct) CommitPhaseTwoInstance(backRep
 		for _, geoobjectuseAssocEnd := range thebridge.GeoObjectUse {
 			geoobjectuseAssocEnd_DB :=
 				backRepo.BackRepoGeoObjectUse.GetGeoObjectUseDBFromGeoObjectUsePtr(geoobjectuseAssocEnd)
-
+			
 			// the stage might be inconsistant, meaning that the geoobjectuseAssocEnd_DB might
 			// be missing from the stage. In this case, the commit operation is robust
 			// An alternative would be to crash here to reveal the missing element.
 			if geoobjectuseAssocEnd_DB == nil {
 				continue
 			}
-
+			
 			thebridgeDB.TheBridgePointersEncoding.GeoObjectUse =
 				append(thebridgeDB.TheBridgePointersEncoding.GeoObjectUse, int(geoobjectuseAssocEnd_DB.ID))
 		}
@@ -293,14 +296,14 @@ func (backRepoTheBridge *BackRepoTheBridgeStruct) CommitPhaseTwoInstance(backRep
 		for _, mapobjectuseAssocEnd := range thebridge.MapUse {
 			mapobjectuseAssocEnd_DB :=
 				backRepo.BackRepoMapObjectUse.GetMapObjectUseDBFromMapObjectUsePtr(mapobjectuseAssocEnd)
-
+			
 			// the stage might be inconsistant, meaning that the mapobjectuseAssocEnd_DB might
 			// be missing from the stage. In this case, the commit operation is robust
 			// An alternative would be to crash here to reveal the missing element.
 			if mapobjectuseAssocEnd_DB == nil {
 				continue
 			}
-
+			
 			thebridgeDB.TheBridgePointersEncoding.MapUse =
 				append(thebridgeDB.TheBridgePointersEncoding.MapUse, int(mapobjectuseAssocEnd_DB.ID))
 		}

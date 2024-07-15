@@ -23,40 +23,24 @@ import (
 
 // generated in order to avoid error in the package import
 // if there are no elements in the stage to marshall
-var ___dummy__Stage_{{databaseName}} models.StageStruct
-var ___dummy__Time_{{databaseName}} time.Time
+var _ time.Time
 
 // Injection point for meta package dummy declaration{{ImportPackageDummyDeclaration}}
 
-// currently, DocLink renaming is not enabled in gopls
-// the following map are devised to overcome this limitation
-// those maps and the processing code will be eleminated when
-// DocLink renaming will be enabled in gopls
-// [Corresponding Issue](https://github.com/golang/go/issues/57559)
-//
 // When parsed, those maps will help with the renaming process
-var map_DocLink_Identifier_{{databaseName}} map[string]any = map[string]any{
+var _ map[string]any = map[string]any{
 	// injection point for docLink to identifiers{{EntriesDocLinkStringDocLinkIdentifier}}
 }
 
-// init might be handy if one want to have the data embedded in the binary
-// but it has to properly reference the Injection gateway in the main package
-// func init() {
-// 	_ = __Dummy_time_variable
-// 	InjectionGateway["{{databaseName}}"] = {{databaseName}}Injection
-// }
-
-// {{databaseName}}Injection will stage objects of database "{{databaseName}}"
-func {{databaseName}}Injection(stage *models.StageStruct) {
+// function will stage objects
+func _(stage *models.StageStruct) {
 
 	// Declaration of instances to stage{{Identifiers}}
 
 	// Setup of values{{ValueInitializers}}
 
 	// Setup of pointers{{PointersInitializers}}
-}
-
-`
+}`
 
 const IdentifiersDecls = `
 	{{Identifier}} := (&models.{{GeneratedStructName}}{Name: ` + "`" + `{{GeneratedFieldNameValue}}` + "`" + `}).Stage(stage)`
@@ -107,7 +91,7 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 	decl := ""
 	_ = decl
 	setValueField := ""
-	_ = setValueField 
+	_ = setValueField
 
 	// insertion initialization of objects to stage
 	map_AWitch_Identifiers := make(map[*AWitch]string)
@@ -120,7 +104,9 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 	sort.Slice(awitchOrdered[:], func(i, j int) bool {
 		return awitchOrdered[i].Name < awitchOrdered[j].Name
 	})
-	identifiersDecl += "\n\n	// Declarations of staged instances of AWitch"
+	if len(awitchOrdered) > 0 {
+		identifiersDecl += "\n"
+	}
 	for idx, awitch := range awitchOrdered {
 
 		id = generatesIdentifier("AWitch", idx, awitch.Name)
@@ -132,7 +118,7 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 		decl = strings.ReplaceAll(decl, "{{GeneratedFieldNameValue}}", awitch.Name)
 		identifiersDecl += decl
 
-		initializerStatements += "\n\n	// AWitch values setup"
+		initializerStatements += "\n"
 		// Initialisation of values
 		setValueField = StringInitStatement
 		setValueField = strings.ReplaceAll(setValueField, "{{Identifier}}", id)
@@ -206,7 +192,9 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 	sort.Slice(blackknightshapeOrdered[:], func(i, j int) bool {
 		return blackknightshapeOrdered[i].Name < blackknightshapeOrdered[j].Name
 	})
-	identifiersDecl += "\n\n	// Declarations of staged instances of BlackKnightShape"
+	if len(blackknightshapeOrdered) > 0 {
+		identifiersDecl += "\n"
+	}
 	for idx, blackknightshape := range blackknightshapeOrdered {
 
 		id = generatesIdentifier("BlackKnightShape", idx, blackknightshape.Name)
@@ -218,7 +206,7 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 		decl = strings.ReplaceAll(decl, "{{GeneratedFieldNameValue}}", blackknightshape.Name)
 		identifiersDecl += decl
 
-		initializerStatements += "\n\n	// BlackKnightShape values setup"
+		initializerStatements += "\n"
 		// Initialisation of values
 		setValueField = StringInitStatement
 		setValueField = strings.ReplaceAll(setValueField, "{{Identifier}}", id)
@@ -300,7 +288,9 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 	sort.Slice(bringyourdeadOrdered[:], func(i, j int) bool {
 		return bringyourdeadOrdered[i].Name < bringyourdeadOrdered[j].Name
 	})
-	identifiersDecl += "\n\n	// Declarations of staged instances of BringYourDead"
+	if len(bringyourdeadOrdered) > 0 {
+		identifiersDecl += "\n"
+	}
 	for idx, bringyourdead := range bringyourdeadOrdered {
 
 		id = generatesIdentifier("BringYourDead", idx, bringyourdead.Name)
@@ -312,7 +302,7 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 		decl = strings.ReplaceAll(decl, "{{GeneratedFieldNameValue}}", bringyourdead.Name)
 		identifiersDecl += decl
 
-		initializerStatements += "\n\n	// BringYourDead values setup"
+		initializerStatements += "\n"
 		// Initialisation of values
 		setValueField = StringInitStatement
 		setValueField = strings.ReplaceAll(setValueField, "{{Identifier}}", id)
@@ -344,7 +334,9 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 	sort.Slice(documentOrdered[:], func(i, j int) bool {
 		return documentOrdered[i].Name < documentOrdered[j].Name
 	})
-	identifiersDecl += "\n\n	// Declarations of staged instances of Document"
+	if len(documentOrdered) > 0 {
+		identifiersDecl += "\n"
+	}
 	for idx, document := range documentOrdered {
 
 		id = generatesIdentifier("Document", idx, document.Name)
@@ -356,7 +348,7 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 		decl = strings.ReplaceAll(decl, "{{GeneratedFieldNameValue}}", document.Name)
 		identifiersDecl += decl
 
-		initializerStatements += "\n\n	// Document values setup"
+		initializerStatements += "\n"
 		// Initialisation of values
 		setValueField = StringInitStatement
 		setValueField = strings.ReplaceAll(setValueField, "{{Identifier}}", id)
@@ -376,7 +368,9 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 	sort.Slice(documentuseOrdered[:], func(i, j int) bool {
 		return documentuseOrdered[i].Name < documentuseOrdered[j].Name
 	})
-	identifiersDecl += "\n\n	// Declarations of staged instances of DocumentUse"
+	if len(documentuseOrdered) > 0 {
+		identifiersDecl += "\n"
+	}
 	for idx, documentuse := range documentuseOrdered {
 
 		id = generatesIdentifier("DocumentUse", idx, documentuse.Name)
@@ -388,7 +382,7 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 		decl = strings.ReplaceAll(decl, "{{GeneratedFieldNameValue}}", documentuse.Name)
 		identifiersDecl += decl
 
-		initializerStatements += "\n\n	// DocumentUse values setup"
+		initializerStatements += "\n"
 		// Initialisation of values
 		setValueField = StringInitStatement
 		setValueField = strings.ReplaceAll(setValueField, "{{Identifier}}", id)
@@ -408,7 +402,9 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 	sort.Slice(galahadthepureOrdered[:], func(i, j int) bool {
 		return galahadthepureOrdered[i].Name < galahadthepureOrdered[j].Name
 	})
-	identifiersDecl += "\n\n	// Declarations of staged instances of GalahadThePure"
+	if len(galahadthepureOrdered) > 0 {
+		identifiersDecl += "\n"
+	}
 	for idx, galahadthepure := range galahadthepureOrdered {
 
 		id = generatesIdentifier("GalahadThePure", idx, galahadthepure.Name)
@@ -420,7 +416,7 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 		decl = strings.ReplaceAll(decl, "{{GeneratedFieldNameValue}}", galahadthepure.Name)
 		identifiersDecl += decl
 
-		initializerStatements += "\n\n	// GalahadThePure values setup"
+		initializerStatements += "\n"
 		// Initialisation of values
 		setValueField = StringInitStatement
 		setValueField = strings.ReplaceAll(setValueField, "{{Identifier}}", id)
@@ -446,7 +442,9 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 	sort.Slice(geoobjectOrdered[:], func(i, j int) bool {
 		return geoobjectOrdered[i].Name < geoobjectOrdered[j].Name
 	})
-	identifiersDecl += "\n\n	// Declarations of staged instances of GeoObject"
+	if len(geoobjectOrdered) > 0 {
+		identifiersDecl += "\n"
+	}
 	for idx, geoobject := range geoobjectOrdered {
 
 		id = generatesIdentifier("GeoObject", idx, geoobject.Name)
@@ -458,7 +456,7 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 		decl = strings.ReplaceAll(decl, "{{GeneratedFieldNameValue}}", geoobject.Name)
 		identifiersDecl += decl
 
-		initializerStatements += "\n\n	// GeoObject values setup"
+		initializerStatements += "\n"
 		// Initialisation of values
 		setValueField = StringInitStatement
 		setValueField = strings.ReplaceAll(setValueField, "{{Identifier}}", id)
@@ -478,7 +476,9 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 	sort.Slice(geoobjectuseOrdered[:], func(i, j int) bool {
 		return geoobjectuseOrdered[i].Name < geoobjectuseOrdered[j].Name
 	})
-	identifiersDecl += "\n\n	// Declarations of staged instances of GeoObjectUse"
+	if len(geoobjectuseOrdered) > 0 {
+		identifiersDecl += "\n"
+	}
 	for idx, geoobjectuse := range geoobjectuseOrdered {
 
 		id = generatesIdentifier("GeoObjectUse", idx, geoobjectuse.Name)
@@ -490,7 +490,7 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 		decl = strings.ReplaceAll(decl, "{{GeneratedFieldNameValue}}", geoobjectuse.Name)
 		identifiersDecl += decl
 
-		initializerStatements += "\n\n	// GeoObjectUse values setup"
+		initializerStatements += "\n"
 		// Initialisation of values
 		setValueField = StringInitStatement
 		setValueField = strings.ReplaceAll(setValueField, "{{Identifier}}", id)
@@ -510,7 +510,9 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 	sort.Slice(groupOrdered[:], func(i, j int) bool {
 		return groupOrdered[i].Name < groupOrdered[j].Name
 	})
-	identifiersDecl += "\n\n	// Declarations of staged instances of Group"
+	if len(groupOrdered) > 0 {
+		identifiersDecl += "\n"
+	}
 	for idx, group := range groupOrdered {
 
 		id = generatesIdentifier("Group", idx, group.Name)
@@ -522,7 +524,7 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 		decl = strings.ReplaceAll(decl, "{{GeneratedFieldNameValue}}", group.Name)
 		identifiersDecl += decl
 
-		initializerStatements += "\n\n	// Group values setup"
+		initializerStatements += "\n"
 		// Initialisation of values
 		setValueField = StringInitStatement
 		setValueField = strings.ReplaceAll(setValueField, "{{Identifier}}", id)
@@ -542,7 +544,9 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 	sort.Slice(groupuseOrdered[:], func(i, j int) bool {
 		return groupuseOrdered[i].Name < groupuseOrdered[j].Name
 	})
-	identifiersDecl += "\n\n	// Declarations of staged instances of GroupUse"
+	if len(groupuseOrdered) > 0 {
+		identifiersDecl += "\n"
+	}
 	for idx, groupuse := range groupuseOrdered {
 
 		id = generatesIdentifier("GroupUse", idx, groupuse.Name)
@@ -554,7 +558,7 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 		decl = strings.ReplaceAll(decl, "{{GeneratedFieldNameValue}}", groupuse.Name)
 		identifiersDecl += decl
 
-		initializerStatements += "\n\n	// GroupUse values setup"
+		initializerStatements += "\n"
 		// Initialisation of values
 		setValueField = StringInitStatement
 		setValueField = strings.ReplaceAll(setValueField, "{{Identifier}}", id)
@@ -574,7 +578,9 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 	sort.Slice(kingarthurOrdered[:], func(i, j int) bool {
 		return kingarthurOrdered[i].Name < kingarthurOrdered[j].Name
 	})
-	identifiersDecl += "\n\n	// Declarations of staged instances of KingArthur"
+	if len(kingarthurOrdered) > 0 {
+		identifiersDecl += "\n"
+	}
 	for idx, kingarthur := range kingarthurOrdered {
 
 		id = generatesIdentifier("KingArthur", idx, kingarthur.Name)
@@ -586,7 +592,7 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 		decl = strings.ReplaceAll(decl, "{{GeneratedFieldNameValue}}", kingarthur.Name)
 		identifiersDecl += decl
 
-		initializerStatements += "\n\n	// KingArthur values setup"
+		initializerStatements += "\n"
 		// Initialisation of values
 		setValueField = StringInitStatement
 		setValueField = strings.ReplaceAll(setValueField, "{{Identifier}}", id)
@@ -620,7 +626,9 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 	sort.Slice(kingarthurshapeOrdered[:], func(i, j int) bool {
 		return kingarthurshapeOrdered[i].Name < kingarthurshapeOrdered[j].Name
 	})
-	identifiersDecl += "\n\n	// Declarations of staged instances of KingArthurShape"
+	if len(kingarthurshapeOrdered) > 0 {
+		identifiersDecl += "\n"
+	}
 	for idx, kingarthurshape := range kingarthurshapeOrdered {
 
 		id = generatesIdentifier("KingArthurShape", idx, kingarthurshape.Name)
@@ -632,7 +640,7 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 		decl = strings.ReplaceAll(decl, "{{GeneratedFieldNameValue}}", kingarthurshape.Name)
 		identifiersDecl += decl
 
-		initializerStatements += "\n\n	// KingArthurShape values setup"
+		initializerStatements += "\n"
 		// Initialisation of values
 		setValueField = StringInitStatement
 		setValueField = strings.ReplaceAll(setValueField, "{{Identifier}}", id)
@@ -706,7 +714,9 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 	sort.Slice(knightwhosayniOrdered[:], func(i, j int) bool {
 		return knightwhosayniOrdered[i].Name < knightwhosayniOrdered[j].Name
 	})
-	identifiersDecl += "\n\n	// Declarations of staged instances of KnightWhoSayNi"
+	if len(knightwhosayniOrdered) > 0 {
+		identifiersDecl += "\n"
+	}
 	for idx, knightwhosayni := range knightwhosayniOrdered {
 
 		id = generatesIdentifier("KnightWhoSayNi", idx, knightwhosayni.Name)
@@ -718,7 +728,7 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 		decl = strings.ReplaceAll(decl, "{{GeneratedFieldNameValue}}", knightwhosayni.Name)
 		identifiersDecl += decl
 
-		initializerStatements += "\n\n	// KnightWhoSayNi values setup"
+		initializerStatements += "\n"
 		// Initialisation of values
 		setValueField = StringInitStatement
 		setValueField = strings.ReplaceAll(setValueField, "{{Identifier}}", id)
@@ -800,7 +810,9 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 	sort.Slice(lancelotOrdered[:], func(i, j int) bool {
 		return lancelotOrdered[i].Name < lancelotOrdered[j].Name
 	})
-	identifiersDecl += "\n\n	// Declarations of staged instances of Lancelot"
+	if len(lancelotOrdered) > 0 {
+		identifiersDecl += "\n"
+	}
 	for idx, lancelot := range lancelotOrdered {
 
 		id = generatesIdentifier("Lancelot", idx, lancelot.Name)
@@ -812,7 +824,7 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 		decl = strings.ReplaceAll(decl, "{{GeneratedFieldNameValue}}", lancelot.Name)
 		identifiersDecl += decl
 
-		initializerStatements += "\n\n	// Lancelot values setup"
+		initializerStatements += "\n"
 		// Initialisation of values
 		setValueField = StringInitStatement
 		setValueField = strings.ReplaceAll(setValueField, "{{Identifier}}", id)
@@ -844,7 +856,9 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 	sort.Slice(lancelotagregationOrdered[:], func(i, j int) bool {
 		return lancelotagregationOrdered[i].Name < lancelotagregationOrdered[j].Name
 	})
-	identifiersDecl += "\n\n	// Declarations of staged instances of LancelotAgregation"
+	if len(lancelotagregationOrdered) > 0 {
+		identifiersDecl += "\n"
+	}
 	for idx, lancelotagregation := range lancelotagregationOrdered {
 
 		id = generatesIdentifier("LancelotAgregation", idx, lancelotagregation.Name)
@@ -856,7 +870,7 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 		decl = strings.ReplaceAll(decl, "{{GeneratedFieldNameValue}}", lancelotagregation.Name)
 		identifiersDecl += decl
 
-		initializerStatements += "\n\n	// LancelotAgregation values setup"
+		initializerStatements += "\n"
 		// Initialisation of values
 		setValueField = StringInitStatement
 		setValueField = strings.ReplaceAll(setValueField, "{{Identifier}}", id)
@@ -876,7 +890,9 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 	sort.Slice(lancelotagregationuseOrdered[:], func(i, j int) bool {
 		return lancelotagregationuseOrdered[i].Name < lancelotagregationuseOrdered[j].Name
 	})
-	identifiersDecl += "\n\n	// Declarations of staged instances of LancelotAgregationUse"
+	if len(lancelotagregationuseOrdered) > 0 {
+		identifiersDecl += "\n"
+	}
 	for idx, lancelotagregationuse := range lancelotagregationuseOrdered {
 
 		id = generatesIdentifier("LancelotAgregationUse", idx, lancelotagregationuse.Name)
@@ -888,7 +904,7 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 		decl = strings.ReplaceAll(decl, "{{GeneratedFieldNameValue}}", lancelotagregationuse.Name)
 		identifiersDecl += decl
 
-		initializerStatements += "\n\n	// LancelotAgregationUse values setup"
+		initializerStatements += "\n"
 		// Initialisation of values
 		setValueField = StringInitStatement
 		setValueField = strings.ReplaceAll(setValueField, "{{Identifier}}", id)
@@ -908,7 +924,9 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 	sort.Slice(lancelotcategoryOrdered[:], func(i, j int) bool {
 		return lancelotcategoryOrdered[i].Name < lancelotcategoryOrdered[j].Name
 	})
-	identifiersDecl += "\n\n	// Declarations of staged instances of LancelotCategory"
+	if len(lancelotcategoryOrdered) > 0 {
+		identifiersDecl += "\n"
+	}
 	for idx, lancelotcategory := range lancelotcategoryOrdered {
 
 		id = generatesIdentifier("LancelotCategory", idx, lancelotcategory.Name)
@@ -920,7 +938,7 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 		decl = strings.ReplaceAll(decl, "{{GeneratedFieldNameValue}}", lancelotcategory.Name)
 		identifiersDecl += decl
 
-		initializerStatements += "\n\n	// LancelotCategory values setup"
+		initializerStatements += "\n"
 		// Initialisation of values
 		setValueField = StringInitStatement
 		setValueField = strings.ReplaceAll(setValueField, "{{Identifier}}", id)
@@ -940,7 +958,9 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 	sort.Slice(lancelotcategoryuseOrdered[:], func(i, j int) bool {
 		return lancelotcategoryuseOrdered[i].Name < lancelotcategoryuseOrdered[j].Name
 	})
-	identifiersDecl += "\n\n	// Declarations of staged instances of LancelotCategoryUse"
+	if len(lancelotcategoryuseOrdered) > 0 {
+		identifiersDecl += "\n"
+	}
 	for idx, lancelotcategoryuse := range lancelotcategoryuseOrdered {
 
 		id = generatesIdentifier("LancelotCategoryUse", idx, lancelotcategoryuse.Name)
@@ -952,7 +972,7 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 		decl = strings.ReplaceAll(decl, "{{GeneratedFieldNameValue}}", lancelotcategoryuse.Name)
 		identifiersDecl += decl
 
-		initializerStatements += "\n\n	// LancelotCategoryUse values setup"
+		initializerStatements += "\n"
 		// Initialisation of values
 		setValueField = StringInitStatement
 		setValueField = strings.ReplaceAll(setValueField, "{{Identifier}}", id)
@@ -972,7 +992,9 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 	sort.Slice(mapobjectOrdered[:], func(i, j int) bool {
 		return mapobjectOrdered[i].Name < mapobjectOrdered[j].Name
 	})
-	identifiersDecl += "\n\n	// Declarations of staged instances of MapObject"
+	if len(mapobjectOrdered) > 0 {
+		identifiersDecl += "\n"
+	}
 	for idx, mapobject := range mapobjectOrdered {
 
 		id = generatesIdentifier("MapObject", idx, mapobject.Name)
@@ -984,7 +1006,7 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 		decl = strings.ReplaceAll(decl, "{{GeneratedFieldNameValue}}", mapobject.Name)
 		identifiersDecl += decl
 
-		initializerStatements += "\n\n	// MapObject values setup"
+		initializerStatements += "\n"
 		// Initialisation of values
 		setValueField = StringInitStatement
 		setValueField = strings.ReplaceAll(setValueField, "{{Identifier}}", id)
@@ -1004,7 +1026,9 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 	sort.Slice(mapobjectuseOrdered[:], func(i, j int) bool {
 		return mapobjectuseOrdered[i].Name < mapobjectuseOrdered[j].Name
 	})
-	identifiersDecl += "\n\n	// Declarations of staged instances of MapObjectUse"
+	if len(mapobjectuseOrdered) > 0 {
+		identifiersDecl += "\n"
+	}
 	for idx, mapobjectuse := range mapobjectuseOrdered {
 
 		id = generatesIdentifier("MapObjectUse", idx, mapobjectuse.Name)
@@ -1016,7 +1040,7 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 		decl = strings.ReplaceAll(decl, "{{GeneratedFieldNameValue}}", mapobjectuse.Name)
 		identifiersDecl += decl
 
-		initializerStatements += "\n\n	// MapObjectUse values setup"
+		initializerStatements += "\n"
 		// Initialisation of values
 		setValueField = StringInitStatement
 		setValueField = strings.ReplaceAll(setValueField, "{{Identifier}}", id)
@@ -1036,7 +1060,9 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 	sort.Slice(repositoryOrdered[:], func(i, j int) bool {
 		return repositoryOrdered[i].Name < repositoryOrdered[j].Name
 	})
-	identifiersDecl += "\n\n	// Declarations of staged instances of Repository"
+	if len(repositoryOrdered) > 0 {
+		identifiersDecl += "\n"
+	}
 	for idx, repository := range repositoryOrdered {
 
 		id = generatesIdentifier("Repository", idx, repository.Name)
@@ -1048,7 +1074,7 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 		decl = strings.ReplaceAll(decl, "{{GeneratedFieldNameValue}}", repository.Name)
 		identifiersDecl += decl
 
-		initializerStatements += "\n\n	// Repository values setup"
+		initializerStatements += "\n"
 		// Initialisation of values
 		setValueField = StringInitStatement
 		setValueField = strings.ReplaceAll(setValueField, "{{Identifier}}", id)
@@ -1068,7 +1094,9 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 	sort.Slice(sirrobinOrdered[:], func(i, j int) bool {
 		return sirrobinOrdered[i].Name < sirrobinOrdered[j].Name
 	})
-	identifiersDecl += "\n\n	// Declarations of staged instances of SirRobin"
+	if len(sirrobinOrdered) > 0 {
+		identifiersDecl += "\n"
+	}
 	for idx, sirrobin := range sirrobinOrdered {
 
 		id = generatesIdentifier("SirRobin", idx, sirrobin.Name)
@@ -1080,7 +1108,7 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 		decl = strings.ReplaceAll(decl, "{{GeneratedFieldNameValue}}", sirrobin.Name)
 		identifiersDecl += decl
 
-		initializerStatements += "\n\n	// SirRobin values setup"
+		initializerStatements += "\n"
 		// Initialisation of values
 		setValueField = StringInitStatement
 		setValueField = strings.ReplaceAll(setValueField, "{{Identifier}}", id)
@@ -1154,7 +1182,9 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 	sort.Slice(thebridgeOrdered[:], func(i, j int) bool {
 		return thebridgeOrdered[i].Name < thebridgeOrdered[j].Name
 	})
-	identifiersDecl += "\n\n	// Declarations of staged instances of TheBridge"
+	if len(thebridgeOrdered) > 0 {
+		identifiersDecl += "\n"
+	}
 	for idx, thebridge := range thebridgeOrdered {
 
 		id = generatesIdentifier("TheBridge", idx, thebridge.Name)
@@ -1166,7 +1196,7 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 		decl = strings.ReplaceAll(decl, "{{GeneratedFieldNameValue}}", thebridge.Name)
 		identifiersDecl += decl
 
-		initializerStatements += "\n\n	// TheBridge values setup"
+		initializerStatements += "\n"
 		// Initialisation of values
 		setValueField = StringInitStatement
 		setValueField = strings.ReplaceAll(setValueField, "{{Identifier}}", id)
@@ -1198,7 +1228,9 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 	sort.Slice(thenuteshapeOrdered[:], func(i, j int) bool {
 		return thenuteshapeOrdered[i].Name < thenuteshapeOrdered[j].Name
 	})
-	identifiersDecl += "\n\n	// Declarations of staged instances of TheNuteShape"
+	if len(thenuteshapeOrdered) > 0 {
+		identifiersDecl += "\n"
+	}
 	for idx, thenuteshape := range thenuteshapeOrdered {
 
 		id = generatesIdentifier("TheNuteShape", idx, thenuteshape.Name)
@@ -1210,7 +1242,7 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 		decl = strings.ReplaceAll(decl, "{{GeneratedFieldNameValue}}", thenuteshape.Name)
 		identifiersDecl += decl
 
-		initializerStatements += "\n\n	// TheNuteShape values setup"
+		initializerStatements += "\n"
 		// Initialisation of values
 		setValueField = StringInitStatement
 		setValueField = strings.ReplaceAll(setValueField, "{{Identifier}}", id)
@@ -1264,7 +1296,9 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 	sort.Slice(thenutetransitionOrdered[:], func(i, j int) bool {
 		return thenutetransitionOrdered[i].Name < thenutetransitionOrdered[j].Name
 	})
-	identifiersDecl += "\n\n	// Declarations of staged instances of TheNuteTransition"
+	if len(thenutetransitionOrdered) > 0 {
+		identifiersDecl += "\n"
+	}
 	for idx, thenutetransition := range thenutetransitionOrdered {
 
 		id = generatesIdentifier("TheNuteTransition", idx, thenutetransition.Name)
@@ -1276,7 +1310,7 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 		decl = strings.ReplaceAll(decl, "{{GeneratedFieldNameValue}}", thenutetransition.Name)
 		identifiersDecl += decl
 
-		initializerStatements += "\n\n	// TheNuteTransition values setup"
+		initializerStatements += "\n"
 		// Initialisation of values
 		setValueField = StringInitStatement
 		setValueField = strings.ReplaceAll(setValueField, "{{Identifier}}", id)
@@ -1296,7 +1330,9 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 	sort.Slice(userOrdered[:], func(i, j int) bool {
 		return userOrdered[i].Name < userOrdered[j].Name
 	})
-	identifiersDecl += "\n\n	// Declarations of staged instances of User"
+	if len(userOrdered) > 0 {
+		identifiersDecl += "\n"
+	}
 	for idx, user := range userOrdered {
 
 		id = generatesIdentifier("User", idx, user.Name)
@@ -1308,7 +1344,7 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 		decl = strings.ReplaceAll(decl, "{{GeneratedFieldNameValue}}", user.Name)
 		identifiersDecl += decl
 
-		initializerStatements += "\n\n	// User values setup"
+		initializerStatements += "\n"
 		// Initialisation of values
 		setValueField = StringInitStatement
 		setValueField = strings.ReplaceAll(setValueField, "{{Identifier}}", id)
@@ -1328,7 +1364,9 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 	sort.Slice(useruseOrdered[:], func(i, j int) bool {
 		return useruseOrdered[i].Name < useruseOrdered[j].Name
 	})
-	identifiersDecl += "\n\n	// Declarations of staged instances of UserUse"
+	if len(useruseOrdered) > 0 {
+		identifiersDecl += "\n"
+	}
 	for idx, useruse := range useruseOrdered {
 
 		id = generatesIdentifier("UserUse", idx, useruse.Name)
@@ -1340,7 +1378,7 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 		decl = strings.ReplaceAll(decl, "{{GeneratedFieldNameValue}}", useruse.Name)
 		identifiersDecl += decl
 
-		initializerStatements += "\n\n	// UserUse values setup"
+		initializerStatements += "\n"
 		// Initialisation of values
 		setValueField = StringInitStatement
 		setValueField = strings.ReplaceAll(setValueField, "{{Identifier}}", id)
@@ -1360,7 +1398,9 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 	sort.Slice(whatisyourpreferedcolorOrdered[:], func(i, j int) bool {
 		return whatisyourpreferedcolorOrdered[i].Name < whatisyourpreferedcolorOrdered[j].Name
 	})
-	identifiersDecl += "\n\n	// Declarations of staged instances of WhatIsYourPreferedColor"
+	if len(whatisyourpreferedcolorOrdered) > 0 {
+		identifiersDecl += "\n"
+	}
 	for idx, whatisyourpreferedcolor := range whatisyourpreferedcolorOrdered {
 
 		id = generatesIdentifier("WhatIsYourPreferedColor", idx, whatisyourpreferedcolor.Name)
@@ -1372,7 +1412,7 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 		decl = strings.ReplaceAll(decl, "{{GeneratedFieldNameValue}}", whatisyourpreferedcolor.Name)
 		identifiersDecl += decl
 
-		initializerStatements += "\n\n	// WhatIsYourPreferedColor values setup"
+		initializerStatements += "\n"
 		// Initialisation of values
 		setValueField = StringInitStatement
 		setValueField = strings.ReplaceAll(setValueField, "{{Identifier}}", id)
@@ -1440,7 +1480,9 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 	sort.Slice(workspaceOrdered[:], func(i, j int) bool {
 		return workspaceOrdered[i].Name < workspaceOrdered[j].Name
 	})
-	identifiersDecl += "\n\n	// Declarations of staged instances of Workspace"
+	if len(workspaceOrdered) > 0 {
+		identifiersDecl += "\n"
+	}
 	for idx, workspace := range workspaceOrdered {
 
 		id = generatesIdentifier("Workspace", idx, workspace.Name)
@@ -1452,7 +1494,7 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 		decl = strings.ReplaceAll(decl, "{{GeneratedFieldNameValue}}", workspace.Name)
 		identifiersDecl += decl
 
-		initializerStatements += "\n\n	// Workspace values setup"
+		initializerStatements += "\n"
 		// Initialisation of values
 		setValueField = StringInitStatement
 		setValueField = strings.ReplaceAll(setValueField, "{{Identifier}}", id)
@@ -2138,9 +2180,7 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 			fmt.Sprintf("\n\t%s %s", stage.MetaPackageImportAlias, stage.MetaPackageImportPath))
 
 		res = strings.ReplaceAll(res, "{{ImportPackageDummyDeclaration}}",
-			fmt.Sprintf("\nvar ___dummy__%s_%s %s.StageStruct",
-				stage.MetaPackageImportAlias,
-				strings.ReplaceAll(filepath.Base(name), ".go", ""),
+			fmt.Sprintf("\nvar _ %s.StageStruct",
 				stage.MetaPackageImportAlias))
 
 		var entries string

@@ -38,6 +38,7 @@ type DocumentAPI struct {
 	models.Document_WOP
 
 	// encoding of pointers
+	// for API, it cannot be embedded
 	DocumentPointersEncoding DocumentPointersEncoding
 }
 
@@ -63,7 +64,9 @@ type DocumentDB struct {
 
 	// Declation for basic field documentDB.Name
 	Name_Data sql.NullString
+	
 	// encoding of pointers
+	// for GORM serialization, it is necessary to embed to Pointer Encoding declaration
 	DocumentPointersEncoding
 }
 
@@ -217,14 +220,14 @@ func (backRepoDocument *BackRepoDocumentStruct) CommitPhaseTwoInstance(backRepo 
 		for _, geoobjectuseAssocEnd := range document.GeoObjectUse {
 			geoobjectuseAssocEnd_DB :=
 				backRepo.BackRepoGeoObjectUse.GetGeoObjectUseDBFromGeoObjectUsePtr(geoobjectuseAssocEnd)
-
+			
 			// the stage might be inconsistant, meaning that the geoobjectuseAssocEnd_DB might
 			// be missing from the stage. In this case, the commit operation is robust
 			// An alternative would be to crash here to reveal the missing element.
 			if geoobjectuseAssocEnd_DB == nil {
 				continue
 			}
-
+			
 			documentDB.DocumentPointersEncoding.GeoObjectUse =
 				append(documentDB.DocumentPointersEncoding.GeoObjectUse, int(geoobjectuseAssocEnd_DB.ID))
 		}

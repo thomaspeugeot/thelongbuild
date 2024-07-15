@@ -55,10 +55,10 @@ func (controller *Controller) GetGroupUses(c *gin.Context) {
 	// source slice
 	var groupuseDBs []orm.GroupUseDB
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("GetGroupUses", "GONG__StackPath", stackPath)
@@ -116,11 +116,12 @@ func (controller *Controller) GetGroupUses(c *gin.Context) {
 func (controller *Controller) PostGroupUse(c *gin.Context) {
 
 	mutexGroupUse.Lock()
+	defer mutexGroupUse.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("PostGroupUses", "GONG__StackPath", stackPath)
@@ -173,8 +174,6 @@ func (controller *Controller) PostGroupUse(c *gin.Context) {
 	backRepo.IncrementPushFromFrontNb()
 
 	c.JSON(http.StatusOK, groupuseDB)
-
-	mutexGroupUse.Unlock()
 }
 
 // GetGroupUse
@@ -189,10 +188,10 @@ func (controller *Controller) PostGroupUse(c *gin.Context) {
 //	200: groupuseDBResponse
 func (controller *Controller) GetGroupUse(c *gin.Context) {
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("GetGroupUse", "GONG__StackPath", stackPath)
@@ -236,11 +235,12 @@ func (controller *Controller) GetGroupUse(c *gin.Context) {
 func (controller *Controller) UpdateGroupUse(c *gin.Context) {
 
 	mutexGroupUse.Lock()
+	defer mutexGroupUse.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("UpdateGroupUse", "GONG__StackPath", stackPath)
@@ -310,8 +310,6 @@ func (controller *Controller) UpdateGroupUse(c *gin.Context) {
 
 	// return status OK with the marshalling of the the groupuseDB
 	c.JSON(http.StatusOK, groupuseDB)
-
-	mutexGroupUse.Unlock()
 }
 
 // DeleteGroupUse
@@ -326,11 +324,12 @@ func (controller *Controller) UpdateGroupUse(c *gin.Context) {
 func (controller *Controller) DeleteGroupUse(c *gin.Context) {
 
 	mutexGroupUse.Lock()
+	defer mutexGroupUse.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("DeleteGroupUse", "GONG__StackPath", stackPath)
@@ -371,6 +370,4 @@ func (controller *Controller) DeleteGroupUse(c *gin.Context) {
 	backRepo.IncrementPushFromFrontNb()
 
 	c.JSON(http.StatusOK, gin.H{"data": true})
-
-	mutexGroupUse.Unlock()
 }

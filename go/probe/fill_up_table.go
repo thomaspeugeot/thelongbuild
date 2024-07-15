@@ -17,6 +17,7 @@ import (
 func fillUpTablePointerToGongstruct[T models.PointerToGongstruct](
 	probe *Probe,
 ) {
+	log.Println()
 	var typedInstance T
 	switch any(typedInstance).(type) {
 	// insertion point

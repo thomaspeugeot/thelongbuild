@@ -38,6 +38,7 @@ type SirRobinAPI struct {
 	models.SirRobin_WOP
 
 	// encoding of pointers
+	// for API, it cannot be embedded
 	SirRobinPointersEncoding SirRobinPointersEncoding
 }
 
@@ -102,7 +103,9 @@ type SirRobinDB struct {
 
 	// Declation for basic field sirrobinDB.End
 	End_Data sql.NullTime
+	
 	// encoding of pointers
+	// for GORM serialization, it is necessary to embed to Pointer Encoding declaration
 	SirRobinPointersEncoding
 }
 
@@ -283,14 +286,14 @@ func (backRepoSirRobin *BackRepoSirRobinStruct) CommitPhaseTwoInstance(backRepo 
 		for _, awitchAssocEnd := range sirrobin.Witches {
 			awitchAssocEnd_DB :=
 				backRepo.BackRepoAWitch.GetAWitchDBFromAWitchPtr(awitchAssocEnd)
-
+			
 			// the stage might be inconsistant, meaning that the awitchAssocEnd_DB might
 			// be missing from the stage. In this case, the commit operation is robust
 			// An alternative would be to crash here to reveal the missing element.
 			if awitchAssocEnd_DB == nil {
 				continue
 			}
-
+			
 			sirrobinDB.SirRobinPointersEncoding.Witches =
 				append(sirrobinDB.SirRobinPointersEncoding.Witches, int(awitchAssocEnd_DB.ID))
 		}
@@ -301,14 +304,14 @@ func (backRepoSirRobin *BackRepoSirRobinStruct) CommitPhaseTwoInstance(backRepo 
 		for _, kingarthurshapeAssocEnd := range sirrobin.Arthurs {
 			kingarthurshapeAssocEnd_DB :=
 				backRepo.BackRepoKingArthurShape.GetKingArthurShapeDBFromKingArthurShapePtr(kingarthurshapeAssocEnd)
-
+			
 			// the stage might be inconsistant, meaning that the kingarthurshapeAssocEnd_DB might
 			// be missing from the stage. In this case, the commit operation is robust
 			// An alternative would be to crash here to reveal the missing element.
 			if kingarthurshapeAssocEnd_DB == nil {
 				continue
 			}
-
+			
 			sirrobinDB.SirRobinPointersEncoding.Arthurs =
 				append(sirrobinDB.SirRobinPointersEncoding.Arthurs, int(kingarthurshapeAssocEnd_DB.ID))
 		}
@@ -319,14 +322,14 @@ func (backRepoSirRobin *BackRepoSirRobinStruct) CommitPhaseTwoInstance(backRepo 
 		for _, knightwhosayniAssocEnd := range sirrobin.KnightWhoSayNis {
 			knightwhosayniAssocEnd_DB :=
 				backRepo.BackRepoKnightWhoSayNi.GetKnightWhoSayNiDBFromKnightWhoSayNiPtr(knightwhosayniAssocEnd)
-
+			
 			// the stage might be inconsistant, meaning that the knightwhosayniAssocEnd_DB might
 			// be missing from the stage. In this case, the commit operation is robust
 			// An alternative would be to crash here to reveal the missing element.
 			if knightwhosayniAssocEnd_DB == nil {
 				continue
 			}
-
+			
 			sirrobinDB.SirRobinPointersEncoding.KnightWhoSayNis =
 				append(sirrobinDB.SirRobinPointersEncoding.KnightWhoSayNis, int(knightwhosayniAssocEnd_DB.ID))
 		}
@@ -337,14 +340,14 @@ func (backRepoSirRobin *BackRepoSirRobinStruct) CommitPhaseTwoInstance(backRepo 
 		for _, blackknightshapeAssocEnd := range sirrobin.BlackKnightShapes {
 			blackknightshapeAssocEnd_DB :=
 				backRepo.BackRepoBlackKnightShape.GetBlackKnightShapeDBFromBlackKnightShapePtr(blackknightshapeAssocEnd)
-
+			
 			// the stage might be inconsistant, meaning that the blackknightshapeAssocEnd_DB might
 			// be missing from the stage. In this case, the commit operation is robust
 			// An alternative would be to crash here to reveal the missing element.
 			if blackknightshapeAssocEnd_DB == nil {
 				continue
 			}
-
+			
 			sirrobinDB.SirRobinPointersEncoding.BlackKnightShapes =
 				append(sirrobinDB.SirRobinPointersEncoding.BlackKnightShapes, int(blackknightshapeAssocEnd_DB.ID))
 		}
@@ -355,14 +358,14 @@ func (backRepoSirRobin *BackRepoSirRobinStruct) CommitPhaseTwoInstance(backRepo 
 		for _, thenuteshapeAssocEnd := range sirrobin.TheNuteShapes {
 			thenuteshapeAssocEnd_DB :=
 				backRepo.BackRepoTheNuteShape.GetTheNuteShapeDBFromTheNuteShapePtr(thenuteshapeAssocEnd)
-
+			
 			// the stage might be inconsistant, meaning that the thenuteshapeAssocEnd_DB might
 			// be missing from the stage. In this case, the commit operation is robust
 			// An alternative would be to crash here to reveal the missing element.
 			if thenuteshapeAssocEnd_DB == nil {
 				continue
 			}
-
+			
 			sirrobinDB.SirRobinPointersEncoding.TheNuteShapes =
 				append(sirrobinDB.SirRobinPointersEncoding.TheNuteShapes, int(thenuteshapeAssocEnd_DB.ID))
 		}

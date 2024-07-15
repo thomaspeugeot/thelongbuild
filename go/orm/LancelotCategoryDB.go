@@ -38,6 +38,7 @@ type LancelotCategoryAPI struct {
 	models.LancelotCategory_WOP
 
 	// encoding of pointers
+	// for API, it cannot be embedded
 	LancelotCategoryPointersEncoding LancelotCategoryPointersEncoding
 }
 
@@ -63,7 +64,9 @@ type LancelotCategoryDB struct {
 
 	// Declation for basic field lancelotcategoryDB.Name
 	Name_Data sql.NullString
+	
 	// encoding of pointers
+	// for GORM serialization, it is necessary to embed to Pointer Encoding declaration
 	LancelotCategoryPointersEncoding
 }
 
@@ -217,14 +220,14 @@ func (backRepoLancelotCategory *BackRepoLancelotCategoryStruct) CommitPhaseTwoIn
 		for _, knightwhosayniAssocEnd := range lancelotcategory.ParameterUse {
 			knightwhosayniAssocEnd_DB :=
 				backRepo.BackRepoKnightWhoSayNi.GetKnightWhoSayNiDBFromKnightWhoSayNiPtr(knightwhosayniAssocEnd)
-
+			
 			// the stage might be inconsistant, meaning that the knightwhosayniAssocEnd_DB might
 			// be missing from the stage. In this case, the commit operation is robust
 			// An alternative would be to crash here to reveal the missing element.
 			if knightwhosayniAssocEnd_DB == nil {
 				continue
 			}
-
+			
 			lancelotcategoryDB.LancelotCategoryPointersEncoding.ParameterUse =
 				append(lancelotcategoryDB.LancelotCategoryPointersEncoding.ParameterUse, int(knightwhosayniAssocEnd_DB.ID))
 		}

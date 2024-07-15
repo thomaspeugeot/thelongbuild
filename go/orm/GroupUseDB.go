@@ -38,6 +38,7 @@ type GroupUseAPI struct {
 	models.GroupUse_WOP
 
 	// encoding of pointers
+	// for API, it cannot be embedded
 	GroupUsePointersEncoding GroupUsePointersEncoding
 }
 
@@ -64,7 +65,9 @@ type GroupUseDB struct {
 
 	// Declation for basic field groupuseDB.Name
 	Name_Data sql.NullString
+	
 	// encoding of pointers
+	// for GORM serialization, it is necessary to embed to Pointer Encoding declaration
 	GroupUsePointersEncoding
 }
 

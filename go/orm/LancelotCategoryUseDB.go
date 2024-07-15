@@ -38,6 +38,7 @@ type LancelotCategoryUseAPI struct {
 	models.LancelotCategoryUse_WOP
 
 	// encoding of pointers
+	// for API, it cannot be embedded
 	LancelotCategoryUsePointersEncoding LancelotCategoryUsePointersEncoding
 }
 
@@ -64,7 +65,9 @@ type LancelotCategoryUseDB struct {
 
 	// Declation for basic field lancelotcategoryuseDB.Name
 	Name_Data sql.NullString
+	
 	// encoding of pointers
+	// for GORM serialization, it is necessary to embed to Pointer Encoding declaration
 	LancelotCategoryUsePointersEncoding
 }
 

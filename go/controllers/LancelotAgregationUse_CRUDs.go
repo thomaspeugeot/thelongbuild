@@ -55,10 +55,10 @@ func (controller *Controller) GetLancelotAgregationUses(c *gin.Context) {
 	// source slice
 	var lancelotagregationuseDBs []orm.LancelotAgregationUseDB
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("GetLancelotAgregationUses", "GONG__StackPath", stackPath)
@@ -116,11 +116,12 @@ func (controller *Controller) GetLancelotAgregationUses(c *gin.Context) {
 func (controller *Controller) PostLancelotAgregationUse(c *gin.Context) {
 
 	mutexLancelotAgregationUse.Lock()
+	defer mutexLancelotAgregationUse.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("PostLancelotAgregationUses", "GONG__StackPath", stackPath)
@@ -173,8 +174,6 @@ func (controller *Controller) PostLancelotAgregationUse(c *gin.Context) {
 	backRepo.IncrementPushFromFrontNb()
 
 	c.JSON(http.StatusOK, lancelotagregationuseDB)
-
-	mutexLancelotAgregationUse.Unlock()
 }
 
 // GetLancelotAgregationUse
@@ -189,10 +188,10 @@ func (controller *Controller) PostLancelotAgregationUse(c *gin.Context) {
 //	200: lancelotagregationuseDBResponse
 func (controller *Controller) GetLancelotAgregationUse(c *gin.Context) {
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("GetLancelotAgregationUse", "GONG__StackPath", stackPath)
@@ -236,11 +235,12 @@ func (controller *Controller) GetLancelotAgregationUse(c *gin.Context) {
 func (controller *Controller) UpdateLancelotAgregationUse(c *gin.Context) {
 
 	mutexLancelotAgregationUse.Lock()
+	defer mutexLancelotAgregationUse.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("UpdateLancelotAgregationUse", "GONG__StackPath", stackPath)
@@ -310,8 +310,6 @@ func (controller *Controller) UpdateLancelotAgregationUse(c *gin.Context) {
 
 	// return status OK with the marshalling of the the lancelotagregationuseDB
 	c.JSON(http.StatusOK, lancelotagregationuseDB)
-
-	mutexLancelotAgregationUse.Unlock()
 }
 
 // DeleteLancelotAgregationUse
@@ -326,11 +324,12 @@ func (controller *Controller) UpdateLancelotAgregationUse(c *gin.Context) {
 func (controller *Controller) DeleteLancelotAgregationUse(c *gin.Context) {
 
 	mutexLancelotAgregationUse.Lock()
+	defer mutexLancelotAgregationUse.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("DeleteLancelotAgregationUse", "GONG__StackPath", stackPath)
@@ -371,6 +370,4 @@ func (controller *Controller) DeleteLancelotAgregationUse(c *gin.Context) {
 	backRepo.IncrementPushFromFrontNb()
 
 	c.JSON(http.StatusOK, gin.H{"data": true})
-
-	mutexLancelotAgregationUse.Unlock()
 }

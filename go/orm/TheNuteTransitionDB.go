@@ -38,6 +38,7 @@ type TheNuteTransitionAPI struct {
 	models.TheNuteTransition_WOP
 
 	// encoding of pointers
+	// for API, it cannot be embedded
 	TheNuteTransitionPointersEncoding TheNuteTransitionPointersEncoding
 }
 
@@ -68,7 +69,9 @@ type TheNuteTransitionDB struct {
 
 	// Declation for basic field thenutetransitionDB.Name
 	Name_Data sql.NullString
+	
 	// encoding of pointers
+	// for GORM serialization, it is necessary to embed to Pointer Encoding declaration
 	TheNuteTransitionPointersEncoding
 }
 

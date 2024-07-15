@@ -55,10 +55,10 @@ func (controller *Controller) GetRepositorys(c *gin.Context) {
 	// source slice
 	var repositoryDBs []orm.RepositoryDB
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("GetRepositorys", "GONG__StackPath", stackPath)
@@ -116,11 +116,12 @@ func (controller *Controller) GetRepositorys(c *gin.Context) {
 func (controller *Controller) PostRepository(c *gin.Context) {
 
 	mutexRepository.Lock()
+	defer mutexRepository.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("PostRepositorys", "GONG__StackPath", stackPath)
@@ -173,8 +174,6 @@ func (controller *Controller) PostRepository(c *gin.Context) {
 	backRepo.IncrementPushFromFrontNb()
 
 	c.JSON(http.StatusOK, repositoryDB)
-
-	mutexRepository.Unlock()
 }
 
 // GetRepository
@@ -189,10 +188,10 @@ func (controller *Controller) PostRepository(c *gin.Context) {
 //	200: repositoryDBResponse
 func (controller *Controller) GetRepository(c *gin.Context) {
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("GetRepository", "GONG__StackPath", stackPath)
@@ -236,11 +235,12 @@ func (controller *Controller) GetRepository(c *gin.Context) {
 func (controller *Controller) UpdateRepository(c *gin.Context) {
 
 	mutexRepository.Lock()
+	defer mutexRepository.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("UpdateRepository", "GONG__StackPath", stackPath)
@@ -310,8 +310,6 @@ func (controller *Controller) UpdateRepository(c *gin.Context) {
 
 	// return status OK with the marshalling of the the repositoryDB
 	c.JSON(http.StatusOK, repositoryDB)
-
-	mutexRepository.Unlock()
 }
 
 // DeleteRepository
@@ -326,11 +324,12 @@ func (controller *Controller) UpdateRepository(c *gin.Context) {
 func (controller *Controller) DeleteRepository(c *gin.Context) {
 
 	mutexRepository.Lock()
+	defer mutexRepository.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("DeleteRepository", "GONG__StackPath", stackPath)
@@ -371,6 +370,4 @@ func (controller *Controller) DeleteRepository(c *gin.Context) {
 	backRepo.IncrementPushFromFrontNb()
 
 	c.JSON(http.StatusOK, gin.H{"data": true})
-
-	mutexRepository.Unlock()
 }

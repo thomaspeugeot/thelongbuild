@@ -55,10 +55,10 @@ func (controller *Controller) GetLancelotCategorys(c *gin.Context) {
 	// source slice
 	var lancelotcategoryDBs []orm.LancelotCategoryDB
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("GetLancelotCategorys", "GONG__StackPath", stackPath)
@@ -116,11 +116,12 @@ func (controller *Controller) GetLancelotCategorys(c *gin.Context) {
 func (controller *Controller) PostLancelotCategory(c *gin.Context) {
 
 	mutexLancelotCategory.Lock()
+	defer mutexLancelotCategory.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("PostLancelotCategorys", "GONG__StackPath", stackPath)
@@ -173,8 +174,6 @@ func (controller *Controller) PostLancelotCategory(c *gin.Context) {
 	backRepo.IncrementPushFromFrontNb()
 
 	c.JSON(http.StatusOK, lancelotcategoryDB)
-
-	mutexLancelotCategory.Unlock()
 }
 
 // GetLancelotCategory
@@ -189,10 +188,10 @@ func (controller *Controller) PostLancelotCategory(c *gin.Context) {
 //	200: lancelotcategoryDBResponse
 func (controller *Controller) GetLancelotCategory(c *gin.Context) {
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("GetLancelotCategory", "GONG__StackPath", stackPath)
@@ -236,11 +235,12 @@ func (controller *Controller) GetLancelotCategory(c *gin.Context) {
 func (controller *Controller) UpdateLancelotCategory(c *gin.Context) {
 
 	mutexLancelotCategory.Lock()
+	defer mutexLancelotCategory.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("UpdateLancelotCategory", "GONG__StackPath", stackPath)
@@ -310,8 +310,6 @@ func (controller *Controller) UpdateLancelotCategory(c *gin.Context) {
 
 	// return status OK with the marshalling of the the lancelotcategoryDB
 	c.JSON(http.StatusOK, lancelotcategoryDB)
-
-	mutexLancelotCategory.Unlock()
 }
 
 // DeleteLancelotCategory
@@ -326,11 +324,12 @@ func (controller *Controller) UpdateLancelotCategory(c *gin.Context) {
 func (controller *Controller) DeleteLancelotCategory(c *gin.Context) {
 
 	mutexLancelotCategory.Lock()
+	defer mutexLancelotCategory.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("DeleteLancelotCategory", "GONG__StackPath", stackPath)
@@ -371,6 +370,4 @@ func (controller *Controller) DeleteLancelotCategory(c *gin.Context) {
 	backRepo.IncrementPushFromFrontNb()
 
 	c.JSON(http.StatusOK, gin.H{"data": true})
-
-	mutexLancelotCategory.Unlock()
 }

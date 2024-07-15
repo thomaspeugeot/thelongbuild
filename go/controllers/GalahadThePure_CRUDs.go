@@ -55,10 +55,10 @@ func (controller *Controller) GetGalahadThePures(c *gin.Context) {
 	// source slice
 	var galahadthepureDBs []orm.GalahadThePureDB
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("GetGalahadThePures", "GONG__StackPath", stackPath)
@@ -116,11 +116,12 @@ func (controller *Controller) GetGalahadThePures(c *gin.Context) {
 func (controller *Controller) PostGalahadThePure(c *gin.Context) {
 
 	mutexGalahadThePure.Lock()
+	defer mutexGalahadThePure.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("PostGalahadThePures", "GONG__StackPath", stackPath)
@@ -173,8 +174,6 @@ func (controller *Controller) PostGalahadThePure(c *gin.Context) {
 	backRepo.IncrementPushFromFrontNb()
 
 	c.JSON(http.StatusOK, galahadthepureDB)
-
-	mutexGalahadThePure.Unlock()
 }
 
 // GetGalahadThePure
@@ -189,10 +188,10 @@ func (controller *Controller) PostGalahadThePure(c *gin.Context) {
 //	200: galahadthepureDBResponse
 func (controller *Controller) GetGalahadThePure(c *gin.Context) {
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("GetGalahadThePure", "GONG__StackPath", stackPath)
@@ -236,11 +235,12 @@ func (controller *Controller) GetGalahadThePure(c *gin.Context) {
 func (controller *Controller) UpdateGalahadThePure(c *gin.Context) {
 
 	mutexGalahadThePure.Lock()
+	defer mutexGalahadThePure.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("UpdateGalahadThePure", "GONG__StackPath", stackPath)
@@ -310,8 +310,6 @@ func (controller *Controller) UpdateGalahadThePure(c *gin.Context) {
 
 	// return status OK with the marshalling of the the galahadthepureDB
 	c.JSON(http.StatusOK, galahadthepureDB)
-
-	mutexGalahadThePure.Unlock()
 }
 
 // DeleteGalahadThePure
@@ -326,11 +324,12 @@ func (controller *Controller) UpdateGalahadThePure(c *gin.Context) {
 func (controller *Controller) DeleteGalahadThePure(c *gin.Context) {
 
 	mutexGalahadThePure.Lock()
+	defer mutexGalahadThePure.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("DeleteGalahadThePure", "GONG__StackPath", stackPath)
@@ -371,6 +370,4 @@ func (controller *Controller) DeleteGalahadThePure(c *gin.Context) {
 	backRepo.IncrementPushFromFrontNb()
 
 	c.JSON(http.StatusOK, gin.H{"data": true})
-
-	mutexGalahadThePure.Unlock()
 }

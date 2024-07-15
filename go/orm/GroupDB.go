@@ -38,6 +38,7 @@ type GroupAPI struct {
 	models.Group_WOP
 
 	// encoding of pointers
+	// for API, it cannot be embedded
 	GroupPointersEncoding GroupPointersEncoding
 }
 
@@ -63,7 +64,9 @@ type GroupDB struct {
 
 	// Declation for basic field groupDB.Name
 	Name_Data sql.NullString
+	
 	// encoding of pointers
+	// for GORM serialization, it is necessary to embed to Pointer Encoding declaration
 	GroupPointersEncoding
 }
 
@@ -217,14 +220,14 @@ func (backRepoGroup *BackRepoGroupStruct) CommitPhaseTwoInstance(backRepo *BackR
 		for _, useruseAssocEnd := range group.UserUse {
 			useruseAssocEnd_DB :=
 				backRepo.BackRepoUserUse.GetUserUseDBFromUserUsePtr(useruseAssocEnd)
-
+			
 			// the stage might be inconsistant, meaning that the useruseAssocEnd_DB might
 			// be missing from the stage. In this case, the commit operation is robust
 			// An alternative would be to crash here to reveal the missing element.
 			if useruseAssocEnd_DB == nil {
 				continue
 			}
-
+			
 			groupDB.GroupPointersEncoding.UserUse =
 				append(groupDB.GroupPointersEncoding.UserUse, int(useruseAssocEnd_DB.ID))
 		}

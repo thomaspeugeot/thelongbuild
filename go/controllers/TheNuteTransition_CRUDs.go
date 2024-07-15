@@ -55,10 +55,10 @@ func (controller *Controller) GetTheNuteTransitions(c *gin.Context) {
 	// source slice
 	var thenutetransitionDBs []orm.TheNuteTransitionDB
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("GetTheNuteTransitions", "GONG__StackPath", stackPath)
@@ -116,11 +116,12 @@ func (controller *Controller) GetTheNuteTransitions(c *gin.Context) {
 func (controller *Controller) PostTheNuteTransition(c *gin.Context) {
 
 	mutexTheNuteTransition.Lock()
+	defer mutexTheNuteTransition.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("PostTheNuteTransitions", "GONG__StackPath", stackPath)
@@ -173,8 +174,6 @@ func (controller *Controller) PostTheNuteTransition(c *gin.Context) {
 	backRepo.IncrementPushFromFrontNb()
 
 	c.JSON(http.StatusOK, thenutetransitionDB)
-
-	mutexTheNuteTransition.Unlock()
 }
 
 // GetTheNuteTransition
@@ -189,10 +188,10 @@ func (controller *Controller) PostTheNuteTransition(c *gin.Context) {
 //	200: thenutetransitionDBResponse
 func (controller *Controller) GetTheNuteTransition(c *gin.Context) {
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("GetTheNuteTransition", "GONG__StackPath", stackPath)
@@ -236,11 +235,12 @@ func (controller *Controller) GetTheNuteTransition(c *gin.Context) {
 func (controller *Controller) UpdateTheNuteTransition(c *gin.Context) {
 
 	mutexTheNuteTransition.Lock()
+	defer mutexTheNuteTransition.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("UpdateTheNuteTransition", "GONG__StackPath", stackPath)
@@ -310,8 +310,6 @@ func (controller *Controller) UpdateTheNuteTransition(c *gin.Context) {
 
 	// return status OK with the marshalling of the the thenutetransitionDB
 	c.JSON(http.StatusOK, thenutetransitionDB)
-
-	mutexTheNuteTransition.Unlock()
 }
 
 // DeleteTheNuteTransition
@@ -326,11 +324,12 @@ func (controller *Controller) UpdateTheNuteTransition(c *gin.Context) {
 func (controller *Controller) DeleteTheNuteTransition(c *gin.Context) {
 
 	mutexTheNuteTransition.Lock()
+	defer mutexTheNuteTransition.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("DeleteTheNuteTransition", "GONG__StackPath", stackPath)
@@ -371,6 +370,4 @@ func (controller *Controller) DeleteTheNuteTransition(c *gin.Context) {
 	backRepo.IncrementPushFromFrontNb()
 
 	c.JSON(http.StatusOK, gin.H{"data": true})
-
-	mutexTheNuteTransition.Unlock()
 }

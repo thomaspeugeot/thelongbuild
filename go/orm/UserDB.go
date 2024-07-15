@@ -38,6 +38,7 @@ type UserAPI struct {
 	models.User_WOP
 
 	// encoding of pointers
+	// for API, it cannot be embedded
 	UserPointersEncoding UserPointersEncoding
 }
 
@@ -60,7 +61,9 @@ type UserDB struct {
 
 	// Declation for basic field userDB.Name
 	Name_Data sql.NullString
+	
 	// encoding of pointers
+	// for GORM serialization, it is necessary to embed to Pointer Encoding declaration
 	UserPointersEncoding
 }
 

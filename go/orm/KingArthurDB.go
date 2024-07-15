@@ -38,6 +38,7 @@ type KingArthurAPI struct {
 	models.KingArthur_WOP
 
 	// encoding of pointers
+	// for API, it cannot be embedded
 	KingArthurPointersEncoding KingArthurPointersEncoding
 }
 
@@ -67,7 +68,9 @@ type KingArthurDB struct {
 
 	// Declation for basic field kingarthurDB.Probability
 	Probability_Data sql.NullString
+	
 	// encoding of pointers
+	// for GORM serialization, it is necessary to embed to Pointer Encoding declaration
 	KingArthurPointersEncoding
 }
 

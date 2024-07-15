@@ -8,8 +8,11 @@ require (
 	github.com/fullstack-lang/gongtable v0.0.0-20231214233720-0cdd8c1bf695
 	github.com/fullstack-lang/gongtree v0.0.0-20240111093108-82d074816963
 	github.com/fullstack-lang/maticons v0.0.0-20230823061653-70c364fbdd00
+	github.com/gin-contrib/cors v1.4.0
+	github.com/gin-contrib/static v0.0.1
 	github.com/gin-gonic/gin v1.9.1
 	github.com/glebarez/sqlite v1.10.0
+	github.com/gorilla/websocket v1.5.3
 	github.com/jinzhu/copier v0.4.0
 	github.com/tealeg/xlsx/v3 v3.3.5
 	github.com/xuri/excelize/v2 v2.8.0
@@ -64,7 +67,6 @@ require (
 	golang.org/x/sys v0.14.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
 	google.golang.org/protobuf v1.31.0 // indirect
-	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	modernc.org/libc v1.34.9 // indirect
 	modernc.org/mathutil v1.6.0 // indirect

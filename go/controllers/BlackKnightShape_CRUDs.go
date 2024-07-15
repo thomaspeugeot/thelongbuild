@@ -55,10 +55,10 @@ func (controller *Controller) GetBlackKnightShapes(c *gin.Context) {
 	// source slice
 	var blackknightshapeDBs []orm.BlackKnightShapeDB
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("GetBlackKnightShapes", "GONG__StackPath", stackPath)
@@ -116,11 +116,12 @@ func (controller *Controller) GetBlackKnightShapes(c *gin.Context) {
 func (controller *Controller) PostBlackKnightShape(c *gin.Context) {
 
 	mutexBlackKnightShape.Lock()
+	defer mutexBlackKnightShape.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("PostBlackKnightShapes", "GONG__StackPath", stackPath)
@@ -173,8 +174,6 @@ func (controller *Controller) PostBlackKnightShape(c *gin.Context) {
 	backRepo.IncrementPushFromFrontNb()
 
 	c.JSON(http.StatusOK, blackknightshapeDB)
-
-	mutexBlackKnightShape.Unlock()
 }
 
 // GetBlackKnightShape
@@ -189,10 +188,10 @@ func (controller *Controller) PostBlackKnightShape(c *gin.Context) {
 //	200: blackknightshapeDBResponse
 func (controller *Controller) GetBlackKnightShape(c *gin.Context) {
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("GetBlackKnightShape", "GONG__StackPath", stackPath)
@@ -236,11 +235,12 @@ func (controller *Controller) GetBlackKnightShape(c *gin.Context) {
 func (controller *Controller) UpdateBlackKnightShape(c *gin.Context) {
 
 	mutexBlackKnightShape.Lock()
+	defer mutexBlackKnightShape.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("UpdateBlackKnightShape", "GONG__StackPath", stackPath)
@@ -310,8 +310,6 @@ func (controller *Controller) UpdateBlackKnightShape(c *gin.Context) {
 
 	// return status OK with the marshalling of the the blackknightshapeDB
 	c.JSON(http.StatusOK, blackknightshapeDB)
-
-	mutexBlackKnightShape.Unlock()
 }
 
 // DeleteBlackKnightShape
@@ -326,11 +324,12 @@ func (controller *Controller) UpdateBlackKnightShape(c *gin.Context) {
 func (controller *Controller) DeleteBlackKnightShape(c *gin.Context) {
 
 	mutexBlackKnightShape.Lock()
+	defer mutexBlackKnightShape.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("DeleteBlackKnightShape", "GONG__StackPath", stackPath)
@@ -371,6 +370,4 @@ func (controller *Controller) DeleteBlackKnightShape(c *gin.Context) {
 	backRepo.IncrementPushFromFrontNb()
 
 	c.JSON(http.StatusOK, gin.H{"data": true})
-
-	mutexBlackKnightShape.Unlock()
 }

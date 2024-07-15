@@ -55,10 +55,10 @@ func (controller *Controller) GetSirRobins(c *gin.Context) {
 	// source slice
 	var sirrobinDBs []orm.SirRobinDB
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("GetSirRobins", "GONG__StackPath", stackPath)
@@ -116,11 +116,12 @@ func (controller *Controller) GetSirRobins(c *gin.Context) {
 func (controller *Controller) PostSirRobin(c *gin.Context) {
 
 	mutexSirRobin.Lock()
+	defer mutexSirRobin.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("PostSirRobins", "GONG__StackPath", stackPath)
@@ -173,8 +174,6 @@ func (controller *Controller) PostSirRobin(c *gin.Context) {
 	backRepo.IncrementPushFromFrontNb()
 
 	c.JSON(http.StatusOK, sirrobinDB)
-
-	mutexSirRobin.Unlock()
 }
 
 // GetSirRobin
@@ -189,10 +188,10 @@ func (controller *Controller) PostSirRobin(c *gin.Context) {
 //	200: sirrobinDBResponse
 func (controller *Controller) GetSirRobin(c *gin.Context) {
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("GetSirRobin", "GONG__StackPath", stackPath)
@@ -236,11 +235,12 @@ func (controller *Controller) GetSirRobin(c *gin.Context) {
 func (controller *Controller) UpdateSirRobin(c *gin.Context) {
 
 	mutexSirRobin.Lock()
+	defer mutexSirRobin.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("UpdateSirRobin", "GONG__StackPath", stackPath)
@@ -310,8 +310,6 @@ func (controller *Controller) UpdateSirRobin(c *gin.Context) {
 
 	// return status OK with the marshalling of the the sirrobinDB
 	c.JSON(http.StatusOK, sirrobinDB)
-
-	mutexSirRobin.Unlock()
 }
 
 // DeleteSirRobin
@@ -326,11 +324,12 @@ func (controller *Controller) UpdateSirRobin(c *gin.Context) {
 func (controller *Controller) DeleteSirRobin(c *gin.Context) {
 
 	mutexSirRobin.Lock()
+	defer mutexSirRobin.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("DeleteSirRobin", "GONG__StackPath", stackPath)
@@ -371,6 +370,4 @@ func (controller *Controller) DeleteSirRobin(c *gin.Context) {
 	backRepo.IncrementPushFromFrontNb()
 
 	c.JSON(http.StatusOK, gin.H{"data": true})
-
-	mutexSirRobin.Unlock()
 }

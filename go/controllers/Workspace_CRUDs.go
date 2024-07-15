@@ -55,10 +55,10 @@ func (controller *Controller) GetWorkspaces(c *gin.Context) {
 	// source slice
 	var workspaceDBs []orm.WorkspaceDB
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("GetWorkspaces", "GONG__StackPath", stackPath)
@@ -116,11 +116,12 @@ func (controller *Controller) GetWorkspaces(c *gin.Context) {
 func (controller *Controller) PostWorkspace(c *gin.Context) {
 
 	mutexWorkspace.Lock()
+	defer mutexWorkspace.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("PostWorkspaces", "GONG__StackPath", stackPath)
@@ -173,8 +174,6 @@ func (controller *Controller) PostWorkspace(c *gin.Context) {
 	backRepo.IncrementPushFromFrontNb()
 
 	c.JSON(http.StatusOK, workspaceDB)
-
-	mutexWorkspace.Unlock()
 }
 
 // GetWorkspace
@@ -189,10 +188,10 @@ func (controller *Controller) PostWorkspace(c *gin.Context) {
 //	200: workspaceDBResponse
 func (controller *Controller) GetWorkspace(c *gin.Context) {
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("GetWorkspace", "GONG__StackPath", stackPath)
@@ -236,11 +235,12 @@ func (controller *Controller) GetWorkspace(c *gin.Context) {
 func (controller *Controller) UpdateWorkspace(c *gin.Context) {
 
 	mutexWorkspace.Lock()
+	defer mutexWorkspace.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("UpdateWorkspace", "GONG__StackPath", stackPath)
@@ -310,8 +310,6 @@ func (controller *Controller) UpdateWorkspace(c *gin.Context) {
 
 	// return status OK with the marshalling of the the workspaceDB
 	c.JSON(http.StatusOK, workspaceDB)
-
-	mutexWorkspace.Unlock()
 }
 
 // DeleteWorkspace
@@ -326,11 +324,12 @@ func (controller *Controller) UpdateWorkspace(c *gin.Context) {
 func (controller *Controller) DeleteWorkspace(c *gin.Context) {
 
 	mutexWorkspace.Lock()
+	defer mutexWorkspace.Unlock()
 
-	values := c.Request.URL.Query()
+	_values := c.Request.URL.Query()
 	stackPath := ""
-	if len(values) == 1 {
-		value := values["GONG__StackPath"]
+	if len(_values) == 1 {
+		value := _values["GONG__StackPath"]
 		if len(value) == 1 {
 			stackPath = value[0]
 			// log.Println("DeleteWorkspace", "GONG__StackPath", stackPath)
@@ -371,6 +370,4 @@ func (controller *Controller) DeleteWorkspace(c *gin.Context) {
 	backRepo.IncrementPushFromFrontNb()
 
 	c.JSON(http.StatusOK, gin.H{"data": true})
-
-	mutexWorkspace.Unlock()
 }
