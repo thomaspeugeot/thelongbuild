@@ -2,7 +2,6 @@ package tree
 
 import (
 	"log"
-	"slices"
 
 	table "github.com/fullstack-lang/gongtable/go/models"
 	tree "github.com/fullstack-lang/gongtree/go/models"
@@ -11,7 +10,6 @@ import (
 
 	"github.com/fullstack-lang/maticons/maticons"
 
-	"github.com/thomaspeugeot/thelongbuild/go/icons"
 	"github.com/thomaspeugeot/thelongbuild/go/models"
 	thelongbuild_stack "github.com/thomaspeugeot/thelongbuild/go/stack"
 
@@ -115,6 +113,7 @@ func NewNodeImpl[T2 models.GenericNode[T], T models.Gongstruct](
 	nodeCallback.treeWs = treeWs
 	nodeCallback.instance = instance
 
+	// the following line is the real culprit
 	nodeCallback.FillUpForm = thelongbuild_probe.FillUpNamedFormFromGongstruct[T]
 
 	log.Println("fdsqfsdfd")
@@ -350,80 +349,8 @@ func (treeWs *TreeWs) GenerateTree() {
 
 	for _, analysis := range list {
 		analysisNode := new(tree.Node).Stage(treeWs.TreeStack.Stage)
-		analysisNode.Name = analysis.Name
-		analysisNode.IsWithPreceedingIcon = true
-		analysisNode.PreceedingIcon = string(maticons.BUTTON_library_books)
-		analysisNode.IsExpanded = analysis.GetIsNodeExpanded()
-
-		analysisNode.IsNodeClickable = true
 		analysisNode.Impl = NewNodeImpl(treeWs, analysis)
-
-		treeWs.NodeTree.RootNodes = append(treeWs.NodeTree.RootNodes, analysisNode)
-
-		slices.SortFunc(analysis.WhatIsYourPreferedColor, models.CompareGongstructByName)
-		for _, scenario := range analysis.WhatIsYourPreferedColor {
-			scenarioNode := new(tree.Node).Stage(treeWs.TreeStack.Stage)
-			scenarioNode.Name = scenario.Name
-			scenarioNode.IsExpanded = true
-			scenarioNode.IsWithPreceedingIcon = false
-			// scenarioNode.PreceedingIcon = string(maticons.BUTTON_theater_comedy)
-			scenarioNode.PreceedingSVGIcon = icons.ScenarioIcon.Stage(treeWs.TreeStack.Stage)
-
-			scenarioNode.IsNodeClickable = true
-			scenarioNode.Impl = NewNodeImplScenario(treeWs, scenario)
-
-			analysisNode.Children = append(analysisNode.Children, scenarioNode)
-
-			generateTreeForCategory(treeWs, scenarioNode,
-				NewCategory(&scenario.Diagrams,
-					&scenario.DiagramsNodeFolded,
-					scenario,
-				))
-
-			generateTreeForCategory(treeWs, scenarioNode,
-				NewCategory(&scenario.Galahard,
-					&scenario.IIUU,
-					scenario,
-				))
-
-			generateTreeForCategory(treeWs, scenarioNode,
-				NewCategory(&scenario.Lancelots,
-					&scenario.LancelotsodeFolded,
-					scenario,
-				))
-
-			generateTreeForCategory(treeWs, scenarioNode,
-				NewCategory(&scenario.BringYourDeadarameters,
-					&scenario.RRRRT,
-					scenario,
-				))
-
-			generateTreeForCategory(treeWs, scenarioNode,
-				NewCategory(&scenario.KingArthurs,
-					&scenario.KingArthurNodeFolded,
-					scenario,
-				))
-
-			generateTreeForCategory(treeWs, scenarioNode,
-				NewCategory(&scenario.Nutes,
-					&scenario.RRRR,
-					scenario,
-				))
-
-		}
 	}
-	treeWs.ComputeNodesConf()
-
-	// add a node for the Add Analysis
-	analysisNode := new(tree.Node).Stage(treeWs.TreeStack.Stage)
-	analysisNode.Name = "New Analysis"
-	analysisNode.FontStyle = tree.ITALIC
-	analysisNode.IsWithPreceedingIcon = true
-	analysisNode.PreceedingIcon = string(maticons.BUTTON_library_books)
-	treeWs.NodeTree.RootNodes = append(treeWs.NodeTree.RootNodes, analysisNode)
-
-	treeWs.TreeStack.Stage.Commit()
-	treeWs.TreeStack.Probe.Refresh()
 }
 
 func generateTreeForCategory[T ModelObject](
