@@ -402,8 +402,4 @@ func (instanceNodeCallback *InstanceNodeCallback[T]) OnAfterUpdate(
 	gongtreeStage *tree.StageStruct,
 	stagedNode, frontNode *tree.Node) {
 
-	FillUpFormFromGongstruct(
-		instanceNodeCallback.Instance,
-		instanceNodeCallback.probe,
-	)
 }
