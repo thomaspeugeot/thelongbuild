@@ -178,7 +178,7 @@ func fillUpTable[T models.Gongstruct](
 			Name: "Delete Icon",
 			Icon: string(maticons.BUTTON_delete),
 		}).Stage(probe.tableStage)
-		cellIcon.Impl = NewCellDeleteIconImpl[T](structInstance, probe)
+
 		cell.CellIcon = cellIcon
 
 		for _, fieldName := range fields {
