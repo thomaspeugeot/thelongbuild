@@ -40,52 +40,6 @@ func NewButtonImplCategoryAddInstance[T ModelObject](
 func (buttonImplCategoryAddInstance *ButtonImplCategoryAddInstance[T]) ButtonUpdated(
 	gongtreeStage *tree.StageStruct,
 	stageButton, front *tree.Button) {
-
-	scenario := buttonImplCategoryAddInstance.category.scenario
-	stage := buttonImplCategoryAddInstance.treeWs.WeberStack.Stage
-	probe := buttonImplCategoryAddInstance.treeWs.WeberStack.Probe
-
-	// prepare the form for the newly created instance
-	formStage := probe.GetFormStage()
-	formStage.Reset()
-	formStage.Commit()
-
-	var instance T
-	switch any(instance).(type) {
-	case *models.KingArthur:
-		actorState := new(models.KingArthur).Stage(stage)
-		scenario.KingArthurs = append(scenario.KingArthurs, actorState)
-		stage.Commit()
-		thelongbuild_probe.FillUpNamedFormFromGongstruct(
-			actorState, probe, formStage, models.ModelForm.ToString())
-
-	case *models.TheNuteTransition:
-
-	case *models.Lancelot:
-		parameter := new(models.Lancelot).Stage(stage)
-		scenario.Lancelots = append(scenario.Lancelots, parameter)
-		stage.Commit()
-		thelongbuild_probe.FillUpNamedFormFromGongstruct(
-			parameter, probe, formStage, models.ModelForm.ToString())
-
-	case *models.BringYourDead:
-		scenarioparameter := new(models.BringYourDead).Stage(stage)
-		scenario.BringYourDeadarameters = append(scenario.BringYourDeadarameters, scenarioparameter)
-		stage.Commit()
-		thelongbuild_probe.FillUpNamedFormFromGongstruct(
-			scenarioparameter, probe, formStage, models.ModelForm.ToString())
-
-	case *models.GalahadThePure:
-	case *models.SirRobin:
-		diagram := new(models.SirRobin).Stage(stage)
-		scenario.Diagrams = append(scenario.Diagrams, diagram)
-		stage.Commit()
-		thelongbuild_probe.FillUpNamedFormFromGongstruct(
-			diagram, probe, formStage, models.ModelForm.ToString())
-	}
-
-	formStage.Commit()
-	buttonImplCategoryAddInstance.treeWs.GenerateTree()
 }
 
 type ButtonImplDiagram struct {
