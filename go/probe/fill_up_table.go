@@ -37,6 +37,8 @@ func fillUpTable[T models.Gongstruct](
 		// row := new(gongtable.Row).Stage(probe.tableStage)
 		// row.Name = models.GetFieldStringValue[T](*structInstance, "Name")
 
+		log.Println()
+
 		for _, reverseField := range reverseFields {
 
 			value := orm.GetReverseFieldOwnerName[T](
