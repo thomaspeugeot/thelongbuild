@@ -2,6 +2,8 @@
 package probe
 
 import (
+	"log"
+
 	gongtable "github.com/fullstack-lang/gongtable/go/models"
 
 	"github.com/thomaspeugeot/thelongbuild/go/models"
@@ -11,6 +13,8 @@ func FillUpFormFromGongstruct[T models.Gongstruct](instance *T, probe *Probe) {
 	formStage := probe.formStage
 	formStage.Reset()
 	formStage.Commit()
+
+	log.Println("")
 
 	FillUpNamedFormFromGongstruct[T](instance, probe, formStage, gongtable.FormGroupDefaultName.ToString())
 
@@ -25,11 +29,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			Name:  formName,
 			Label: "AWitch Form",
 		}).Stage(formStage)
-		formGroup.OnSave = __gong__New__AWitchFormCallback(
-			instancesTyped,
-			probe,
-			formGroup,
-		)
+
 		formGroup.HasSuppressButton = true
 
 	case *models.BlackKnightShape:
@@ -37,11 +37,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			Name:  formName,
 			Label: "BlackKnightShape Form",
 		}).Stage(formStage)
-		formGroup.OnSave = __gong__New__BlackKnightShapeFormCallback(
-			instancesTyped,
-			probe,
-			formGroup,
-		)
+
 		formGroup.HasSuppressButton = true
 
 	case *models.BringYourDead:
@@ -49,11 +45,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			Name:  formName,
 			Label: "BringYourDead Form",
 		}).Stage(formStage)
-		formGroup.OnSave = __gong__New__BringYourDeadFormCallback(
-			instancesTyped,
-			probe,
-			formGroup,
-		)
+
 		formGroup.HasSuppressButton = true
 
 	case *models.Document:
@@ -61,11 +53,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			Name:  formName,
 			Label: "Document Form",
 		}).Stage(formStage)
-		formGroup.OnSave = __gong__New__DocumentFormCallback(
-			instancesTyped,
-			probe,
-			formGroup,
-		)
+
 		formGroup.HasSuppressButton = true
 
 	case *models.DocumentUse:
@@ -73,11 +61,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			Name:  formName,
 			Label: "DocumentUse Form",
 		}).Stage(formStage)
-		formGroup.OnSave = __gong__New__DocumentUseFormCallback(
-			instancesTyped,
-			probe,
-			formGroup,
-		)
+
 		formGroup.HasSuppressButton = true
 
 	case *models.GalahadThePure:
@@ -85,11 +69,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			Name:  formName,
 			Label: "GalahadThePure Form",
 		}).Stage(formStage)
-		formGroup.OnSave = __gong__New__GalahadThePureFormCallback(
-			instancesTyped,
-			probe,
-			formGroup,
-		)
+
 		formGroup.HasSuppressButton = true
 
 	case *models.GeoObject:
@@ -97,11 +77,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			Name:  formName,
 			Label: "GeoObject Form",
 		}).Stage(formStage)
-		formGroup.OnSave = __gong__New__GeoObjectFormCallback(
-			instancesTyped,
-			probe,
-			formGroup,
-		)
+
 		formGroup.HasSuppressButton = true
 
 	case *models.GeoObjectUse:
@@ -109,11 +85,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			Name:  formName,
 			Label: "GeoObjectUse Form",
 		}).Stage(formStage)
-		formGroup.OnSave = __gong__New__GeoObjectUseFormCallback(
-			instancesTyped,
-			probe,
-			formGroup,
-		)
+
 		formGroup.HasSuppressButton = true
 
 	case *models.Group:
@@ -121,11 +93,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			Name:  formName,
 			Label: "Group Form",
 		}).Stage(formStage)
-		formGroup.OnSave = __gong__New__GroupFormCallback(
-			instancesTyped,
-			probe,
-			formGroup,
-		)
+
 		formGroup.HasSuppressButton = true
 
 	case *models.GroupUse:
@@ -133,11 +101,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			Name:  formName,
 			Label: "GroupUse Form",
 		}).Stage(formStage)
-		formGroup.OnSave = __gong__New__GroupUseFormCallback(
-			instancesTyped,
-			probe,
-			formGroup,
-		)
+
 		formGroup.HasSuppressButton = true
 
 	case *models.KingArthur:
@@ -145,11 +109,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			Name:  formName,
 			Label: "KingArthur Form",
 		}).Stage(formStage)
-		formGroup.OnSave = __gong__New__KingArthurFormCallback(
-			instancesTyped,
-			probe,
-			formGroup,
-		)
+
 		formGroup.HasSuppressButton = true
 
 	case *models.KingArthurShape:
@@ -157,11 +117,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			Name:  formName,
 			Label: "KingArthurShape Form",
 		}).Stage(formStage)
-		formGroup.OnSave = __gong__New__KingArthurShapeFormCallback(
-			instancesTyped,
-			probe,
-			formGroup,
-		)
+
 		formGroup.HasSuppressButton = true
 
 	case *models.KnightWhoSayNi:
@@ -169,11 +125,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			Name:  formName,
 			Label: "KnightWhoSayNi Form",
 		}).Stage(formStage)
-		formGroup.OnSave = __gong__New__KnightWhoSayNiFormCallback(
-			instancesTyped,
-			probe,
-			formGroup,
-		)
+
 		formGroup.HasSuppressButton = true
 
 	case *models.Lancelot:
@@ -181,11 +133,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			Name:  formName,
 			Label: "Lancelot Form",
 		}).Stage(formStage)
-		formGroup.OnSave = __gong__New__LancelotFormCallback(
-			instancesTyped,
-			probe,
-			formGroup,
-		)
+
 		formGroup.HasSuppressButton = true
 
 	case *models.LancelotAgregation:
@@ -193,11 +141,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			Name:  formName,
 			Label: "LancelotAgregation Form",
 		}).Stage(formStage)
-		formGroup.OnSave = __gong__New__LancelotAgregationFormCallback(
-			instancesTyped,
-			probe,
-			formGroup,
-		)
+
 		formGroup.HasSuppressButton = true
 
 	case *models.LancelotAgregationUse:
@@ -205,11 +149,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			Name:  formName,
 			Label: "LancelotAgregationUse Form",
 		}).Stage(formStage)
-		formGroup.OnSave = __gong__New__LancelotAgregationUseFormCallback(
-			instancesTyped,
-			probe,
-			formGroup,
-		)
+
 		formGroup.HasSuppressButton = true
 
 	case *models.LancelotCategory:
@@ -217,11 +157,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			Name:  formName,
 			Label: "LancelotCategory Form",
 		}).Stage(formStage)
-		formGroup.OnSave = __gong__New__LancelotCategoryFormCallback(
-			instancesTyped,
-			probe,
-			formGroup,
-		)
+
 		formGroup.HasSuppressButton = true
 
 	case *models.LancelotCategoryUse:
@@ -229,11 +165,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			Name:  formName,
 			Label: "LancelotCategoryUse Form",
 		}).Stage(formStage)
-		formGroup.OnSave = __gong__New__LancelotCategoryUseFormCallback(
-			instancesTyped,
-			probe,
-			formGroup,
-		)
+
 		formGroup.HasSuppressButton = true
 
 	case *models.MapObject:
@@ -241,11 +173,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			Name:  formName,
 			Label: "MapObject Form",
 		}).Stage(formStage)
-		formGroup.OnSave = __gong__New__MapObjectFormCallback(
-			instancesTyped,
-			probe,
-			formGroup,
-		)
+
 		formGroup.HasSuppressButton = true
 
 	case *models.MapObjectUse:
@@ -253,11 +181,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			Name:  formName,
 			Label: "MapObjectUse Form",
 		}).Stage(formStage)
-		formGroup.OnSave = __gong__New__MapObjectUseFormCallback(
-			instancesTyped,
-			probe,
-			formGroup,
-		)
+
 		formGroup.HasSuppressButton = true
 
 	case *models.Repository:
@@ -265,11 +189,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			Name:  formName,
 			Label: "Repository Form",
 		}).Stage(formStage)
-		formGroup.OnSave = __gong__New__RepositoryFormCallback(
-			instancesTyped,
-			probe,
-			formGroup,
-		)
+
 		formGroup.HasSuppressButton = true
 
 	case *models.SirRobin:
@@ -277,11 +197,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			Name:  formName,
 			Label: "SirRobin Form",
 		}).Stage(formStage)
-		formGroup.OnSave = __gong__New__SirRobinFormCallback(
-			instancesTyped,
-			probe,
-			formGroup,
-		)
+
 		formGroup.HasSuppressButton = true
 
 	case *models.TheBridge:
@@ -289,11 +205,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			Name:  formName,
 			Label: "TheBridge Form",
 		}).Stage(formStage)
-		formGroup.OnSave = __gong__New__TheBridgeFormCallback(
-			instancesTyped,
-			probe,
-			formGroup,
-		)
+
 		formGroup.HasSuppressButton = true
 
 	case *models.TheNuteShape:
@@ -301,11 +213,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			Name:  formName,
 			Label: "TheNuteShape Form",
 		}).Stage(formStage)
-		formGroup.OnSave = __gong__New__TheNuteShapeFormCallback(
-			instancesTyped,
-			probe,
-			formGroup,
-		)
+
 		formGroup.HasSuppressButton = true
 
 	case *models.TheNuteTransition:
@@ -313,11 +221,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			Name:  formName,
 			Label: "TheNuteTransition Form",
 		}).Stage(formStage)
-		formGroup.OnSave = __gong__New__TheNuteTransitionFormCallback(
-			instancesTyped,
-			probe,
-			formGroup,
-		)
+
 		formGroup.HasSuppressButton = true
 
 	case *models.User:
@@ -325,11 +229,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			Name:  formName,
 			Label: "User Form",
 		}).Stage(formStage)
-		formGroup.OnSave = __gong__New__UserFormCallback(
-			instancesTyped,
-			probe,
-			formGroup,
-		)
+
 		formGroup.HasSuppressButton = true
 
 	case *models.UserUse:
@@ -337,11 +237,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			Name:  formName,
 			Label: "UserUse Form",
 		}).Stage(formStage)
-		formGroup.OnSave = __gong__New__UserUseFormCallback(
-			instancesTyped,
-			probe,
-			formGroup,
-		)
+
 		formGroup.HasSuppressButton = true
 
 	case *models.WhatIsYourPreferedColor:
@@ -349,11 +245,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			Name:  formName,
 			Label: "WhatIsYourPreferedColor Form",
 		}).Stage(formStage)
-		formGroup.OnSave = __gong__New__WhatIsYourPreferedColorFormCallback(
-			instancesTyped,
-			probe,
-			formGroup,
-		)
+
 		formGroup.HasSuppressButton = true
 
 	case *models.Workspace:
@@ -361,11 +253,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			Name:  formName,
 			Label: "Workspace Form",
 		}).Stage(formStage)
-		formGroup.OnSave = __gong__New__WorkspaceFormCallback(
-			instancesTyped,
-			probe,
-			formGroup,
-		)
+
 		formGroup.HasSuppressButton = true
 
 	default:
