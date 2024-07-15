@@ -7,7 +7,6 @@ import (
 	table "github.com/fullstack-lang/gongtable/go/models"
 	tree "github.com/fullstack-lang/gongtree/go/models"
 
-	gongtree_buttons "github.com/fullstack-lang/gongtree/go/buttons"
 	gongtree_stack "github.com/fullstack-lang/gongtree/go/stack"
 
 	"github.com/fullstack-lang/maticons/maticons"
@@ -125,9 +124,6 @@ func (buttonImplDiagram *ButtonImplDiagram) ButtonUpdated(
 		diagramNodeImpl.treeWs.WeberStack.Stage.CommitWithSuspendedCallbacks()
 	}
 
-	// reset the diagram
-	diagramNodeImpl.treeWs.SVGGenerator.GenerateSVG(diagramNodeImpl.diagram)
-
 	diagramNodeImpl.treeWs.ComputeNodesConf()
 }
 
@@ -161,8 +157,6 @@ func (buttonImplParameterFlip *ButtonImplParameterFlip) ButtonUpdated(
 	}
 
 	buttonImplParameterFlip.treeWs.WeberStack.Stage.Commit()
-	selectedDiagram := models.GetWorkspace(buttonImplParameterFlip.treeWs.WeberStack.Stage).SelectedDiagram
-	buttonImplParameterFlip.treeWs.SVGGenerator.GenerateSVG(selectedDiagram)
 }
 
 func NewCategory[T ModelObject](
@@ -437,13 +431,6 @@ type TreeWs struct {
 	// AllDiagramNodes is a pratical way to access all diagrams nodes
 	// tree
 	AllDiagramNodes []*tree.Node
-
-	// SVGGenerator is the callback for generating the SVG
-	SVGGenerator GenerateSVGInterface
-}
-
-type GenerateSVGInterface interface {
-	GenerateSVG(diagram *models.SirRobin)
 }
 
 func NewTreeWs(
@@ -456,30 +443,6 @@ func NewTreeWs(
 	treeWs.TreeStack = Tree
 
 	return
-}
-
-func (treeWs *TreeWs) computeNodeConfOfScenarioCateforyObjects(scenarioNodeChildren *tree.Node) {
-
-	scenarioNodeChildren.Buttons = scenarioNodeChildren.Buttons[:0]
-
-	addButton := (&tree.Button{
-		Name: "Add instance for: " + scenarioNodeChildren.Name + string(gongtree_buttons.BUTTON_add),
-		Icon: string(gongtree_buttons.BUTTON_add)}).Stage(treeWs.TreeStack.Stage)
-
-	scenarioNodeChildren.Buttons = append(scenarioNodeChildren.Buttons, addButton)
-
-	switch impl := scenarioNodeChildren.Impl.(type) {
-	case *NodeImplCategory[*models.KingArthur]:
-		addButton.Impl = NewButtonImplCategoryAddInstance(impl.category, treeWs)
-	case *NodeImplCategory[*models.Lancelot]:
-		addButton.Impl = NewButtonImplCategoryAddInstance(impl.category, treeWs)
-	case *NodeImplCategory[*models.BringYourDead]:
-		addButton.Impl = NewButtonImplCategoryAddInstance(impl.category, treeWs)
-	case *NodeImplCategory[*models.GalahadThePure]:
-		addButton.Impl = NewButtonImplCategoryAddInstance(impl.category, treeWs)
-	case *NodeImplCategory[*models.SirRobin]:
-		addButton.Impl = NewButtonImplCategoryAddInstance(impl.category, treeWs)
-	}
 }
 
 func (treeWs *TreeWs) computeNodeConfOfScenarioObjects(scenarioNodeChildren *tree.Node,
