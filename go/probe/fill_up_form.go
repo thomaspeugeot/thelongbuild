@@ -22,7 +22,7 @@ func FillUpForm[T models.Gongstruct](
 		// insertion point
 		BasicFieldtoForm("Name", instanceWithInferedType.Name, instanceWithInferedType, probe.formStage, formGroup,
 			false, false, 0, false, 0)
-		AssociationFieldToForm("EvolutionDirection", instanceWithInferedType.EvolutionDirection, formGroup, probe)
+
 		BasicFieldtoForm("X", instanceWithInferedType.X, instanceWithInferedType, probe.formStage, formGroup,
 			false, false, 0, false, 0)
 		BasicFieldtoForm("Y", instanceWithInferedType.Y, instanceWithInferedType, probe.formStage, formGroup,
@@ -42,33 +42,14 @@ func FillUpForm[T models.Gongstruct](
 		BasicFieldtoForm("RX", instanceWithInferedType.RX, instanceWithInferedType, probe.formStage, formGroup,
 			false, false, 0, false, 0)
 		{
-			var rf models.ReverseField
-			_ = rf
-			rf.GongstructName = "SirRobin"
-			rf.Fieldname = "Witches"
-			reverseFieldOwner := orm.GetReverseFieldOwner(probe.stageOfInterest, probe.backRepoOfInterest, instanceWithInferedType, &rf)
-			if reverseFieldOwner != nil {
-				AssociationReverseFieldToForm(
-					reverseFieldOwner.(*models.SirRobin),
-					"Witches",
-					instanceWithInferedType,
-					formGroup,
-					probe)
-			} else {
-				AssociationReverseFieldToForm[*models.SirRobin, *models.AWitch](
-					nil,
-					"Witches",
-					instanceWithInferedType,
-					formGroup,
-					probe)
-			}
+
 		}
 
 	case *models.BlackKnightShape:
 		// insertion point
 		BasicFieldtoForm("Name", instanceWithInferedType.Name, instanceWithInferedType, probe.formStage, formGroup,
 			false, false, 0, false, 0)
-		AssociationFieldToForm("BringYourDead", instanceWithInferedType.BringYourDead, formGroup, probe)
+
 		EnumTypeStringToForm("Direction", instanceWithInferedType.Direction, instanceWithInferedType, probe.formStage, formGroup)
 		BasicFieldtoForm("X", instanceWithInferedType.X, instanceWithInferedType, probe.formStage, formGroup,
 			false, false, 0, false, 0)
@@ -95,19 +76,9 @@ func FillUpForm[T models.Gongstruct](
 			rf.Fieldname = "BlackKnightShapes"
 			reverseFieldOwner := orm.GetReverseFieldOwner(probe.stageOfInterest, probe.backRepoOfInterest, instanceWithInferedType, &rf)
 			if reverseFieldOwner != nil {
-				AssociationReverseFieldToForm(
-					reverseFieldOwner.(*models.SirRobin),
-					"BlackKnightShapes",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			} else {
-				AssociationReverseFieldToForm[*models.SirRobin, *models.BlackKnightShape](
-					nil,
-					"BlackKnightShapes",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			}
 		}
 
@@ -127,19 +98,9 @@ func FillUpForm[T models.Gongstruct](
 			rf.Fieldname = "BringYourDeadarameters"
 			reverseFieldOwner := orm.GetReverseFieldOwner(probe.stageOfInterest, probe.backRepoOfInterest, instanceWithInferedType, &rf)
 			if reverseFieldOwner != nil {
-				AssociationReverseFieldToForm(
-					reverseFieldOwner.(*models.WhatIsYourPreferedColor),
-					"BringYourDeadarameters",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			} else {
-				AssociationReverseFieldToForm[*models.WhatIsYourPreferedColor, *models.BringYourDead](
-					nil,
-					"BringYourDeadarameters",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			}
 		}
 
@@ -152,7 +113,7 @@ func FillUpForm[T models.Gongstruct](
 		// insertion point
 		BasicFieldtoForm("Name", instanceWithInferedType.Name, instanceWithInferedType, probe.formStage, formGroup,
 			false, false, 0, false, 0)
-		AssociationFieldToForm("Document", instanceWithInferedType.Document, formGroup, probe)
+
 		{
 			var rf models.ReverseField
 			_ = rf
@@ -160,19 +121,9 @@ func FillUpForm[T models.Gongstruct](
 			rf.Fieldname = "DocumentUse"
 			reverseFieldOwner := orm.GetReverseFieldOwner(probe.stageOfInterest, probe.backRepoOfInterest, instanceWithInferedType, &rf)
 			if reverseFieldOwner != nil {
-				AssociationReverseFieldToForm(
-					reverseFieldOwner.(*models.Lancelot),
-					"DocumentUse",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			} else {
-				AssociationReverseFieldToForm[*models.Lancelot, *models.DocumentUse](
-					nil,
-					"DocumentUse",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			}
 		}
 
@@ -189,19 +140,9 @@ func FillUpForm[T models.Gongstruct](
 			rf.Fieldname = "Galahard"
 			reverseFieldOwner := orm.GetReverseFieldOwner(probe.stageOfInterest, probe.backRepoOfInterest, instanceWithInferedType, &rf)
 			if reverseFieldOwner != nil {
-				AssociationReverseFieldToForm(
-					reverseFieldOwner.(*models.WhatIsYourPreferedColor),
-					"Galahard",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			} else {
-				AssociationReverseFieldToForm[*models.WhatIsYourPreferedColor, *models.GalahadThePure](
-					nil,
-					"Galahard",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			}
 		}
 
@@ -214,7 +155,7 @@ func FillUpForm[T models.Gongstruct](
 		// insertion point
 		BasicFieldtoForm("Name", instanceWithInferedType.Name, instanceWithInferedType, probe.formStage, formGroup,
 			false, false, 0, false, 0)
-		AssociationFieldToForm("GeoObject", instanceWithInferedType.GeoObject, formGroup, probe)
+
 		{
 			var rf models.ReverseField
 			_ = rf
@@ -222,19 +163,9 @@ func FillUpForm[T models.Gongstruct](
 			rf.Fieldname = "GeoObjectUse"
 			reverseFieldOwner := orm.GetReverseFieldOwner(probe.stageOfInterest, probe.backRepoOfInterest, instanceWithInferedType, &rf)
 			if reverseFieldOwner != nil {
-				AssociationReverseFieldToForm(
-					reverseFieldOwner.(*models.Document),
-					"GeoObjectUse",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			} else {
-				AssociationReverseFieldToForm[*models.Document, *models.GeoObjectUse](
-					nil,
-					"GeoObjectUse",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			}
 		}
 		{
@@ -244,19 +175,9 @@ func FillUpForm[T models.Gongstruct](
 			rf.Fieldname = "GeoObjectUse"
 			reverseFieldOwner := orm.GetReverseFieldOwner(probe.stageOfInterest, probe.backRepoOfInterest, instanceWithInferedType, &rf)
 			if reverseFieldOwner != nil {
-				AssociationReverseFieldToForm(
-					reverseFieldOwner.(*models.Lancelot),
-					"GeoObjectUse",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			} else {
-				AssociationReverseFieldToForm[*models.Lancelot, *models.GeoObjectUse](
-					nil,
-					"GeoObjectUse",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			}
 		}
 		{
@@ -266,19 +187,9 @@ func FillUpForm[T models.Gongstruct](
 			rf.Fieldname = "GeoObjectUse"
 			reverseFieldOwner := orm.GetReverseFieldOwner(probe.stageOfInterest, probe.backRepoOfInterest, instanceWithInferedType, &rf)
 			if reverseFieldOwner != nil {
-				AssociationReverseFieldToForm(
-					reverseFieldOwner.(*models.TheBridge),
-					"GeoObjectUse",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			} else {
-				AssociationReverseFieldToForm[*models.TheBridge, *models.GeoObjectUse](
-					nil,
-					"GeoObjectUse",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			}
 		}
 
@@ -291,7 +202,7 @@ func FillUpForm[T models.Gongstruct](
 		// insertion point
 		BasicFieldtoForm("Name", instanceWithInferedType.Name, instanceWithInferedType, probe.formStage, formGroup,
 			false, false, 0, false, 0)
-		AssociationFieldToForm("Group", instanceWithInferedType.Group, formGroup, probe)
+
 		{
 			var rf models.ReverseField
 			_ = rf
@@ -299,19 +210,9 @@ func FillUpForm[T models.Gongstruct](
 			rf.Fieldname = "GroupUse"
 			reverseFieldOwner := orm.GetReverseFieldOwner(probe.stageOfInterest, probe.backRepoOfInterest, instanceWithInferedType, &rf)
 			if reverseFieldOwner != nil {
-				AssociationReverseFieldToForm(
-					reverseFieldOwner.(*models.Lancelot),
-					"GroupUse",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			} else {
-				AssociationReverseFieldToForm[*models.Lancelot, *models.GroupUse](
-					nil,
-					"GroupUse",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			}
 		}
 		{
@@ -321,19 +222,9 @@ func FillUpForm[T models.Gongstruct](
 			rf.Fieldname = "GroupUse"
 			reverseFieldOwner := orm.GetReverseFieldOwner(probe.stageOfInterest, probe.backRepoOfInterest, instanceWithInferedType, &rf)
 			if reverseFieldOwner != nil {
-				AssociationReverseFieldToForm(
-					reverseFieldOwner.(*models.Repository),
-					"GroupUse",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			} else {
-				AssociationReverseFieldToForm[*models.Repository, *models.GroupUse](
-					nil,
-					"GroupUse",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			}
 		}
 		{
@@ -343,19 +234,9 @@ func FillUpForm[T models.Gongstruct](
 			rf.Fieldname = "GroupUse"
 			reverseFieldOwner := orm.GetReverseFieldOwner(probe.stageOfInterest, probe.backRepoOfInterest, instanceWithInferedType, &rf)
 			if reverseFieldOwner != nil {
-				AssociationReverseFieldToForm(
-					reverseFieldOwner.(*models.TheBridge),
-					"GroupUse",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			} else {
-				AssociationReverseFieldToForm[*models.TheBridge, *models.GroupUse](
-					nil,
-					"GroupUse",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			}
 		}
 
@@ -373,19 +254,9 @@ func FillUpForm[T models.Gongstruct](
 			rf.Fieldname = "KingArthurs"
 			reverseFieldOwner := orm.GetReverseFieldOwner(probe.stageOfInterest, probe.backRepoOfInterest, instanceWithInferedType, &rf)
 			if reverseFieldOwner != nil {
-				AssociationReverseFieldToForm(
-					reverseFieldOwner.(*models.WhatIsYourPreferedColor),
-					"KingArthurs",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			} else {
-				AssociationReverseFieldToForm[*models.WhatIsYourPreferedColor, *models.KingArthur](
-					nil,
-					"KingArthurs",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			}
 		}
 
@@ -393,7 +264,7 @@ func FillUpForm[T models.Gongstruct](
 		// insertion point
 		BasicFieldtoForm("Name", instanceWithInferedType.Name, instanceWithInferedType, probe.formStage, formGroup,
 			false, false, 0, false, 0)
-		AssociationFieldToForm("ActorState", instanceWithInferedType.ActorState, formGroup, probe)
+
 		BasicFieldtoForm("X", instanceWithInferedType.X, instanceWithInferedType, probe.formStage, formGroup,
 			false, false, 0, false, 0)
 		BasicFieldtoForm("Y", instanceWithInferedType.Y, instanceWithInferedType, probe.formStage, formGroup,
@@ -419,19 +290,9 @@ func FillUpForm[T models.Gongstruct](
 			rf.Fieldname = "Arthurs"
 			reverseFieldOwner := orm.GetReverseFieldOwner(probe.stageOfInterest, probe.backRepoOfInterest, instanceWithInferedType, &rf)
 			if reverseFieldOwner != nil {
-				AssociationReverseFieldToForm(
-					reverseFieldOwner.(*models.SirRobin),
-					"Arthurs",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			} else {
-				AssociationReverseFieldToForm[*models.SirRobin, *models.KingArthurShape](
-					nil,
-					"Arthurs",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			}
 		}
 
@@ -439,7 +300,7 @@ func FillUpForm[T models.Gongstruct](
 		// insertion point
 		BasicFieldtoForm("Name", instanceWithInferedType.Name, instanceWithInferedType, probe.formStage, formGroup,
 			false, false, 0, false, 0)
-		AssociationFieldToForm("Parameter", instanceWithInferedType.Parameter, formGroup, probe)
+
 		EnumTypeStringToForm("Direction", instanceWithInferedType.Direction, instanceWithInferedType, probe.formStage, formGroup)
 		BasicFieldtoForm("X", instanceWithInferedType.X, instanceWithInferedType, probe.formStage, formGroup,
 			false, false, 0, false, 0)
@@ -466,19 +327,9 @@ func FillUpForm[T models.Gongstruct](
 			rf.Fieldname = "ParameterUse"
 			reverseFieldOwner := orm.GetReverseFieldOwner(probe.stageOfInterest, probe.backRepoOfInterest, instanceWithInferedType, &rf)
 			if reverseFieldOwner != nil {
-				AssociationReverseFieldToForm(
-					reverseFieldOwner.(*models.LancelotAgregation),
-					"ParameterUse",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			} else {
-				AssociationReverseFieldToForm[*models.LancelotAgregation, *models.KnightWhoSayNi](
-					nil,
-					"ParameterUse",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			}
 		}
 		{
@@ -488,19 +339,9 @@ func FillUpForm[T models.Gongstruct](
 			rf.Fieldname = "ParameterUse"
 			reverseFieldOwner := orm.GetReverseFieldOwner(probe.stageOfInterest, probe.backRepoOfInterest, instanceWithInferedType, &rf)
 			if reverseFieldOwner != nil {
-				AssociationReverseFieldToForm(
-					reverseFieldOwner.(*models.LancelotCategory),
-					"ParameterUse",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			} else {
-				AssociationReverseFieldToForm[*models.LancelotCategory, *models.KnightWhoSayNi](
-					nil,
-					"ParameterUse",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			}
 		}
 		{
@@ -510,19 +351,9 @@ func FillUpForm[T models.Gongstruct](
 			rf.Fieldname = "ParameterUse"
 			reverseFieldOwner := orm.GetReverseFieldOwner(probe.stageOfInterest, probe.backRepoOfInterest, instanceWithInferedType, &rf)
 			if reverseFieldOwner != nil {
-				AssociationReverseFieldToForm(
-					reverseFieldOwner.(*models.Repository),
-					"ParameterUse",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			} else {
-				AssociationReverseFieldToForm[*models.Repository, *models.KnightWhoSayNi](
-					nil,
-					"ParameterUse",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			}
 		}
 		{
@@ -532,19 +363,9 @@ func FillUpForm[T models.Gongstruct](
 			rf.Fieldname = "KnightWhoSayNis"
 			reverseFieldOwner := orm.GetReverseFieldOwner(probe.stageOfInterest, probe.backRepoOfInterest, instanceWithInferedType, &rf)
 			if reverseFieldOwner != nil {
-				AssociationReverseFieldToForm(
-					reverseFieldOwner.(*models.SirRobin),
-					"KnightWhoSayNis",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			} else {
-				AssociationReverseFieldToForm[*models.SirRobin, *models.KnightWhoSayNi](
-					nil,
-					"KnightWhoSayNis",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			}
 		}
 
@@ -564,19 +385,9 @@ func FillUpForm[T models.Gongstruct](
 			rf.Fieldname = "Lancelots"
 			reverseFieldOwner := orm.GetReverseFieldOwner(probe.stageOfInterest, probe.backRepoOfInterest, instanceWithInferedType, &rf)
 			if reverseFieldOwner != nil {
-				AssociationReverseFieldToForm(
-					reverseFieldOwner.(*models.BringYourDead),
-					"Lancelots",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			} else {
-				AssociationReverseFieldToForm[*models.BringYourDead, *models.Lancelot](
-					nil,
-					"Lancelots",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			}
 		}
 		{
@@ -586,19 +397,9 @@ func FillUpForm[T models.Gongstruct](
 			rf.Fieldname = "Lancelots"
 			reverseFieldOwner := orm.GetReverseFieldOwner(probe.stageOfInterest, probe.backRepoOfInterest, instanceWithInferedType, &rf)
 			if reverseFieldOwner != nil {
-				AssociationReverseFieldToForm(
-					reverseFieldOwner.(*models.WhatIsYourPreferedColor),
-					"Lancelots",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			} else {
-				AssociationReverseFieldToForm[*models.WhatIsYourPreferedColor, *models.Lancelot](
-					nil,
-					"Lancelots",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			}
 		}
 
@@ -611,7 +412,6 @@ func FillUpForm[T models.Gongstruct](
 		// insertion point
 		BasicFieldtoForm("Name", instanceWithInferedType.Name, instanceWithInferedType, probe.formStage, formGroup,
 			false, false, 0, false, 0)
-		AssociationFieldToForm("ParameterAgregation", instanceWithInferedType.ParameterAgregation, formGroup, probe)
 
 	case *models.LancelotCategory:
 		// insertion point
@@ -622,7 +422,6 @@ func FillUpForm[T models.Gongstruct](
 		// insertion point
 		BasicFieldtoForm("Name", instanceWithInferedType.Name, instanceWithInferedType, probe.formStage, formGroup,
 			false, false, 0, false, 0)
-		AssociationFieldToForm("ParameterCategory", instanceWithInferedType.ParameterCategory, formGroup, probe)
 
 	case *models.MapObject:
 		// insertion point
@@ -633,7 +432,7 @@ func FillUpForm[T models.Gongstruct](
 		// insertion point
 		BasicFieldtoForm("Name", instanceWithInferedType.Name, instanceWithInferedType, probe.formStage, formGroup,
 			false, false, 0, false, 0)
-		AssociationFieldToForm("Map", instanceWithInferedType.Map, formGroup, probe)
+
 		{
 			var rf models.ReverseField
 			_ = rf
@@ -641,19 +440,9 @@ func FillUpForm[T models.Gongstruct](
 			rf.Fieldname = "MapUse"
 			reverseFieldOwner := orm.GetReverseFieldOwner(probe.stageOfInterest, probe.backRepoOfInterest, instanceWithInferedType, &rf)
 			if reverseFieldOwner != nil {
-				AssociationReverseFieldToForm(
-					reverseFieldOwner.(*models.TheBridge),
-					"MapUse",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			} else {
-				AssociationReverseFieldToForm[*models.TheBridge, *models.MapObjectUse](
-					nil,
-					"MapUse",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			}
 		}
 
@@ -692,19 +481,9 @@ func FillUpForm[T models.Gongstruct](
 			rf.Fieldname = "Diagrams"
 			reverseFieldOwner := orm.GetReverseFieldOwner(probe.stageOfInterest, probe.backRepoOfInterest, instanceWithInferedType, &rf)
 			if reverseFieldOwner != nil {
-				AssociationReverseFieldToForm(
-					reverseFieldOwner.(*models.WhatIsYourPreferedColor),
-					"Diagrams",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			} else {
-				AssociationReverseFieldToForm[*models.WhatIsYourPreferedColor, *models.SirRobin](
-					nil,
-					"Diagrams",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			}
 		}
 
@@ -722,9 +501,7 @@ func FillUpForm[T models.Gongstruct](
 		// insertion point
 		BasicFieldtoForm("Name", instanceWithInferedType.Name, instanceWithInferedType, probe.formStage, formGroup,
 			false, false, 0, false, 0)
-		AssociationFieldToForm("ActorStateTransition", instanceWithInferedType.ActorStateTransition, formGroup, probe)
-		AssociationFieldToForm("Start", instanceWithInferedType.Start, formGroup, probe)
-		AssociationFieldToForm("End", instanceWithInferedType.End, formGroup, probe)
+
 		EnumTypeStringToForm("StartOrientation", instanceWithInferedType.StartOrientation, instanceWithInferedType, probe.formStage, formGroup)
 		BasicFieldtoForm("StartRatio", instanceWithInferedType.StartRatio, instanceWithInferedType, probe.formStage, formGroup,
 			false, false, 0, false, 0)
@@ -740,19 +517,9 @@ func FillUpForm[T models.Gongstruct](
 			rf.Fieldname = "TheNuteShapes"
 			reverseFieldOwner := orm.GetReverseFieldOwner(probe.stageOfInterest, probe.backRepoOfInterest, instanceWithInferedType, &rf)
 			if reverseFieldOwner != nil {
-				AssociationReverseFieldToForm(
-					reverseFieldOwner.(*models.SirRobin),
-					"TheNuteShapes",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			} else {
-				AssociationReverseFieldToForm[*models.SirRobin, *models.TheNuteShape](
-					nil,
-					"TheNuteShapes",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			}
 		}
 
@@ -760,8 +527,7 @@ func FillUpForm[T models.Gongstruct](
 		// insertion point
 		BasicFieldtoForm("Name", instanceWithInferedType.Name, instanceWithInferedType, probe.formStage, formGroup,
 			false, false, 0, false, 0)
-		AssociationFieldToForm("StartState", instanceWithInferedType.StartState, formGroup, probe)
-		AssociationFieldToForm("EndState", instanceWithInferedType.EndState, formGroup, probe)
+
 		{
 			var rf models.ReverseField
 			_ = rf
@@ -769,19 +535,9 @@ func FillUpForm[T models.Gongstruct](
 			rf.Fieldname = "Nutes"
 			reverseFieldOwner := orm.GetReverseFieldOwner(probe.stageOfInterest, probe.backRepoOfInterest, instanceWithInferedType, &rf)
 			if reverseFieldOwner != nil {
-				AssociationReverseFieldToForm(
-					reverseFieldOwner.(*models.WhatIsYourPreferedColor),
-					"Nutes",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			} else {
-				AssociationReverseFieldToForm[*models.WhatIsYourPreferedColor, *models.TheNuteTransition](
-					nil,
-					"Nutes",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			}
 		}
 
@@ -794,7 +550,7 @@ func FillUpForm[T models.Gongstruct](
 		// insertion point
 		BasicFieldtoForm("Name", instanceWithInferedType.Name, instanceWithInferedType, probe.formStage, formGroup,
 			false, false, 0, false, 0)
-		AssociationFieldToForm("User", instanceWithInferedType.User, formGroup, probe)
+
 		{
 			var rf models.ReverseField
 			_ = rf
@@ -802,19 +558,9 @@ func FillUpForm[T models.Gongstruct](
 			rf.Fieldname = "UserUse"
 			reverseFieldOwner := orm.GetReverseFieldOwner(probe.stageOfInterest, probe.backRepoOfInterest, instanceWithInferedType, &rf)
 			if reverseFieldOwner != nil {
-				AssociationReverseFieldToForm(
-					reverseFieldOwner.(*models.Group),
-					"UserUse",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			} else {
-				AssociationReverseFieldToForm[*models.Group, *models.UserUse](
-					nil,
-					"UserUse",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			}
 		}
 
@@ -851,19 +597,9 @@ func FillUpForm[T models.Gongstruct](
 			rf.Fieldname = "WhatIsYourPreferedColor"
 			reverseFieldOwner := orm.GetReverseFieldOwner(probe.stageOfInterest, probe.backRepoOfInterest, instanceWithInferedType, &rf)
 			if reverseFieldOwner != nil {
-				AssociationReverseFieldToForm(
-					reverseFieldOwner.(*models.TheBridge),
-					"WhatIsYourPreferedColor",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			} else {
-				AssociationReverseFieldToForm[*models.TheBridge, *models.WhatIsYourPreferedColor](
-					nil,
-					"WhatIsYourPreferedColor",
-					instanceWithInferedType,
-					formGroup,
-					probe)
+
 			}
 		}
 
@@ -871,12 +607,6 @@ func FillUpForm[T models.Gongstruct](
 		// insertion point
 		BasicFieldtoForm("Name", instanceWithInferedType.Name, instanceWithInferedType, probe.formStage, formGroup,
 			false, false, 0, false, 0)
-		AssociationFieldToForm("SelectedDiagram", instanceWithInferedType.SelectedDiagram, formGroup, probe)
-		AssociationFieldToForm("A", instanceWithInferedType.A, formGroup, probe)
-		AssociationFieldToForm("B", instanceWithInferedType.B, formGroup, probe)
-		AssociationFieldToForm("C", instanceWithInferedType.C, formGroup, probe)
-		AssociationFieldToForm("D", instanceWithInferedType.D, formGroup, probe)
-		AssociationFieldToForm("E", instanceWithInferedType.E, formGroup, probe)
 
 	default:
 		_ = instanceWithInferedType
