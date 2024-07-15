@@ -31,7 +31,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			formGroup,
 		)
 		formGroup.HasSuppressButton = true
-		FillUpForm(instancesTyped, formGroup, probe)
+
 	case *models.BlackKnightShape:
 		formGroup := (&gongtable.FormGroup{
 			Name:  formName,
@@ -43,7 +43,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			formGroup,
 		)
 		formGroup.HasSuppressButton = true
-		FillUpForm(instancesTyped, formGroup, probe)
+
 	case *models.BringYourDead:
 		formGroup := (&gongtable.FormGroup{
 			Name:  formName,
@@ -55,7 +55,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			formGroup,
 		)
 		formGroup.HasSuppressButton = true
-		FillUpForm(instancesTyped, formGroup, probe)
+
 	case *models.Document:
 		formGroup := (&gongtable.FormGroup{
 			Name:  formName,
@@ -67,7 +67,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			formGroup,
 		)
 		formGroup.HasSuppressButton = true
-		FillUpForm(instancesTyped, formGroup, probe)
+
 	case *models.DocumentUse:
 		formGroup := (&gongtable.FormGroup{
 			Name:  formName,
@@ -79,7 +79,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			formGroup,
 		)
 		formGroup.HasSuppressButton = true
-		FillUpForm(instancesTyped, formGroup, probe)
+
 	case *models.GalahadThePure:
 		formGroup := (&gongtable.FormGroup{
 			Name:  formName,
@@ -91,7 +91,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			formGroup,
 		)
 		formGroup.HasSuppressButton = true
-		FillUpForm(instancesTyped, formGroup, probe)
+
 	case *models.GeoObject:
 		formGroup := (&gongtable.FormGroup{
 			Name:  formName,
@@ -103,7 +103,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			formGroup,
 		)
 		formGroup.HasSuppressButton = true
-		FillUpForm(instancesTyped, formGroup, probe)
+
 	case *models.GeoObjectUse:
 		formGroup := (&gongtable.FormGroup{
 			Name:  formName,
@@ -115,7 +115,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			formGroup,
 		)
 		formGroup.HasSuppressButton = true
-		FillUpForm(instancesTyped, formGroup, probe)
+
 	case *models.Group:
 		formGroup := (&gongtable.FormGroup{
 			Name:  formName,
@@ -127,7 +127,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			formGroup,
 		)
 		formGroup.HasSuppressButton = true
-		FillUpForm(instancesTyped, formGroup, probe)
+
 	case *models.GroupUse:
 		formGroup := (&gongtable.FormGroup{
 			Name:  formName,
@@ -139,7 +139,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			formGroup,
 		)
 		formGroup.HasSuppressButton = true
-		FillUpForm(instancesTyped, formGroup, probe)
+
 	case *models.KingArthur:
 		formGroup := (&gongtable.FormGroup{
 			Name:  formName,
@@ -151,7 +151,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			formGroup,
 		)
 		formGroup.HasSuppressButton = true
-		FillUpForm(instancesTyped, formGroup, probe)
+
 	case *models.KingArthurShape:
 		formGroup := (&gongtable.FormGroup{
 			Name:  formName,
@@ -163,7 +163,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			formGroup,
 		)
 		formGroup.HasSuppressButton = true
-		FillUpForm(instancesTyped, formGroup, probe)
+
 	case *models.KnightWhoSayNi:
 		formGroup := (&gongtable.FormGroup{
 			Name:  formName,
@@ -175,7 +175,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			formGroup,
 		)
 		formGroup.HasSuppressButton = true
-		FillUpForm(instancesTyped, formGroup, probe)
+
 	case *models.Lancelot:
 		formGroup := (&gongtable.FormGroup{
 			Name:  formName,
@@ -187,7 +187,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			formGroup,
 		)
 		formGroup.HasSuppressButton = true
-		FillUpForm(instancesTyped, formGroup, probe)
+
 	case *models.LancelotAgregation:
 		formGroup := (&gongtable.FormGroup{
 			Name:  formName,
@@ -199,7 +199,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			formGroup,
 		)
 		formGroup.HasSuppressButton = true
-		FillUpForm(instancesTyped, formGroup, probe)
+
 	case *models.LancelotAgregationUse:
 		formGroup := (&gongtable.FormGroup{
 			Name:  formName,
@@ -211,7 +211,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			formGroup,
 		)
 		formGroup.HasSuppressButton = true
-		FillUpForm(instancesTyped, formGroup, probe)
+
 	case *models.LancelotCategory:
 		formGroup := (&gongtable.FormGroup{
 			Name:  formName,
@@ -223,7 +223,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			formGroup,
 		)
 		formGroup.HasSuppressButton = true
-		FillUpForm(instancesTyped, formGroup, probe)
+
 	case *models.LancelotCategoryUse:
 		formGroup := (&gongtable.FormGroup{
 			Name:  formName,
@@ -235,7 +235,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			formGroup,
 		)
 		formGroup.HasSuppressButton = true
-		FillUpForm(instancesTyped, formGroup, probe)
+
 	case *models.MapObject:
 		formGroup := (&gongtable.FormGroup{
 			Name:  formName,
@@ -247,7 +247,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			formGroup,
 		)
 		formGroup.HasSuppressButton = true
-		FillUpForm(instancesTyped, formGroup, probe)
+
 	case *models.MapObjectUse:
 		formGroup := (&gongtable.FormGroup{
 			Name:  formName,
@@ -259,7 +259,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			formGroup,
 		)
 		formGroup.HasSuppressButton = true
-		FillUpForm(instancesTyped, formGroup, probe)
+
 	case *models.Repository:
 		formGroup := (&gongtable.FormGroup{
 			Name:  formName,
@@ -271,7 +271,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			formGroup,
 		)
 		formGroup.HasSuppressButton = true
-		FillUpForm(instancesTyped, formGroup, probe)
+
 	case *models.SirRobin:
 		formGroup := (&gongtable.FormGroup{
 			Name:  formName,
@@ -283,7 +283,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			formGroup,
 		)
 		formGroup.HasSuppressButton = true
-		FillUpForm(instancesTyped, formGroup, probe)
+
 	case *models.TheBridge:
 		formGroup := (&gongtable.FormGroup{
 			Name:  formName,
@@ -295,7 +295,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			formGroup,
 		)
 		formGroup.HasSuppressButton = true
-		FillUpForm(instancesTyped, formGroup, probe)
+
 	case *models.TheNuteShape:
 		formGroup := (&gongtable.FormGroup{
 			Name:  formName,
@@ -307,7 +307,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			formGroup,
 		)
 		formGroup.HasSuppressButton = true
-		FillUpForm(instancesTyped, formGroup, probe)
+
 	case *models.TheNuteTransition:
 		formGroup := (&gongtable.FormGroup{
 			Name:  formName,
@@ -319,7 +319,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			formGroup,
 		)
 		formGroup.HasSuppressButton = true
-		FillUpForm(instancesTyped, formGroup, probe)
+
 	case *models.User:
 		formGroup := (&gongtable.FormGroup{
 			Name:  formName,
@@ -331,7 +331,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			formGroup,
 		)
 		formGroup.HasSuppressButton = true
-		FillUpForm(instancesTyped, formGroup, probe)
+
 	case *models.UserUse:
 		formGroup := (&gongtable.FormGroup{
 			Name:  formName,
@@ -343,7 +343,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			formGroup,
 		)
 		formGroup.HasSuppressButton = true
-		FillUpForm(instancesTyped, formGroup, probe)
+
 	case *models.WhatIsYourPreferedColor:
 		formGroup := (&gongtable.FormGroup{
 			Name:  formName,
@@ -355,7 +355,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			formGroup,
 		)
 		formGroup.HasSuppressButton = true
-		FillUpForm(instancesTyped, formGroup, probe)
+
 	case *models.Workspace:
 		formGroup := (&gongtable.FormGroup{
 			Name:  formName,
@@ -367,7 +367,7 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 			formGroup,
 		)
 		formGroup.HasSuppressButton = true
-		FillUpForm(instancesTyped, formGroup, probe)
+
 	default:
 		_ = instancesTyped
 	}
