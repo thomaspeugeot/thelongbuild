@@ -373,7 +373,6 @@ func fillUpTree(
 		Name: "RefreshButton" + " " + string(gongtree_buttons.BUTTON_refresh),
 		Icon: string(gongtree_buttons.BUTTON_refresh)}).Stage(probe.treeStage)
 	nodeRefreshButton.Buttons = append(nodeRefreshButton.Buttons, refreshButton)
-	refreshButton.Impl = NewButtonImplRefresh(probe)
 
 	probe.treeStage.Commit()
 }
