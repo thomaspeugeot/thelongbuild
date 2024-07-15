@@ -128,10 +128,6 @@ func fillUpTable[T models.Gongstruct](
 		row := new(gongtable.Row).Stage(probe.tableStage)
 		row.Name = models.GetFieldStringValue[T](*structInstance, "Name")
 
-		updater := NewRowUpdate[T](structInstance, probe)
-		updater.Instance = structInstance
-		row.Impl = updater
-
 		table.Rows = append(table.Rows, row)
 
 		cell := (&gongtable.Cell{
@@ -197,23 +193,4 @@ func fillUpTable[T models.Gongstruct](
 			cell.CellString = cellString
 		}
 	}
-}
-
-func NewRowUpdate[T models.Gongstruct](
-	Instance *T,
-	probe *Probe,
-) (rowUpdate *RowUpdate[T]) {
-	rowUpdate = new(RowUpdate[T])
-	rowUpdate.Instance = Instance
-	rowUpdate.probe = probe
-	return
-}
-
-type RowUpdate[T models.Gongstruct] struct {
-	Instance *T
-	probe    *Probe
-}
-
-func (rowUpdate *RowUpdate[T]) RowUpdated(stage *gongtable.StageStruct, row, updatedRow *gongtable.Row) {
-	log.Println("RowUpdate: RowUpdated", updatedRow.Name)
 }
