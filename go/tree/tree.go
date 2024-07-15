@@ -13,38 +13,6 @@ import (
 	thelongbuild_probe "github.com/thomaspeugeot/thelongbuild/go/probe"
 )
 
-func NewCategory[T ModelObject](
-	instances *[]T,
-	nodeFolded *bool, // pointer to the persistant boolean
-	scenario *models.WhatIsYourPreferedColor,
-) (category *Category[T]) {
-	return nil
-}
-
-// Category wraps instances of model objects
-// in order to have genericity in tree operations
-type Category[T ModelObject] struct {
-	scenario   *models.WhatIsYourPreferedColor
-	instances  *[]T
-	nodeFolded *bool // pointer to the persistant boolean
-}
-
-func (category *Category[T]) GetNodeName() string {
-	return ""
-}
-
-func (category *Category[T]) GetIcon() *tree.SVGIcon {
-	return nil
-}
-
-func (category *Category[T]) GetIsNodeFolded() bool {
-	return *category.nodeFolded
-}
-
-func (category *Category[T]) SetIsNodeFolded(val bool) {
-	*category.nodeFolded = val
-}
-
 type ModelObject interface {
 	GetName() string
 }
@@ -74,37 +42,6 @@ type NodeImpl[T2 models.GenericNode[T], T models.Gongstruct] struct {
 func (nodeCallback *NodeImpl[T2, T]) OnAfterUpdate(stage *tree.StageStruct, old, updatedNode *tree.Node) {
 }
 
-func NewNodeImplActorState(
-	treeWs *TreeWs,
-	actorState *models.KingArthur,
-) (nodeImplActorState *NodeImplActorState) {
-	nodeImplActorState = new(NodeImplActorState)
-	nodeImplActorState.treeWs = treeWs
-	nodeImplActorState.actorState = actorState
-	return
-}
-
-type NodeImplActorState struct {
-	treeWs     *TreeWs
-	actorState *models.KingArthur
-
-	// IsInDrawMode is true if the actorState is being edited
-	IsInDrawMode bool
-}
-
-func (nodeImplActorState *NodeImplActorState) OnAfterUpdate(stage *tree.StageStruct, stagedNode, frontNode *tree.Node) {
-}
-
-func NewNodeImplActorStateTransition(
-	treeWs *TreeWs,
-	actorStateTransition *models.TheNuteTransition,
-) (nodeImplActorStateTransition *NodeImplActorStateTransition) {
-	nodeImplActorStateTransition = new(NodeImplActorStateTransition)
-	nodeImplActorStateTransition.treeWs = treeWs
-	nodeImplActorStateTransition.actorStateTransition = actorStateTransition
-	return
-}
-
 type NodeImplActorStateTransition struct {
 	treeWs               *TreeWs
 	actorStateTransition *models.TheNuteTransition
@@ -114,28 +51,6 @@ type NodeImplActorStateTransition struct {
 }
 
 func (nodeImplActorStateTransition *NodeImplActorStateTransition) OnAfterUpdate(stage *tree.StageStruct, stagedNode, frontNode *tree.Node) {
-}
-
-func NewNodeImplCategory[T ModelObject](
-	treeWs *TreeWs,
-	category *Category[T],
-) (nodeImplCategory *NodeImplCategory[T]) {
-	nodeImplCategory = new(NodeImplCategory[T])
-	nodeImplCategory.treeWs = treeWs
-	nodeImplCategory.category = category
-	return
-}
-
-type NodeImplCategory[T ModelObject] struct {
-	treeWs   *TreeWs
-	category *Category[T]
-	scenario *models.WhatIsYourPreferedColor
-
-	// IsInDrawMode is true if the category is being edited
-	IsInDrawMode bool
-}
-
-func (nodeImplCategory *NodeImplCategory[T]) OnAfterUpdate(stage *tree.StageStruct, stagedNode, frontNode *tree.Node) {
 }
 
 func NewNodeImplDiagram(
