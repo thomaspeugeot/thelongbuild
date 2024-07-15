@@ -362,11 +362,6 @@ func fillUpTree(
 			Name: gongStruct.Name + " " + string(gongtree_buttons.BUTTON_add),
 			Icon: string(gongtree_buttons.BUTTON_add)}).Stage(probe.treeStage)
 		nodeGongstruct.Buttons = append(nodeGongstruct.Buttons, addButton)
-		addButton.Impl = NewButtonImplGongstruct(
-			gongStruct,
-			gongtree_buttons.BUTTON_add,
-			probe,
-		)
 
 		sidebar.RootNodes = append(sidebar.RootNodes, nodeGongstruct)
 	}
