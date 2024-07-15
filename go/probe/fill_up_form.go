@@ -119,7 +119,7 @@ func FillUpForm[T models.Gongstruct](
 			false, false, 0, false, 0)
 		BasicFieldtoForm("Description", instanceWithInferedType.Description, instanceWithInferedType, probe.formStage, formGroup,
 			true, true, 500, true, 500)
-		AssociationSliceToForm("Lancelots", instanceWithInferedType, &instanceWithInferedType.Lancelots, formGroup, probe)
+
 		{
 			var rf models.ReverseField
 			_ = rf
@@ -147,7 +147,6 @@ func FillUpForm[T models.Gongstruct](
 		// insertion point
 		BasicFieldtoForm("Name", instanceWithInferedType.Name, instanceWithInferedType, probe.formStage, formGroup,
 			false, false, 0, false, 0)
-		AssociationSliceToForm("GeoObjectUse", instanceWithInferedType, &instanceWithInferedType.GeoObjectUse, formGroup, probe)
 
 	case *models.DocumentUse:
 		// insertion point
@@ -287,7 +286,6 @@ func FillUpForm[T models.Gongstruct](
 		// insertion point
 		BasicFieldtoForm("Name", instanceWithInferedType.Name, instanceWithInferedType, probe.formStage, formGroup,
 			false, false, 0, false, 0)
-		AssociationSliceToForm("UserUse", instanceWithInferedType, &instanceWithInferedType.UserUse, formGroup, probe)
 
 	case *models.GroupUse:
 		// insertion point
@@ -558,9 +556,7 @@ func FillUpForm[T models.Gongstruct](
 			false, false, 0, false, 0)
 		BasicFieldtoForm("Description", instanceWithInferedType.Description, instanceWithInferedType, probe.formStage, formGroup,
 			true, true, 500, true, 500)
-		AssociationSliceToForm("GroupUse", instanceWithInferedType, &instanceWithInferedType.GroupUse, formGroup, probe)
-		AssociationSliceToForm("DocumentUse", instanceWithInferedType, &instanceWithInferedType.DocumentUse, formGroup, probe)
-		AssociationSliceToForm("GeoObjectUse", instanceWithInferedType, &instanceWithInferedType.GeoObjectUse, formGroup, probe)
+
 		{
 			var rf models.ReverseField
 			_ = rf
@@ -610,7 +606,6 @@ func FillUpForm[T models.Gongstruct](
 		// insertion point
 		BasicFieldtoForm("Name", instanceWithInferedType.Name, instanceWithInferedType, probe.formStage, formGroup,
 			false, false, 0, false, 0)
-		AssociationSliceToForm("ParameterUse", instanceWithInferedType, &instanceWithInferedType.ParameterUse, formGroup, probe)
 
 	case *models.LancelotAgregationUse:
 		// insertion point
@@ -622,7 +617,6 @@ func FillUpForm[T models.Gongstruct](
 		// insertion point
 		BasicFieldtoForm("Name", instanceWithInferedType.Name, instanceWithInferedType, probe.formStage, formGroup,
 			false, false, 0, false, 0)
-		AssociationSliceToForm("ParameterUse", instanceWithInferedType, &instanceWithInferedType.ParameterUse, formGroup, probe)
 
 	case *models.LancelotCategoryUse:
 		// insertion point
@@ -667,8 +661,6 @@ func FillUpForm[T models.Gongstruct](
 		// insertion point
 		BasicFieldtoForm("Name", instanceWithInferedType.Name, instanceWithInferedType, probe.formStage, formGroup,
 			false, false, 0, false, 0)
-		AssociationSliceToForm("ParameterUse", instanceWithInferedType, &instanceWithInferedType.ParameterUse, formGroup, probe)
-		AssociationSliceToForm("GroupUse", instanceWithInferedType, &instanceWithInferedType.GroupUse, formGroup, probe)
 
 	case *models.SirRobin:
 		// insertion point
@@ -676,11 +668,7 @@ func FillUpForm[T models.Gongstruct](
 			false, false, 0, false, 0)
 		BasicFieldtoForm("Description", instanceWithInferedType.Description, instanceWithInferedType, probe.formStage, formGroup,
 			true, false, 0, false, 0)
-		AssociationSliceToForm("Witches", instanceWithInferedType, &instanceWithInferedType.Witches, formGroup, probe)
-		AssociationSliceToForm("Arthurs", instanceWithInferedType, &instanceWithInferedType.Arthurs, formGroup, probe)
-		AssociationSliceToForm("KnightWhoSayNis", instanceWithInferedType, &instanceWithInferedType.KnightWhoSayNis, formGroup, probe)
-		AssociationSliceToForm("BlackKnightShapes", instanceWithInferedType, &instanceWithInferedType.BlackKnightShapes, formGroup, probe)
-		AssociationSliceToForm("TheNuteShapes", instanceWithInferedType, &instanceWithInferedType.TheNuteShapes, formGroup, probe)
+
 		BasicFieldtoForm("AxisOrign_X", instanceWithInferedType.AxisOrign_X, instanceWithInferedType, probe.formStage, formGroup,
 			false, false, 0, false, 0)
 		BasicFieldtoForm("AxisOrign_Y", instanceWithInferedType.AxisOrign_Y, instanceWithInferedType, probe.formStage, formGroup,
@@ -726,10 +714,7 @@ func FillUpForm[T models.Gongstruct](
 			false, false, 0, false, 0)
 		BasicFieldtoForm("Description", instanceWithInferedType.Description, instanceWithInferedType, probe.formStage, formGroup,
 			true, true, 500, true, 500)
-		AssociationSliceToForm("WhatIsYourPreferedColor", instanceWithInferedType, &instanceWithInferedType.WhatIsYourPreferedColor, formGroup, probe)
-		AssociationSliceToForm("GroupUse", instanceWithInferedType, &instanceWithInferedType.GroupUse, formGroup, probe)
-		AssociationSliceToForm("GeoObjectUse", instanceWithInferedType, &instanceWithInferedType.GeoObjectUse, formGroup, probe)
-		AssociationSliceToForm("MapUse", instanceWithInferedType, &instanceWithInferedType.MapUse, formGroup, probe)
+
 		BasicFieldtoForm("IsNodeExpanded", instanceWithInferedType.IsNodeExpanded, instanceWithInferedType, probe.formStage, formGroup,
 			false, false, 0, false, 0)
 
@@ -839,22 +824,22 @@ func FillUpForm[T models.Gongstruct](
 			true, false, 0, false, 0)
 		BasicFieldtoForm("Description", instanceWithInferedType.Description, instanceWithInferedType, probe.formStage, formGroup,
 			true, false, 0, false, 0)
-		AssociationSliceToForm("Diagrams", instanceWithInferedType, &instanceWithInferedType.Diagrams, formGroup, probe)
+
 		BasicFieldtoForm("DiagramsNodeFolded", instanceWithInferedType.DiagramsNodeFolded, instanceWithInferedType, probe.formStage, formGroup,
 			false, false, 0, false, 0)
-		AssociationSliceToForm("KingArthurs", instanceWithInferedType, &instanceWithInferedType.KingArthurs, formGroup, probe)
+
 		BasicFieldtoForm("KingArthurNodeFolded", instanceWithInferedType.KingArthurNodeFolded, instanceWithInferedType, probe.formStage, formGroup,
 			false, false, 0, false, 0)
-		AssociationSliceToForm("Nutes", instanceWithInferedType, &instanceWithInferedType.Nutes, formGroup, probe)
+
 		BasicFieldtoForm("RRRR", instanceWithInferedType.RRRR, instanceWithInferedType, probe.formStage, formGroup,
 			false, false, 0, false, 0)
-		AssociationSliceToForm("Galahard", instanceWithInferedType, &instanceWithInferedType.Galahard, formGroup, probe)
+
 		BasicFieldtoForm("IIUU", instanceWithInferedType.IIUU, instanceWithInferedType, probe.formStage, formGroup,
 			false, false, 0, false, 0)
-		AssociationSliceToForm("Lancelots", instanceWithInferedType, &instanceWithInferedType.Lancelots, formGroup, probe)
+
 		BasicFieldtoForm("LancelotsodeFolded", instanceWithInferedType.LancelotsodeFolded, instanceWithInferedType, probe.formStage, formGroup,
 			false, false, 0, false, 0)
-		AssociationSliceToForm("BringYourDeadarameters", instanceWithInferedType, &instanceWithInferedType.BringYourDeadarameters, formGroup, probe)
+
 		BasicFieldtoForm("RRRRT", instanceWithInferedType.RRRRT, instanceWithInferedType, probe.formStage, formGroup,
 			false, false, 0, false, 0)
 		BasicFieldtoForm("IsNodeExpanded", instanceWithInferedType.IsNodeExpanded, instanceWithInferedType, probe.formStage, formGroup,
