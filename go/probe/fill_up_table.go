@@ -30,32 +30,7 @@ func fillUpTable[T models.Gongstruct](
 	// refresh the stage of interest
 	probe.stageOfInterest.Checkout()
 
-	setOfStructs := (*models.GetGongstructInstancesSet[T](probe.stageOfInterest))
-	sliceOfGongStructsSorted := make([]*T, len(setOfStructs))
-	i := 0
-	for k := range setOfStructs {
-		sliceOfGongStructsSorted[i] = k
-		i++
-	}
-
-	column := new(gongtable.DisplayedColumn).Stage(probe.tableStage)
-	column.Name = "ID"
-	table.DisplayedColumns = append(table.DisplayedColumns, column)
-
-	column = new(gongtable.DisplayedColumn).Stage(probe.tableStage)
-	column.Name = "Delete"
-	table.DisplayedColumns = append(table.DisplayedColumns, column)
-
-	for _, fieldName := range fields {
-		column := new(gongtable.DisplayedColumn).Stage(probe.tableStage)
-		column.Name = fieldName
-		table.DisplayedColumns = append(table.DisplayedColumns, column)
-	}
-	for _, reverseField := range reverseFields {
-		column := new(gongtable.DisplayedColumn).Stage(probe.tableStage)
-		column.Name = "(" + reverseField.GongstructName + ") -> " + reverseField.Fieldname
-		table.DisplayedColumns = append(table.DisplayedColumns, column)
-	}
+	sliceOfGongStructsSorted := make([]*T, 0)
 
 	for _, structInstance := range sliceOfGongStructsSorted {
 		row := new(gongtable.Row).Stage(probe.tableStage)
