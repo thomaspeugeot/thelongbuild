@@ -10,6 +10,9 @@ import (
 	"github.com/thomaspeugeot/thelongbuild/go/orm"
 )
 
+var _ orm.AWitchAPI
+var _ gongtable.Cell
+
 func fillUpTablePointerToGongstruct[T models.PointerToGongstruct](
 	probe *Probe,
 ) {
@@ -21,7 +24,9 @@ func fillUpTable[T models.Gongstruct](
 ) {
 
 	fields := models.GetFields[T]()
+	_ = fields
 	reverseFields := models.GetReverseFields[T]()
+	_ = reverseFields
 
 	// refresh the stage of interest
 	probe.stageOfInterest.Checkout()
@@ -29,13 +34,9 @@ func fillUpTable[T models.Gongstruct](
 	sliceOfGongStructsSorted := make([]*T, 0)
 
 	for _, structInstance := range sliceOfGongStructsSorted {
-		row := new(gongtable.Row).Stage(probe.tableStage)
-		row.Name = models.GetFieldStringValue[T](*structInstance, "Name")
+		// row := new(gongtable.Row).Stage(probe.tableStage)
+		// row.Name = models.GetFieldStringValue[T](*structInstance, "Name")
 
-		for _, fieldName := range fields {
-			value := models.GetFieldStringValue[T](*structInstance, fieldName)
-			_ = value
-		}
 		for _, reverseField := range reverseFields {
 
 			value := orm.GetReverseFieldOwnerName[T](
@@ -44,6 +45,7 @@ func fillUpTable[T models.Gongstruct](
 				structInstance,
 				&reverseField)
 			_ = value
+			log.Println()
 		}
 	}
 }
