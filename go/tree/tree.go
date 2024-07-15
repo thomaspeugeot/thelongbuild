@@ -8,66 +8,10 @@ import (
 
 	gongtree_stack "github.com/fullstack-lang/gongtree/go/stack"
 
-	"github.com/fullstack-lang/maticons/maticons"
-
 	"github.com/thomaspeugeot/thelongbuild/go/models"
-	thelongbuild_stack "github.com/thomaspeugeot/thelongbuild/go/stack"
 
 	thelongbuild_probe "github.com/thomaspeugeot/thelongbuild/go/probe"
 )
-
-type ButtonImplCategoryAddInstance[T ModelObject] struct {
-	diagramNode *tree.Node
-	treeWs      *TreeWs
-	category    *Category[T]
-}
-
-func NewButtonImplCategoryAddInstance[T ModelObject](
-	category *Category[T],
-	treeWs *TreeWs,
-) (buttonImplCategoryAddInstance *ButtonImplCategoryAddInstance[T]) {
-	return
-}
-
-// new instance button has be pressed
-func (buttonImplCategoryAddInstance *ButtonImplCategoryAddInstance[T]) ButtonUpdated(
-	gongtreeStage *tree.StageStruct,
-	stageButton, front *tree.Button) {
-}
-
-type ButtonImplDiagram struct {
-	diagramNode *tree.Node
-
-	// type of button
-	Icon maticons.ButtonType
-}
-
-func NewButtonImplDiagram(classdiagramNode *tree.Node, icon maticons.ButtonType) (buttonImplDiagram *ButtonImplDiagram) {
-	return
-}
-
-func (buttonImplDiagram *ButtonImplDiagram) ButtonUpdated(
-	gongtreeStage *tree.StageStruct,
-	stageButton, front *tree.Button) {
-}
-
-type ButtonImplParameterFlip struct {
-	treeWs             *TreeWs
-	diagramNode        *tree.Node
-	shapeWithDirection models.ShapeWithDirection
-}
-
-func NewButtonImplParameterFlip(
-	treeWs *TreeWs,
-	parameterNode *tree.Node,
-	shapeWithDirection models.ShapeWithDirection) (buttonImplParameterFlip *ButtonImplParameterFlip) {
-	return
-}
-
-func (buttonImplParameterFlip *ButtonImplParameterFlip) ButtonUpdated(
-	gongtreeStage *tree.StageStruct,
-	stageButton, front *tree.Button) {
-}
 
 func NewCategory[T ModelObject](
 	instances *[]T,
@@ -293,8 +237,6 @@ func (nodeImplScenarioParameter *NodeImplScenarioParameter) OnAfterUpdate(stage 
 
 // TreeWs, for tree workspace holds the supporting data for performing operation on the weber tree
 type TreeWs struct {
-	WeberStack *thelongbuild_stack.Stack
-
 	TreeStack *gongtree_stack.Stack
 
 	NodeTree *tree.Tree
@@ -303,22 +245,6 @@ type TreeWs struct {
 	// tree
 	AllDiagramNodes []*tree.Node
 }
-
-func NewTreeWs(
-	Weber *thelongbuild_stack.Stack,
-	Tree *gongtree_stack.Stack,
-) (treeWs *TreeWs) {
-	treeWs = new(TreeWs)
-
-	treeWs.WeberStack = Weber
-	treeWs.TreeStack = Tree
-
-	return
-}
-
-// ComputeNodesConf parses all nodes and:
-// - for diagram nodes if the diagram is not in edit mode, display an edit button, else display a save button
-func (treeWs *TreeWs) ComputeNodesConf() {}
 
 func (treeWs *TreeWs) GenerateTree() {
 
