@@ -322,40 +322,7 @@ func (treeWs *TreeWs) ComputeNodesConf() {}
 
 func (treeWs *TreeWs) GenerateTree() {
 
-	// reset all diagram nodes
-	treeWs.AllDiagramNodes = make([]*tree.Node, 0)
-
-	treeWs.TreeStack.Stage.Reset()
-
-	// create new tree
-	treeWs.NodeTree = new(tree.Tree).Stage(treeWs.TreeStack.Stage)
-	treeWs.NodeTree.Name = string(models.Sidebar)
-
-	list := models.GetGongstrucsSorted[*models.TheBridge](treeWs.WeberStack.Stage)
-
-	// reverse map for transition to actor state shapes
-	assoc1 := models.GetAssociationName[models.TheNuteTransition]().StartState.Name
-	map_Transition_StartActorStateShape := models.GetPointerReverseMap[
-		models.KingArthurShape,
-		models.TheNuteTransition,
-	](assoc1, treeWs.WeberStack.Stage)
-	_ = map_Transition_StartActorStateShape
-	assoc2 := models.GetAssociationName[models.TheNuteTransition]().EndState.Name
-	map_Transition_EndActorStateShape := models.GetPointerReverseMap[
-		models.KingArthurShape,
-		models.TheNuteTransition,
-	](assoc2, treeWs.WeberStack.Stage)
-	_ = map_Transition_EndActorStateShape
-
-	for _, analysis := range list {
-		analysisNode := new(tree.Node).Stage(treeWs.TreeStack.Stage)
-		analysisNode.Impl = NewNodeImpl(treeWs, analysis)
-	}
-}
-
-func generateTreeForCategory[T ModelObject](
-	treeWs *TreeWs,
-	scenarioNode *tree.Node,
-	category *Category[T],
-) {
+	bridge := new(models.TheBridge)
+	analysisNode := new(tree.Node).Stage(treeWs.TreeStack.Stage)
+	analysisNode.Impl = NewNodeImpl(treeWs, bridge)
 }
