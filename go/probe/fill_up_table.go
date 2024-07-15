@@ -2,12 +2,9 @@
 package probe
 
 import (
-	"fmt"
 	"log"
 
 	gongtable "github.com/fullstack-lang/gongtable/go/models"
-
-	"github.com/fullstack-lang/maticons/maticons"
 
 	"github.com/thomaspeugeot/thelongbuild/go/models"
 	"github.com/thomaspeugeot/thelongbuild/go/orm"
@@ -60,53 +57,15 @@ func fillUpTable[T models.Gongstruct](
 		table.DisplayedColumns = append(table.DisplayedColumns, column)
 	}
 
-	fieldIndex := 0
 	for _, structInstance := range sliceOfGongStructsSorted {
 		row := new(gongtable.Row).Stage(probe.tableStage)
 		row.Name = models.GetFieldStringValue[T](*structInstance, "Name")
 
 		table.Rows = append(table.Rows, row)
 
-		cell := (&gongtable.Cell{
-			Name: "ID",
-		}).Stage(probe.tableStage)
-		row.Cells = append(row.Cells, cell)
-		cellInt := (&gongtable.CellInt{
-			Name: "ID",
-			Value: orm.GetID(
-				probe.stageOfInterest,
-				probe.backRepoOfInterest,
-				structInstance,
-			),
-		}).Stage(probe.tableStage)
-		cell.CellInt = cellInt
-
-		cell = (&gongtable.Cell{
-			Name: "Delete Icon",
-		}).Stage(probe.tableStage)
-		row.Cells = append(row.Cells, cell)
-		cellIcon := (&gongtable.CellIcon{
-			Name: "Delete Icon",
-			Icon: string(maticons.BUTTON_delete),
-		}).Stage(probe.tableStage)
-
-		cell.CellIcon = cellIcon
-
 		for _, fieldName := range fields {
 			value := models.GetFieldStringValue[T](*structInstance, fieldName)
-			name := fmt.Sprintf("%d", fieldIndex) + " " + value
-			fieldIndex++
-			// log.Println(fieldName, value)
-			cell := (&gongtable.Cell{
-				Name: name,
-			}).Stage(probe.tableStage)
-			row.Cells = append(row.Cells, cell)
-
-			cellString := (&gongtable.CellString{
-				Name:  name,
-				Value: value,
-			}).Stage(probe.tableStage)
-			cell.CellString = cellString
+			_ = value
 		}
 		for _, reverseField := range reverseFields {
 
@@ -115,19 +74,7 @@ func fillUpTable[T models.Gongstruct](
 				probe.backRepoOfInterest,
 				structInstance,
 				&reverseField)
-			name := fmt.Sprintf("%d", fieldIndex) + " " + value
-			fieldIndex++
-			// log.Println(fieldName, value)
-			cell := (&gongtable.Cell{
-				Name: name,
-			}).Stage(probe.tableStage)
-			row.Cells = append(row.Cells, cell)
-
-			cellString := (&gongtable.CellString{
-				Name:  name,
-				Value: value,
-			}).Stage(probe.tableStage)
-			cell.CellString = cellString
+			_ = value
 		}
 	}
 }
