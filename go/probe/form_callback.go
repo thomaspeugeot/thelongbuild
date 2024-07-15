@@ -62,27 +62,27 @@ func (awitchFormCallback *AWitchFormCallback) OnSave() {
 		switch formDiv.Name {
 		// insertion point per field
 		case "Name":
-			FormDivBasicFieldToField(&(awitch_.Name), formDiv)
+
 		case "EvolutionDirection":
-			FormDivSelectFieldToField(&(awitch_.EvolutionDirection), awitchFormCallback.probe.stageOfInterest, formDiv)
+
 		case "X":
-			FormDivBasicFieldToField(&(awitch_.X), formDiv)
+
 		case "Y":
-			FormDivBasicFieldToField(&(awitch_.Y), formDiv)
+
 		case "Width":
-			FormDivBasicFieldToField(&(awitch_.Width), formDiv)
+
 		case "Height":
-			FormDivBasicFieldToField(&(awitch_.Height), formDiv)
+
 		case "FillColor":
-			FormDivBasicFieldToField(&(awitch_.FillColor), formDiv)
+
 		case "FillOpacity":
-			FormDivBasicFieldToField(&(awitch_.FillOpacity), formDiv)
+
 		case "Stroke":
-			FormDivBasicFieldToField(&(awitch_.Stroke), formDiv)
+
 		case "StrokeWidth":
-			FormDivBasicFieldToField(&(awitch_.StrokeWidth), formDiv)
+
 		case "RX":
-			FormDivBasicFieldToField(&(awitch_.RX), formDiv)
+
 		case "SirRobin:Witches":
 			// we need to retrieve the field owner before the change
 			var pastSirRobinOwner *models.SirRobin
@@ -200,29 +200,29 @@ func (blackknightshapeFormCallback *BlackKnightShapeFormCallback) OnSave() {
 		switch formDiv.Name {
 		// insertion point per field
 		case "Name":
-			FormDivBasicFieldToField(&(blackknightshape_.Name), formDiv)
+
 		case "BringYourDead":
-			FormDivSelectFieldToField(&(blackknightshape_.BringYourDead), blackknightshapeFormCallback.probe.stageOfInterest, formDiv)
+
 		case "Direction":
-			FormDivEnumStringFieldToField(&(blackknightshape_.Direction), formDiv)
+
 		case "X":
-			FormDivBasicFieldToField(&(blackknightshape_.X), formDiv)
+
 		case "Y":
-			FormDivBasicFieldToField(&(blackknightshape_.Y), formDiv)
+
 		case "Width":
-			FormDivBasicFieldToField(&(blackknightshape_.Width), formDiv)
+
 		case "Height":
-			FormDivBasicFieldToField(&(blackknightshape_.Height), formDiv)
+
 		case "FillColor":
-			FormDivBasicFieldToField(&(blackknightshape_.FillColor), formDiv)
+
 		case "FillOpacity":
-			FormDivBasicFieldToField(&(blackknightshape_.FillOpacity), formDiv)
+
 		case "Stroke":
-			FormDivBasicFieldToField(&(blackknightshape_.Stroke), formDiv)
+
 		case "StrokeWidth":
-			FormDivBasicFieldToField(&(blackknightshape_.StrokeWidth), formDiv)
+
 		case "RX":
-			FormDivBasicFieldToField(&(blackknightshape_.RX), formDiv)
+
 		case "SirRobin:BlackKnightShapes":
 			// we need to retrieve the field owner before the change
 			var pastSirRobinOwner *models.SirRobin
@@ -278,6 +278,8 @@ func (blackknightshapeFormCallback *BlackKnightShapeFormCallback) OnSave() {
 		blackknightshapeFormCallback.probe,
 	)
 	blackknightshapeFormCallback.probe.tableStage.Commit()
+
+	log.Println("")
 
 	// display a new form by reset the form stage
 	if blackknightshapeFormCallback.CreationMode || blackknightshapeFormCallback.formGroup.HasSuppressButtonBeenPressed {
@@ -340,11 +342,11 @@ func (bringyourdeadFormCallback *BringYourDeadFormCallback) OnSave() {
 		switch formDiv.Name {
 		// insertion point per field
 		case "Name":
-			FormDivBasicFieldToField(&(bringyourdead_.Name), formDiv)
+
 		case "Tag":
-			FormDivBasicFieldToField(&(bringyourdead_.Tag), formDiv)
+
 		case "Description":
-			FormDivBasicFieldToField(&(bringyourdead_.Description), formDiv)
+
 		case "WhatIsYourPreferedColor:BringYourDeadarameters":
 			// we need to retrieve the field owner before the change
 			var pastWhatIsYourPreferedColorOwner *models.WhatIsYourPreferedColor
@@ -462,7 +464,7 @@ func (documentFormCallback *DocumentFormCallback) OnSave() {
 		switch formDiv.Name {
 		// insertion point per field
 		case "Name":
-			FormDivBasicFieldToField(&(document_.Name), formDiv)
+
 		}
 	}
 
@@ -538,9 +540,9 @@ func (documentuseFormCallback *DocumentUseFormCallback) OnSave() {
 		switch formDiv.Name {
 		// insertion point per field
 		case "Name":
-			FormDivBasicFieldToField(&(documentuse_.Name), formDiv)
+
 		case "Document":
-			FormDivSelectFieldToField(&(documentuse_.Document), documentuseFormCallback.probe.stageOfInterest, formDiv)
+
 		case "Lancelot:DocumentUse":
 			// we need to retrieve the field owner before the change
 			var pastLancelotOwner *models.Lancelot
@@ -658,9 +660,9 @@ func (galahadthepureFormCallback *GalahadThePureFormCallback) OnSave() {
 		switch formDiv.Name {
 		// insertion point per field
 		case "Name":
-			FormDivBasicFieldToField(&(galahadthepure_.Name), formDiv)
+
 		case "Description":
-			FormDivBasicFieldToField(&(galahadthepure_.Description), formDiv)
+
 		case "WhatIsYourPreferedColor:Galahard":
 			// we need to retrieve the field owner before the change
 			var pastWhatIsYourPreferedColorOwner *models.WhatIsYourPreferedColor
@@ -778,7 +780,7 @@ func (geoobjectFormCallback *GeoObjectFormCallback) OnSave() {
 		switch formDiv.Name {
 		// insertion point per field
 		case "Name":
-			FormDivBasicFieldToField(&(geoobject_.Name), formDiv)
+
 		}
 	}
 
@@ -854,9 +856,9 @@ func (geoobjectuseFormCallback *GeoObjectUseFormCallback) OnSave() {
 		switch formDiv.Name {
 		// insertion point per field
 		case "Name":
-			FormDivBasicFieldToField(&(geoobjectuse_.Name), formDiv)
+
 		case "GeoObject":
-			FormDivSelectFieldToField(&(geoobjectuse_.GeoObject), geoobjectuseFormCallback.probe.stageOfInterest, formDiv)
+
 		case "Document:GeoObjectUse":
 			// we need to retrieve the field owner before the change
 			var pastDocumentOwner *models.Document
@@ -1058,7 +1060,7 @@ func (groupFormCallback *GroupFormCallback) OnSave() {
 		switch formDiv.Name {
 		// insertion point per field
 		case "Name":
-			FormDivBasicFieldToField(&(group_.Name), formDiv)
+
 		}
 	}
 
@@ -1134,9 +1136,9 @@ func (groupuseFormCallback *GroupUseFormCallback) OnSave() {
 		switch formDiv.Name {
 		// insertion point per field
 		case "Name":
-			FormDivBasicFieldToField(&(groupuse_.Name), formDiv)
+
 		case "Group":
-			FormDivSelectFieldToField(&(groupuse_.Group), groupuseFormCallback.probe.stageOfInterest, formDiv)
+
 		case "Lancelot:GroupUse":
 			// we need to retrieve the field owner before the change
 			var pastLancelotOwner *models.Lancelot
@@ -1338,11 +1340,11 @@ func (kingarthurFormCallback *KingArthurFormCallback) OnSave() {
 		switch formDiv.Name {
 		// insertion point per field
 		case "Name":
-			FormDivBasicFieldToField(&(kingarthur_.Name), formDiv)
+
 		case "IsWithProbaility":
-			FormDivBasicFieldToField(&(kingarthur_.IsWithProbaility), formDiv)
+
 		case "Probability":
-			FormDivEnumStringFieldToField(&(kingarthur_.Probability), formDiv)
+
 		case "WhatIsYourPreferedColor:KingArthurs":
 			// we need to retrieve the field owner before the change
 			var pastWhatIsYourPreferedColorOwner *models.WhatIsYourPreferedColor
@@ -1460,27 +1462,27 @@ func (kingarthurshapeFormCallback *KingArthurShapeFormCallback) OnSave() {
 		switch formDiv.Name {
 		// insertion point per field
 		case "Name":
-			FormDivBasicFieldToField(&(kingarthurshape_.Name), formDiv)
+
 		case "ActorState":
-			FormDivSelectFieldToField(&(kingarthurshape_.ActorState), kingarthurshapeFormCallback.probe.stageOfInterest, formDiv)
+
 		case "X":
-			FormDivBasicFieldToField(&(kingarthurshape_.X), formDiv)
+
 		case "Y":
-			FormDivBasicFieldToField(&(kingarthurshape_.Y), formDiv)
+
 		case "Width":
-			FormDivBasicFieldToField(&(kingarthurshape_.Width), formDiv)
+
 		case "Height":
-			FormDivBasicFieldToField(&(kingarthurshape_.Height), formDiv)
+
 		case "FillColor":
-			FormDivBasicFieldToField(&(kingarthurshape_.FillColor), formDiv)
+
 		case "FillOpacity":
-			FormDivBasicFieldToField(&(kingarthurshape_.FillOpacity), formDiv)
+
 		case "Stroke":
-			FormDivBasicFieldToField(&(kingarthurshape_.Stroke), formDiv)
+
 		case "StrokeWidth":
-			FormDivBasicFieldToField(&(kingarthurshape_.StrokeWidth), formDiv)
+
 		case "RX":
-			FormDivBasicFieldToField(&(kingarthurshape_.RX), formDiv)
+
 		case "SirRobin:Arthurs":
 			// we need to retrieve the field owner before the change
 			var pastSirRobinOwner *models.SirRobin
@@ -1598,29 +1600,29 @@ func (knightwhosayniFormCallback *KnightWhoSayNiFormCallback) OnSave() {
 		switch formDiv.Name {
 		// insertion point per field
 		case "Name":
-			FormDivBasicFieldToField(&(knightwhosayni_.Name), formDiv)
+
 		case "Parameter":
-			FormDivSelectFieldToField(&(knightwhosayni_.Parameter), knightwhosayniFormCallback.probe.stageOfInterest, formDiv)
+
 		case "Direction":
-			FormDivEnumStringFieldToField(&(knightwhosayni_.Direction), formDiv)
+
 		case "X":
-			FormDivBasicFieldToField(&(knightwhosayni_.X), formDiv)
+
 		case "Y":
-			FormDivBasicFieldToField(&(knightwhosayni_.Y), formDiv)
+
 		case "Width":
-			FormDivBasicFieldToField(&(knightwhosayni_.Width), formDiv)
+
 		case "Height":
-			FormDivBasicFieldToField(&(knightwhosayni_.Height), formDiv)
+
 		case "FillColor":
-			FormDivBasicFieldToField(&(knightwhosayni_.FillColor), formDiv)
+
 		case "FillOpacity":
-			FormDivBasicFieldToField(&(knightwhosayni_.FillOpacity), formDiv)
+
 		case "Stroke":
-			FormDivBasicFieldToField(&(knightwhosayni_.Stroke), formDiv)
+
 		case "StrokeWidth":
-			FormDivBasicFieldToField(&(knightwhosayni_.StrokeWidth), formDiv)
+
 		case "RX":
-			FormDivBasicFieldToField(&(knightwhosayni_.RX), formDiv)
+
 		case "LancelotAgregation:ParameterUse":
 			// we need to retrieve the field owner before the change
 			var pastLancelotAgregationOwner *models.LancelotAgregation
@@ -1864,11 +1866,11 @@ func (lancelotFormCallback *LancelotFormCallback) OnSave() {
 		switch formDiv.Name {
 		// insertion point per field
 		case "Name":
-			FormDivBasicFieldToField(&(lancelot_.Name), formDiv)
+
 		case "Tag":
-			FormDivBasicFieldToField(&(lancelot_.Tag), formDiv)
+
 		case "Description":
-			FormDivBasicFieldToField(&(lancelot_.Description), formDiv)
+
 		case "BringYourDead:Lancelots":
 			// we need to retrieve the field owner before the change
 			var pastBringYourDeadOwner *models.BringYourDead
@@ -2028,7 +2030,7 @@ func (lancelotagregationFormCallback *LancelotAgregationFormCallback) OnSave() {
 		switch formDiv.Name {
 		// insertion point per field
 		case "Name":
-			FormDivBasicFieldToField(&(lancelotagregation_.Name), formDiv)
+
 		}
 	}
 
@@ -2104,9 +2106,9 @@ func (lancelotagregationuseFormCallback *LancelotAgregationUseFormCallback) OnSa
 		switch formDiv.Name {
 		// insertion point per field
 		case "Name":
-			FormDivBasicFieldToField(&(lancelotagregationuse_.Name), formDiv)
+
 		case "ParameterAgregation":
-			FormDivSelectFieldToField(&(lancelotagregationuse_.ParameterAgregation), lancelotagregationuseFormCallback.probe.stageOfInterest, formDiv)
+
 		}
 	}
 
@@ -2182,7 +2184,7 @@ func (lancelotcategoryFormCallback *LancelotCategoryFormCallback) OnSave() {
 		switch formDiv.Name {
 		// insertion point per field
 		case "Name":
-			FormDivBasicFieldToField(&(lancelotcategory_.Name), formDiv)
+
 		}
 	}
 
@@ -2258,9 +2260,9 @@ func (lancelotcategoryuseFormCallback *LancelotCategoryUseFormCallback) OnSave()
 		switch formDiv.Name {
 		// insertion point per field
 		case "Name":
-			FormDivBasicFieldToField(&(lancelotcategoryuse_.Name), formDiv)
+
 		case "ParameterCategory":
-			FormDivSelectFieldToField(&(lancelotcategoryuse_.ParameterCategory), lancelotcategoryuseFormCallback.probe.stageOfInterest, formDiv)
+
 		}
 	}
 
@@ -2336,7 +2338,7 @@ func (mapobjectFormCallback *MapObjectFormCallback) OnSave() {
 		switch formDiv.Name {
 		// insertion point per field
 		case "Name":
-			FormDivBasicFieldToField(&(mapobject_.Name), formDiv)
+
 		}
 	}
 
@@ -2412,9 +2414,9 @@ func (mapobjectuseFormCallback *MapObjectUseFormCallback) OnSave() {
 		switch formDiv.Name {
 		// insertion point per field
 		case "Name":
-			FormDivBasicFieldToField(&(mapobjectuse_.Name), formDiv)
+
 		case "Map":
-			FormDivSelectFieldToField(&(mapobjectuse_.Map), mapobjectuseFormCallback.probe.stageOfInterest, formDiv)
+
 		case "TheBridge:MapUse":
 			// we need to retrieve the field owner before the change
 			var pastTheBridgeOwner *models.TheBridge
@@ -2532,7 +2534,7 @@ func (repositoryFormCallback *RepositoryFormCallback) OnSave() {
 		switch formDiv.Name {
 		// insertion point per field
 		case "Name":
-			FormDivBasicFieldToField(&(repository_.Name), formDiv)
+
 		}
 	}
 
@@ -2608,25 +2610,25 @@ func (sirrobinFormCallback *SirRobinFormCallback) OnSave() {
 		switch formDiv.Name {
 		// insertion point per field
 		case "Name":
-			FormDivBasicFieldToField(&(sirrobin_.Name), formDiv)
+
 		case "Description":
-			FormDivBasicFieldToField(&(sirrobin_.Description), formDiv)
+
 		case "AxisOrign_X":
-			FormDivBasicFieldToField(&(sirrobin_.AxisOrign_X), formDiv)
+
 		case "AxisOrign_Y":
-			FormDivBasicFieldToField(&(sirrobin_.AxisOrign_Y), formDiv)
+
 		case "VerticalAxis_Top_Y":
-			FormDivBasicFieldToField(&(sirrobin_.VerticalAxis_Top_Y), formDiv)
+
 		case "VerticalAxis_Bottom_Y":
-			FormDivBasicFieldToField(&(sirrobin_.VerticalAxis_Bottom_Y), formDiv)
+
 		case "VerticalAxis_StrokeWidth":
-			FormDivBasicFieldToField(&(sirrobin_.VerticalAxis_StrokeWidth), formDiv)
+
 		case "HorizontalAxis_Right_X":
-			FormDivBasicFieldToField(&(sirrobin_.HorizontalAxis_Right_X), formDiv)
+
 		case "Start":
-			FormDivBasicFieldToField(&(sirrobin_.Start), formDiv)
+
 		case "End":
-			FormDivBasicFieldToField(&(sirrobin_.End), formDiv)
+
 		case "WhatIsYourPreferedColor:Diagrams":
 			// we need to retrieve the field owner before the change
 			var pastWhatIsYourPreferedColorOwner *models.WhatIsYourPreferedColor
@@ -2744,11 +2746,11 @@ func (thebridgeFormCallback *TheBridgeFormCallback) OnSave() {
 		switch formDiv.Name {
 		// insertion point per field
 		case "Name":
-			FormDivBasicFieldToField(&(thebridge_.Name), formDiv)
+
 		case "Description":
-			FormDivBasicFieldToField(&(thebridge_.Description), formDiv)
+
 		case "IsNodeExpanded":
-			FormDivBasicFieldToField(&(thebridge_.IsNodeExpanded), formDiv)
+
 		}
 	}
 
@@ -2824,23 +2826,23 @@ func (thenuteshapeFormCallback *TheNuteShapeFormCallback) OnSave() {
 		switch formDiv.Name {
 		// insertion point per field
 		case "Name":
-			FormDivBasicFieldToField(&(thenuteshape_.Name), formDiv)
+
 		case "ActorStateTransition":
-			FormDivSelectFieldToField(&(thenuteshape_.ActorStateTransition), thenuteshapeFormCallback.probe.stageOfInterest, formDiv)
+
 		case "Start":
-			FormDivSelectFieldToField(&(thenuteshape_.Start), thenuteshapeFormCallback.probe.stageOfInterest, formDiv)
+
 		case "End":
-			FormDivSelectFieldToField(&(thenuteshape_.End), thenuteshapeFormCallback.probe.stageOfInterest, formDiv)
+
 		case "StartOrientation":
-			FormDivEnumStringFieldToField(&(thenuteshape_.StartOrientation), formDiv)
+
 		case "StartRatio":
-			FormDivBasicFieldToField(&(thenuteshape_.StartRatio), formDiv)
+
 		case "EndOrientation":
-			FormDivEnumStringFieldToField(&(thenuteshape_.EndOrientation), formDiv)
+
 		case "EndRatio":
-			FormDivBasicFieldToField(&(thenuteshape_.EndRatio), formDiv)
+
 		case "CornerOffsetRatio":
-			FormDivBasicFieldToField(&(thenuteshape_.CornerOffsetRatio), formDiv)
+
 		case "SirRobin:TheNuteShapes":
 			// we need to retrieve the field owner before the change
 			var pastSirRobinOwner *models.SirRobin
@@ -2958,11 +2960,11 @@ func (thenutetransitionFormCallback *TheNuteTransitionFormCallback) OnSave() {
 		switch formDiv.Name {
 		// insertion point per field
 		case "Name":
-			FormDivBasicFieldToField(&(thenutetransition_.Name), formDiv)
+
 		case "StartState":
-			FormDivSelectFieldToField(&(thenutetransition_.StartState), thenutetransitionFormCallback.probe.stageOfInterest, formDiv)
+
 		case "EndState":
-			FormDivSelectFieldToField(&(thenutetransition_.EndState), thenutetransitionFormCallback.probe.stageOfInterest, formDiv)
+
 		case "WhatIsYourPreferedColor:Nutes":
 			// we need to retrieve the field owner before the change
 			var pastWhatIsYourPreferedColorOwner *models.WhatIsYourPreferedColor
@@ -3080,7 +3082,7 @@ func (userFormCallback *UserFormCallback) OnSave() {
 		switch formDiv.Name {
 		// insertion point per field
 		case "Name":
-			FormDivBasicFieldToField(&(user_.Name), formDiv)
+
 		}
 	}
 
@@ -3156,9 +3158,9 @@ func (useruseFormCallback *UserUseFormCallback) OnSave() {
 		switch formDiv.Name {
 		// insertion point per field
 		case "Name":
-			FormDivBasicFieldToField(&(useruse_.Name), formDiv)
+
 		case "User":
-			FormDivSelectFieldToField(&(useruse_.User), useruseFormCallback.probe.stageOfInterest, formDiv)
+
 		case "Group:UserUse":
 			// we need to retrieve the field owner before the change
 			var pastGroupOwner *models.Group
@@ -3276,23 +3278,23 @@ func (whatisyourpreferedcolorFormCallback *WhatIsYourPreferedColorFormCallback) 
 		switch formDiv.Name {
 		// insertion point per field
 		case "Name":
-			FormDivBasicFieldToField(&(whatisyourpreferedcolor_.Name), formDiv)
+
 		case "Description":
-			FormDivBasicFieldToField(&(whatisyourpreferedcolor_.Description), formDiv)
+
 		case "DiagramsNodeFolded":
-			FormDivBasicFieldToField(&(whatisyourpreferedcolor_.DiagramsNodeFolded), formDiv)
+
 		case "KingArthurNodeFolded":
-			FormDivBasicFieldToField(&(whatisyourpreferedcolor_.KingArthurNodeFolded), formDiv)
+
 		case "RRRR":
-			FormDivBasicFieldToField(&(whatisyourpreferedcolor_.RRRR), formDiv)
+
 		case "IIUU":
-			FormDivBasicFieldToField(&(whatisyourpreferedcolor_.IIUU), formDiv)
+
 		case "LancelotsodeFolded":
-			FormDivBasicFieldToField(&(whatisyourpreferedcolor_.LancelotsodeFolded), formDiv)
+
 		case "RRRRT":
-			FormDivBasicFieldToField(&(whatisyourpreferedcolor_.RRRRT), formDiv)
+
 		case "IsNodeExpanded":
-			FormDivBasicFieldToField(&(whatisyourpreferedcolor_.IsNodeExpanded), formDiv)
+
 		case "TheBridge:WhatIsYourPreferedColor":
 			// we need to retrieve the field owner before the change
 			var pastTheBridgeOwner *models.TheBridge
@@ -3410,19 +3412,19 @@ func (workspaceFormCallback *WorkspaceFormCallback) OnSave() {
 		switch formDiv.Name {
 		// insertion point per field
 		case "Name":
-			FormDivBasicFieldToField(&(workspace_.Name), formDiv)
+
 		case "SelectedDiagram":
-			FormDivSelectFieldToField(&(workspace_.SelectedDiagram), workspaceFormCallback.probe.stageOfInterest, formDiv)
+
 		case "A":
-			FormDivSelectFieldToField(&(workspace_.A), workspaceFormCallback.probe.stageOfInterest, formDiv)
+
 		case "B":
-			FormDivSelectFieldToField(&(workspace_.B), workspaceFormCallback.probe.stageOfInterest, formDiv)
+
 		case "C":
-			FormDivSelectFieldToField(&(workspace_.C), workspaceFormCallback.probe.stageOfInterest, formDiv)
+
 		case "D":
-			FormDivSelectFieldToField(&(workspace_.D), workspaceFormCallback.probe.stageOfInterest, formDiv)
+
 		case "E":
-			FormDivSelectFieldToField(&(workspace_.E), workspaceFormCallback.probe.stageOfInterest, formDiv)
+
 		}
 	}
 
