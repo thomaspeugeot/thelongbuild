@@ -1,6 +1,7 @@
 package tree
 
 import (
+	"log"
 	"slices"
 
 	table "github.com/fullstack-lang/gongtable/go/models"
@@ -103,7 +104,6 @@ func (category *Category[T]) SetIsNodeFolded(val bool) {
 }
 
 type ModelObject interface {
-	*models.KingArthur | *models.GalahadThePure | *models.Lancelot | *models.BringYourDead | *models.TheNuteTransition | *models.SirRobin
 	GetName() string
 }
 
@@ -117,6 +117,7 @@ func NewNodeImpl[T2 models.GenericNode[T], T models.Gongstruct](
 
 	nodeCallback.FillUpForm = thelongbuild_probe.FillUpNamedFormFromGongstruct[T]
 
+	log.Println("fdsqfsdfd")
 	return
 }
 
