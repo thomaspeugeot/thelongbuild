@@ -42,9 +42,6 @@ func AssociationSliceToForm[InstanceType models.PointerToGongstruct, FieldType m
 		Label: fieldName,
 	}).Stage(probe.formStage)
 	formDiv.FormSortAssocButton = formSortAssocButton
-	onSortingEditon := NewOnSortingEditon(instance, field, probe)
-	formSortAssocButton.OnSortEdition = onSortingEditon
-
 }
 
 type OnAssocEditon[InstanceType models.PointerToGongstruct, FieldType models.PointerToGongstruct] struct {
