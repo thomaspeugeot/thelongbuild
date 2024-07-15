@@ -11,7 +11,6 @@ import (
 	gongtree_stack "github.com/fullstack-lang/gongtree/go/stack"
 
 	"github.com/fullstack-lang/maticons/maticons"
-	"github.com/jinzhu/copier"
 
 	"github.com/thomaspeugeot/thelongbuild/go/icons"
 	"github.com/thomaspeugeot/thelongbuild/go/models"
@@ -264,34 +263,6 @@ type NodeImpl[T2 models.GenericNode[T], T models.Gongstruct] struct {
 }
 
 func (nodeCallback *NodeImpl[T2, T]) OnAfterUpdate(stage *tree.StageStruct, old, updatedNode *tree.Node) {
-
-	log.Println("Node clicked", old.GetName())
-
-	// in case this is just the unfolding / folding of node, do nothing
-	if old.IsExpanded != updatedNode.IsExpanded {
-		old.IsExpanded = updatedNode.IsExpanded
-
-		nodeCallback.instance.SetIsNodeExpanded(updatedNode.IsExpanded)
-
-		nodeCallback.treeWs.WeberStack.Stage.Commit()
-		return
-	}
-
-	formStage := nodeCallback.treeWs.WeberStack.Probe.GetFormStage()
-	formStage.Reset()
-	formStage.Commit()
-
-	nodeCallback.FillUpForm(
-		nodeCallback.instance, nodeCallback.treeWs.WeberStack.Probe,
-		formStage,
-		models.ModelForm.ToString())
-
-	switch inst := any(nodeCallback.instance).(type) {
-	case *models.SirRobin:
-		diagram := inst
-		nodeCallback.treeWs.SVGGenerator.GenerateSVG(diagram)
-	}
-	// OnAfterUpdate( genericNodeCallback.instance, stage, old, new)
 }
 
 func NewNodeImplActorState(
@@ -313,111 +284,6 @@ type NodeImplActorState struct {
 }
 
 func (nodeImplActorState *NodeImplActorState) OnAfterUpdate(stage *tree.StageStruct, stagedNode, frontNode *tree.Node) {
-
-	log.Println("NodeActorState clicked", stagedNode.GetName())
-
-	// node has been checked by the end user
-	if frontNode.IsChecked && !stagedNode.IsChecked {
-
-		// setting the value of the staged node	to the new value
-		// and commit to the database,
-		// The front will detect that the backend has been commited
-		// It will refresh and fetch the node with checked value
-		stagedNode.IsChecked = true
-		stagedNode.Commit(nodeImplActorState.treeWs.TreeStack.Stage)
-
-		// add the actor state to the diagam
-		actorStateShape :=
-			(&models.KingArthurShape{
-				Name:       nodeImplActorState.actorState.GetName(),
-				ActorState: nodeImplActorState.actorState,
-			}).
-				Stage(nodeImplActorState.treeWs.WeberStack.Stage)
-
-		workspace := models.GetWorkspace(nodeImplActorState.treeWs.WeberStack.Stage)
-
-		selectedDiagram := workspace.SelectedDiagram
-		selectedDiagram.Arthurs = append(selectedDiagram.Arthurs, actorStateShape)
-
-		// set up default values
-
-		defaultShape := workspace.D
-		if defaultShape == nil {
-			log.Fatalln("No default ActorState Shape")
-		}
-
-		copier.CopyWithOption(actorStateShape, defaultShape, copier.Option{IgnoreEmpty: true, DeepCopy: false})
-		actorStateShape.Name = nodeImplActorState.actorState.GetName()
-		actorStateShape.ActorState = nodeImplActorState.actorState
-
-		nodeImplActorState.treeWs.SVGGenerator.GenerateSVG(selectedDiagram)
-	}
-
-	// node was checked and user wants to uncheck it. This is not possible
-	// from a application logic point of view
-	// on need to commit the staged node for the front to reconstruct
-	// the node as checked and overides the unchecking action
-	if stagedNode.IsChecked && !frontNode.IsChecked {
-		stagedNode.Commit(nodeImplActorState.treeWs.TreeStack.Stage)
-
-		selectedDiagram := models.GetWorkspace(nodeImplActorState.treeWs.WeberStack.Stage).SelectedDiagram
-		for idx, actorStateShape := range selectedDiagram.Arthurs {
-			if actorStateShape.ActorState == nodeImplActorState.actorState {
-				selectedDiagram.Arthurs = slices.Delete(selectedDiagram.Arthurs, idx, idx+1)
-				actorStateShape.Unstage(nodeImplActorState.treeWs.WeberStack.Stage)
-
-				// one have to remove "from / to" transtions shapes
-				var actorStateShapeTransitionShapeForRemoval []*models.TheNuteShape
-				for _, actorStateShapeTransition := range selectedDiagram.TheNuteShapes {
-					if actorStateShapeTransition.ActorStateTransition.StartState == actorStateShape.ActorState ||
-						actorStateShapeTransition.ActorStateTransition.EndState == actorStateShape.ActorState {
-						actorStateShapeTransition.Unstage(nodeImplActorState.treeWs.WeberStack.Stage)
-						actorStateShapeTransitionShapeForRemoval = append(actorStateShapeTransitionShapeForRemoval, actorStateShapeTransition)
-					}
-				}
-				for _, actorStateShapeTransitionShape := range actorStateShapeTransitionShapeForRemoval {
-					idx := slices.Index(selectedDiagram.TheNuteShapes, actorStateShapeTransitionShape)
-					selectedDiagram.TheNuteShapes =
-						slices.Delete(selectedDiagram.TheNuteShapes, idx, idx+1)
-				}
-
-				continue
-			}
-		}
-
-		// slices.Delete(selectedDiagram.ActorStateShapes, )
-		nodeImplActorState.treeWs.SVGGenerator.GenerateSVG(selectedDiagram)
-	}
-
-	// in any cases, have the form editor set up with the instance
-	formStage := nodeImplActorState.treeWs.WeberStack.Probe.GetFormStage()
-	formStage.Reset()
-	formStage.Commit()
-
-	// if the node is checked, fill up the form for the shape
-	if frontNode.IsChecked {
-		selectedDiagram := models.GetWorkspace(nodeImplActorState.treeWs.WeberStack.Stage).SelectedDiagram
-		for _, actorstateShape := range selectedDiagram.Arthurs {
-			if actorstateShape.ActorState == nodeImplActorState.actorState {
-				thelongbuild_probe.FillUpNamedFormFromGongstruct(
-					actorstateShape,
-					nodeImplActorState.treeWs.WeberStack.Probe,
-					formStage,
-					models.ShapeForm.ToString())
-				continue
-			}
-		}
-	}
-
-	// fill up the form for the model object
-	thelongbuild_probe.FillUpNamedFormFromGongstruct(
-		nodeImplActorState.actorState,
-		nodeImplActorState.treeWs.WeberStack.Probe,
-		formStage,
-		models.ModelForm.ToString())
-
-	// recompute nodes conf
-	nodeImplActorState.treeWs.ComputeNodesConf()
 }
 
 func NewNodeImplActorStateTransition(
@@ -439,122 +305,6 @@ type NodeImplActorStateTransition struct {
 }
 
 func (nodeImplActorStateTransition *NodeImplActorStateTransition) OnAfterUpdate(stage *tree.StageStruct, stagedNode, frontNode *tree.Node) {
-
-	log.Println("NodeActorStateTransition clicked", stagedNode.GetName())
-
-	// in case this is just the unfolding / folding of node, do nothing
-	if stagedNode.IsExpanded != frontNode.IsExpanded {
-		stagedNode.IsExpanded = frontNode.IsExpanded
-		return
-	}
-
-	// node has been checked by the end user
-	if frontNode.IsChecked && !stagedNode.IsChecked {
-
-		// setting the value of the staged node	to the new value
-		// and commit to the database,
-		// The front will detect that the backend has been commited
-		// It will refresh and fetch the node with checked value
-		stagedNode.IsChecked = true
-		stagedNode.Commit(nodeImplActorStateTransition.treeWs.TreeStack.Stage)
-
-		// add the actor state to the diagam
-		actorStateTransitionShape :=
-			(&models.TheNuteShape{
-				Name:                 nodeImplActorStateTransition.actorStateTransition.GetName(),
-				ActorStateTransition: nodeImplActorStateTransition.actorStateTransition,
-			}).
-				Stage(nodeImplActorStateTransition.treeWs.WeberStack.Stage)
-
-		selectedDiagram := models.GetWorkspace(nodeImplActorStateTransition.treeWs.WeberStack.Stage).SelectedDiagram
-		selectedDiagram.TheNuteShapes = append(selectedDiagram.TheNuteShapes, actorStateTransitionShape)
-
-		actorStateTransitionShape.Name = nodeImplActorStateTransition.actorStateTransition.GetName()
-		actorStateTransitionShape.ActorStateTransition = nodeImplActorStateTransition.actorStateTransition
-		actorStateTransitionShape.StartOrientation = models.ORIENTATION_HORIZONTAL
-		actorStateTransitionShape.EndOrientation = models.ORIENTATION_HORIZONTAL
-		actorStateTransitionShape.StartRatio = 0.5
-		actorStateTransitionShape.EndRatio = 0.5
-		actorStateTransitionShape.CornerOffsetRatio = 2
-
-		// find the start and end shape
-		for _, actorStateShape := range selectedDiagram.Arthurs {
-			if actorStateShape.ActorState == nodeImplActorStateTransition.actorStateTransition.StartState {
-				actorStateTransitionShape.Start = actorStateShape
-			}
-			if actorStateShape.ActorState == nodeImplActorStateTransition.actorStateTransition.EndState {
-				actorStateTransitionShape.End = actorStateShape
-			}
-		}
-
-		nodeImplActorStateTransition.treeWs.SVGGenerator.GenerateSVG(selectedDiagram)
-	}
-
-	// node was checked and user wants to uncheck it. This is not possible
-	// from a application logic point of view
-	// on need to commit the staged node for the front to reconstruct
-	// the node as checked and overides the unchecking action
-	if stagedNode.IsChecked && !frontNode.IsChecked {
-		stagedNode.Commit(nodeImplActorStateTransition.treeWs.TreeStack.Stage)
-
-		selectedDiagram := models.GetWorkspace(nodeImplActorStateTransition.treeWs.WeberStack.Stage).SelectedDiagram
-		for idx, actorStateTransitionShape := range selectedDiagram.TheNuteShapes {
-			if actorStateTransitionShape.ActorStateTransition == nodeImplActorStateTransition.actorStateTransition {
-				selectedDiagram.TheNuteShapes = slices.Delete(selectedDiagram.TheNuteShapes, idx, idx+1)
-				actorStateTransitionShape.Unstage(nodeImplActorStateTransition.treeWs.WeberStack.Stage)
-
-				// one have to remove "from / to" transtions shapes
-				var actorStateShapeTransitionShapeForRemoval []*models.TheNuteShape
-				for _, actorStateShapeTransition := range selectedDiagram.TheNuteShapes {
-					if actorStateShapeTransition.ActorStateTransition.StartState == actorStateTransitionShape.ActorStateTransition.StartState ||
-						actorStateShapeTransition.ActorStateTransition.EndState == actorStateTransitionShape.ActorStateTransition.EndState {
-						actorStateShapeTransition.Unstage(nodeImplActorStateTransition.treeWs.WeberStack.Stage)
-						actorStateShapeTransitionShapeForRemoval = append(actorStateShapeTransitionShapeForRemoval, actorStateShapeTransition)
-					}
-				}
-				for _, actorStateShapeTransitionShape := range actorStateShapeTransitionShapeForRemoval {
-					idx := slices.Index(selectedDiagram.TheNuteShapes, actorStateShapeTransitionShape)
-					selectedDiagram.TheNuteShapes =
-						slices.Delete(selectedDiagram.TheNuteShapes, idx, idx+1)
-				}
-
-				continue
-			}
-		}
-
-		// slices.Delete(selectedDiagram.ActorStateTransitionShapes, )
-		nodeImplActorStateTransition.treeWs.SVGGenerator.GenerateSVG(selectedDiagram)
-	}
-
-	// in any cases, have the form editor set up with the instance
-	formStage := nodeImplActorStateTransition.treeWs.WeberStack.Probe.GetFormStage()
-	formStage.Reset()
-	formStage.Commit()
-
-	// if the node is checked, fill up the form for the shape
-	if frontNode.IsChecked {
-		selectedDiagram := models.GetWorkspace(nodeImplActorStateTransition.treeWs.WeberStack.Stage).SelectedDiagram
-		for _, actorstatetransitionShape := range selectedDiagram.TheNuteShapes {
-			if actorstatetransitionShape.ActorStateTransition == nodeImplActorStateTransition.actorStateTransition {
-				thelongbuild_probe.FillUpNamedFormFromGongstruct(
-					actorstatetransitionShape,
-					nodeImplActorStateTransition.treeWs.WeberStack.Probe,
-					formStage,
-					models.ShapeForm.ToString())
-				continue
-			}
-		}
-	}
-
-	// fill up the form for the model object
-	thelongbuild_probe.FillUpNamedFormFromGongstruct(
-		nodeImplActorStateTransition.actorStateTransition,
-		nodeImplActorStateTransition.treeWs.WeberStack.Probe,
-		formStage,
-		models.ModelForm.ToString())
-
-	// recompute nodes conf
-	nodeImplActorStateTransition.treeWs.ComputeNodesConf()
 }
 
 func NewNodeImplCategory[T ModelObject](
@@ -577,20 +327,6 @@ type NodeImplCategory[T ModelObject] struct {
 }
 
 func (nodeImplCategory *NodeImplCategory[T]) OnAfterUpdate(stage *tree.StageStruct, stagedNode, frontNode *tree.Node) {
-
-	log.Println("NodeCategory clicked", stagedNode.GetName())
-
-	// in case this is just the unfolding / folding of node, do nothing
-	if stagedNode.IsExpanded != frontNode.IsExpanded {
-		stagedNode.IsExpanded = frontNode.IsExpanded
-
-		nodeImplCategory.category.SetIsNodeFolded(frontNode.IsExpanded)
-		nodeImplCategory.treeWs.WeberStack.Stage.Commit()
-		return
-	}
-
-	// recompute nodes conf
-	nodeImplCategory.treeWs.ComputeNodesConf()
 }
 
 func NewNodeImplDiagram(
