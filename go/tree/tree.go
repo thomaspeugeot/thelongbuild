@@ -1,7 +1,6 @@
 package tree
 
 import (
-	"log"
 	"slices"
 
 	table "github.com/fullstack-lang/gongtable/go/models"
@@ -28,11 +27,6 @@ func NewButtonImplCategoryAddInstance[T ModelObject](
 	category *Category[T],
 	treeWs *TreeWs,
 ) (buttonImplCategoryAddInstance *ButtonImplCategoryAddInstance[T]) {
-
-	buttonImplCategoryAddInstance = new(ButtonImplCategoryAddInstance[T])
-	buttonImplCategoryAddInstance.category = category
-	buttonImplCategoryAddInstance.treeWs = treeWs
-
 	return
 }
 
@@ -50,35 +44,12 @@ type ButtonImplDiagram struct {
 }
 
 func NewButtonImplDiagram(classdiagramNode *tree.Node, icon maticons.ButtonType) (buttonImplDiagram *ButtonImplDiagram) {
-
-	buttonImplDiagram = new(ButtonImplDiagram)
-	buttonImplDiagram.diagramNode = classdiagramNode
-	buttonImplDiagram.Icon = icon
-
 	return
 }
 
 func (buttonImplDiagram *ButtonImplDiagram) ButtonUpdated(
 	gongtreeStage *tree.StageStruct,
 	stageButton, front *tree.Button) {
-
-	diagramNodeImpl, ok := buttonImplDiagram.diagramNode.Impl.(*NodeImplDiagram)
-
-	if !ok {
-		log.Fatalln("not a diagram node")
-	}
-
-	switch buttonImplDiagram.Icon {
-	case maticons.BUTTON_draw:
-		diagramNodeImpl.diagram.IsInDrawMode = true
-	case maticons.BUTTON_edit_off:
-		diagramNodeImpl.diagram.IsInDrawMode = false
-	case maticons.BUTTON_save:
-		// the whole model is saved to the backend
-		diagramNodeImpl.treeWs.WeberStack.Stage.CommitWithSuspendedCallbacks()
-	}
-
-	diagramNodeImpl.treeWs.ComputeNodesConf()
 }
 
 type ButtonImplParameterFlip struct {
@@ -91,26 +62,12 @@ func NewButtonImplParameterFlip(
 	treeWs *TreeWs,
 	parameterNode *tree.Node,
 	shapeWithDirection models.ShapeWithDirection) (buttonImplParameterFlip *ButtonImplParameterFlip) {
-
-	buttonImplParameterFlip = new(ButtonImplParameterFlip)
-	buttonImplParameterFlip.treeWs = treeWs
-	buttonImplParameterFlip.diagramNode = parameterNode
-	buttonImplParameterFlip.shapeWithDirection = shapeWithDirection
-
 	return
 }
 
 func (buttonImplParameterFlip *ButtonImplParameterFlip) ButtonUpdated(
 	gongtreeStage *tree.StageStruct,
 	stageButton, front *tree.Button) {
-
-	if buttonImplParameterFlip.shapeWithDirection.GetDirection() == models.DIRECTION_DOWN {
-		buttonImplParameterFlip.shapeWithDirection.SetDirection(models.DIRECTION_UP)
-	} else {
-		buttonImplParameterFlip.shapeWithDirection.SetDirection(models.DIRECTION_DOWN)
-	}
-
-	buttonImplParameterFlip.treeWs.WeberStack.Stage.Commit()
 }
 
 func NewCategory[T ModelObject](
@@ -118,11 +75,7 @@ func NewCategory[T ModelObject](
 	nodeFolded *bool, // pointer to the persistant boolean
 	scenario *models.WhatIsYourPreferedColor,
 ) (category *Category[T]) {
-	category = new(Category[T])
-	category.instances = instances
-	category.nodeFolded = nodeFolded
-	category.scenario = scenario
-	return category
+	return nil
 }
 
 // Category wraps instances of model objects
@@ -134,46 +87,10 @@ type Category[T ModelObject] struct {
 }
 
 func (category *Category[T]) GetNodeName() string {
-
-	var instance T
-	switch any(instance).(type) {
-	case *models.KingArthur:
-		return "Actor States"
-	case *models.TheNuteTransition:
-		return "Actor State Transitions"
-	case *models.Lancelot:
-		return "Parameters"
-	case *models.BringYourDead:
-		return "Scenario Parameters"
-	case *models.GalahadThePure:
-		return "Evolution Directions"
-	case *models.SirRobin:
-		return "Diagrams"
-	default:
-		log.Fatalln("no name for category")
-	}
 	return ""
 }
 
 func (category *Category[T]) GetIcon() *tree.SVGIcon {
-
-	var instance T
-	switch any(instance).(type) {
-	case *models.KingArthur:
-		return icons.Actor_stateIcon
-	case *models.TheNuteTransition:
-		return icons.ActorStateTransitionIcon
-	case *models.Lancelot:
-		return icons.Arrow_up_and_arrow_downIcon
-	case *models.BringYourDead:
-		return icons.Arrow_up_and_arrow_downIcon
-	case *models.GalahadThePure:
-		return icons.DirectionEvolutionIcon
-	case *models.SirRobin:
-		return icons.DiagramTimeEvolutionIcon
-	default:
-		log.Fatalln("no icon for category")
-	}
 	return nil
 }
 
@@ -397,15 +314,6 @@ func NewTreeWs(
 	treeWs.TreeStack = Tree
 
 	return
-}
-
-func (treeWs *TreeWs) computeNodeConfOfScenarioObjects(scenarioNodeChildren *tree.Node,
-	isScenarioSelected bool, inModificationMode bool,
-	map_actorStateInDiagram map[*models.KingArthur]any,
-	map_actorStateTransitionInDiagram map[*models.TheNuteTransition]any,
-	map_evolutionDirectionInDiagram map[*models.GalahadThePure]any,
-	map_parameterInDiagram map[*models.Lancelot]*models.KnightWhoSayNi,
-	map_scenarioParameterInDiagram map[*models.BringYourDead]*models.BlackKnightShape) {
 }
 
 // ComputeNodesConf parses all nodes and:
