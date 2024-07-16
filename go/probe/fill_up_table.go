@@ -23,31 +23,31 @@ func fillUpTable[T models.Gongstruct](
 	probe *Probe,
 ) {
 
-	fields := models.GetFields[T]()
-	_ = fields
-	reverseFields := models.GetReverseFields[T]()
-	_ = reverseFields
+	// fields := models.GetFields[T]()
+	// _ = fields
+	// reverseFields := models.GetReverseFields[T]()
+	// _ = reverseFields
 
 	// refresh the stage of interest
 	probe.stageOfInterest.Checkout()
 
-	sliceOfGongStructsSorted := make([]*T, 0)
+	// sliceOfGongStructsSorted := make([]*T, 0)
 
-	for _, structInstance := range sliceOfGongStructsSorted {
-		// row := new(gongtable.Row).Stage(probe.tableStage)
-		// row.Name = models.GetFieldStringValue[T](*structInstance, "Name")
+	// for _, structInstance := range sliceOfGongStructsSorted {
+	// 	// row := new(gongtable.Row).Stage(probe.tableStage)
+	// 	// row.Name = models.GetFieldStringValue[T](*structInstance, "Name")
 
-		log.Println()
+	// 	log.Println()
 
-		for _, reverseField := range reverseFields {
+	// 	for _, reverseField := range reverseFields {
 
-			value := orm.GetReverseFieldOwnerName[T](
-				probe.stageOfInterest,
-				probe.backRepoOfInterest,
-				structInstance,
-				&reverseField)
-			_ = value
-			log.Println()
-		}
-	}
+	// 		value := orm.GetReverseFieldOwnerName[T](
+	// 			probe.stageOfInterest,
+	// 			probe.backRepoOfInterest,
+	// 			structInstance,
+	// 			&reverseField)
+	// 		_ = value
+	// 		log.Println()
+	// 	}
+	// }
 }
