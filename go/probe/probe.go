@@ -12,8 +12,6 @@ import (
 	gong_fullstack "github.com/fullstack-lang/gong/go/fullstack"
 	gong_models "github.com/fullstack-lang/gong/go/models"
 
-	gongdoc_load "github.com/fullstack-lang/gongdoc/go/load"
-
 	form "github.com/fullstack-lang/gongtable/go/models"
 	tree "github.com/fullstack-lang/gongtree/go/models"
 
@@ -63,17 +61,6 @@ func NewProbe(
 	probe.treeStage = treeStage
 	probe.formStage = formStage
 	probe.tableStage = tableStage
-
-	fillUpTree(probe)
-
-	gongdoc_load.Load(
-		"",
-		probe.stageOfInterest.GetType(),
-		goModelsDir,
-		goDiagramsDir,
-		r,
-		embeddedDiagrams,
-		&stageOfInterest.Map_GongStructName_InstancesNb)
 
 	return
 }
